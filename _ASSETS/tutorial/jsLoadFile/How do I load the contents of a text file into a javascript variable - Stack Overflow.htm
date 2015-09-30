@@ -1,0 +1,1509 @@
+﻿<!DOCTYPE HTML>
+<!-- saved from url=(0110)http://stackoverflow.com/questions/196498/how-do-i-load-the-contents-of-a-text-file-into-a-javascript-variable -->
+<!DOCTYPE html PUBLIC "" ""><HTML itemtype="http://schema.org/QAPage" 
+itemscope=""><HEAD><META content="IE=11.0000" http-equiv="X-UA-Compatible">
+ <TITLE>How do I load the contents of a text file into a javascript variable? - 
+Stack Overflow</TITLE>     
+<META http-equiv="Content-Type" content="text/html; charset=utf-8"><LINK href="//cdn.sstatic.net/stackoverflow/img/favicon.ico?v=4f32ecc8f43d" 
+rel="shortcut icon">     <LINK href="//cdn.sstatic.net/stackoverflow/img/apple-touch-icon.png?v=c78bd457575a" 
+rel="apple-touch-icon image_src">     <LINK title="Stack Overflow" href="/opensearch.xml" 
+rel="search" type="application/opensearchdescription+xml">     
+<META name="twitter:card" content="summary">     
+<META name="twitter:domain" content="stackoverflow.com">     
+<META content="website" property="og:type">     
+<META content="http://cdn.sstatic.net/stackoverflow/img/apple-touch-icon@2.png?v=73d79a89bded&amp;a" 
+property="og:image" itemprop="image primaryImageOfPage">     
+<META name="twitter:title" content="How do I load the contents of a text file into a javascript variable?" 
+property="og:title" itemprop="title name">     
+<META name="twitter:description" content="I have a text file in the root of my web app http://localhost/foo.txt and I'd like to load it into a variable in javascript.. in groovy I would do this:&#10;&#10;def fileContents = " 
+property="og:description" itemprop="description">     
+<META content="http://stackoverflow.com/questions/196498/how-do-i-load-the-contents-of-a-text-file-into-a-javascript-variable" 
+property="og:url">     <LINK href="http://stackoverflow.com/questions/196498/how-do-i-load-the-contents-of-a-text-file-into-a-javascript-variable" 
+rel="canonical">             
+<SCRIPT src="How%20do%20I%20load%20the%20contents%20of%20a%20text%20file%20into%20a%20javascript%20variable%20-%20Stack%20Overflow-Dateien/jquery.min.js"></SCRIPT>
+     
+<SCRIPT src="How%20do%20I%20load%20the%20contents%20of%20a%20text%20file%20into%20a%20javascript%20variable%20-%20Stack%20Overflow-Dateien/stub.en.js"></SCRIPT>
+     <LINK href="How%20do%20I%20load%20the%20contents%20of%20a%20text%20file%20into%20a%20javascript%20variable%20-%20Stack%20Overflow-Dateien/all.css" 
+rel="stylesheet" type="text/css">             <LINK title="Feed for question 'How do I load the contents of a text file into a javascript variable?'" 
+href="/feeds/question/196498" rel="alternate" type="application/atom+xml">       
+      
+<META name="twitter:app:country" content="US">             
+<META name="twitter:app:name:iphone" content="Stack Exchange iOS">             
+<META name="twitter:app:id:iphone" content="871299723">             
+<META name="twitter:app:url:iphone" content="se-zaphod://stackoverflow.com/questions/196498/how-do-i-load-the-contents-of-a-text-file-into-a-javascript-variable"> 
+            
+<META name="twitter:app:name:ipad" content="Stack Exchange iOS">             
+<META name="twitter:app:id:ipad" content="871299723">             
+<META name="twitter:app:url:ipad" content="se-zaphod://stackoverflow.com/questions/196498/how-do-i-load-the-contents-of-a-text-file-into-a-javascript-variable"> 
+            
+<META name="twitter:app:name:googleplay" content="Stack Exchange Android">       
+      
+<META name="twitter:app:url:googleplay" content="http://stackoverflow.com/questions/196498/how-do-i-load-the-contents-of-a-text-file-into-a-javascript-variable"> 
+            
+<META name="twitter:app:id:googleplay" content="com.stackexchange.marvin">       
+  
+<SCRIPT>
+        
+            StackExchange.ready(function () {
+                    
+                    StackExchange.using("snippets", function () {
+                        StackExchange.snippets.initSnippetRenderer();
+                    });
+                    
+
+                StackExchange.using("postValidation", function () {
+                    StackExchange.postValidation.initOnBlurAndSubmit($('#post-form'), 2, 'answer');
+                });
+
+                
+                StackExchange.question.init({canOpenBounty:true,votesCast:[],totalCommentCount:0,shownCommentCount:0,highlightColor:'#F4A83D',backgroundColor:'#FFF',questionId:196498});
+
+                styleCode();
+
+                    StackExchange.realtime.subscribeToQuestion('1', '196498');
+                                                                    StackExchange.using("gps", function () { StackExchange.gps.trackOutboundClicks('#content', '.post-text'); });
+
+            });
+        </SCRIPT>
+     
+<SCRIPT>
+        StackExchange.ready(function () {
+            StackExchange.realtime.init('wss://qa.sockets.stackexchange.com,ws://qa.sockets.stackexchange.com');
+            StackExchange.realtime.subscribeToReputationNotifications('1');
+                StackExchange.realtime.subscribeToTopBarNotifications('1');
+        });
+    </SCRIPT>
+     
+<SCRIPT>
+        StackExchange.init({"locale":"en","stackAuthUrl":"https://stackauth.com","serverTime":1443594109,"networkMetaHostname":"meta.stackexchange.com","routeName":"Questions/Show","styleCode":true,"enableUserHovercards":true,"snippets":{"enabled":true,"domain":"stacksnippets.net"},"site":{"name":"Stack Overflow","description":"Q&A for professional and enthusiast programmers","isNoticesTabEnabled":true,"recaptchaPublicKey":"6LdchgIAAAAAAJwGpIzRQSOFaO0pU6s44Xt8aTwc","recaptchaAudioLang":"en","enableNewTagCreationWarning":true,"insertSpaceAfterNameTabCompletion":false,"globalAuthDisabled":true,"nonAsciiTags":true,"enableSocialMediaInSharePopup":true},"user":{"fkey":"e72ce234fe92566b5d80c1e75ed3d241","rep":840,"isRegistered":true,"userType":3,"userId":1389153,"accountId":1479453,"gravatar":"<div class=\"gravatar-wrapper-32\"><img src=\"https://www.gravatar.com/avatar/9c7d0acde3db4a3a725ee6d537eebf83?s=32&amp;d=identicon&amp;r=PG\" alt=\"\" width=\"32\" height=\"32\"></div>","profileUrl":"http://stackoverflow.com/users/1389153/christopher-stock","ab":{"organic_signup_prompt":{"v":"a","g":1},"anon_popups":{"v":"d","g":1},"anon_vote_popup":{"v":"a","g":1}}}});
+        StackExchange.using.setCacheBreakers({"js/prettify-full.en.js":"a59a7adfbc1e","js/moderator.en.js":"ca1fed338c7a","js/full-anon.en.js":"bb75a88972e4","js/full.en.js":"b4634d093fa0","js/wmd.en.js":"a6f381e038d4","js/third-party/jquery.autocomplete.min.js":"e5f01e97f7c3","js/third-party/jquery.autocomplete.min.en.js":"","js/mobile.en.js":"55e4d146bdde","js/help.en.js":"8ccb22b4d37a","js/tageditor.en.js":"f33517cbd4f8","js/tageditornew.en.js":"d765e547b249","js/inline-tag-editing.en.js":"de80429b1816","js/revisions.en.js":"9e897f24d78d","js/review.en.js":"51721da674ce","js/tagsuggestions.en.js":"b278f9a0b23b","js/post-validation.en.js":"ffde638c2d2f","js/explore-qlist.en.js":"cd6e5274146c","js/events.en.js":"bd70cf92ae57","js/keyboard-shortcuts.en.js":"74e8eafb59b1","js/external-editor.en.js":"d950ed54074b","js/external-editor.en.js":"d950ed54074b","js/snippet-javascript.en.js":"ad6b3ff5e697","js/snippet-javascript-codemirror.en.js":"efa3d8324c6a"});
+        StackExchange.using("gps", function() {
+             StackExchange.gps.init(true);
+        });
+    </SCRIPT>
+             
+<META name="GENERATOR" content="MSHTML 11.00.9600.17963"></HEAD> 
+<BODY class="question-page new-topbar"><NOSCRIPT>&lt;div 
+id="noscript-padding"&gt;&lt;/div&gt;</NOSCRIPT>     
+<DIV id="notify-container"></DIV>
+<DIV id="overlay-header"></DIV>
+<DIV id="custom-header"></DIV>
+<DIV class="topbar">
+<DIV class="topbar-wrapper">
+<DIV class="js-topbar-dialog-corral">
+<DIV class="topbar-dialog siteSwitcher-dialog dno">
+<DIV class="header">
+<H3><A href="http://stackoverflow.com/">current community</A></H3></DIV>
+<DIV class="modal-content current-site-container">
+<UL class="current-site">
+  <LI>
+  <DIV class="related-links"><A class="js-gps-track" href="http://chat.stackoverflow.com/" 
+  data-gps-track="site_switcher.click({ item_type:6 })">chat</A>                 
+      <A class="js-gps-track" href="http://blog.stackoverflow.com/" 
+  data-gps-track="site_switcher.click({ item_type:7 })">blog</A>                 
+      <A class="js-gps-track" href="http://stackoverflow.com/users/logout" 
+  data-gps-track="site_switcher.click({ item_type:8 })">log out</A>     </DIV><A 
+  class="current-site-link site-link js-gps-track" href="http://stackoverflow.com/" 
+  data-gps-track="&#10;        site_switcher.click({ item_type:3 })" 
+data-id="1">
+  <DIV title="Stack Overflow" 
+  class="site-icon favicon favicon-stackoverflow"></DIV>        Stack Overflow   
+    </A></LI>
+  <LI class="related-site">
+  <DIV class="L-shaped-icon-container"><SPAN class="L-shaped-icon"></SPAN>     
+  </DIV><A class="site-link js-gps-track" href="http://meta.stackoverflow.com/" 
+  data-gps-track="&#10;            site.switch({ target_site:552, item_type:3 }),&#10;        site_switcher.click({ item_type:4 })" 
+  data-id="552">
+  <DIV title="Meta Stack Overflow" class="site-icon favicon favicon-stackoverflowmeta"></DIV> 
+         Meta Stack Overflow     </A></LI>
+  <LI class="related-site">
+  <DIV class="L-shaped-icon-container"><SPAN class="L-shaped-icon"></SPAN>     
+  </DIV><A class="site-link js-gps-track" href="http://careers.stackoverflow.com/?utm_source=stackoverflow.com&amp;utm_medium=site-ui&amp;utm_campaign=multicollider" 
+  data-gps-track="site_switcher.click({ item_type:9 })">
+  <DIV title="Stack Overflow Careers" 
+  class="site-icon favicon favicon-careers"></DIV>                        Stack 
+  Overflow Careers                     </A></LI></UL></DIV>
+<DIV class="header" id="your-communities-header">
+<H3><A href="http://stackexchange.com/users/1479453/?tab=accounts">your 
+communities</A>         </H3><A id="edit-pinned-sites" href="http://stackoverflow.com/questions/196498/how-do-i-load-the-contents-of-a-text-file-into-a-javascript-variable#">edit</A> 
+            <A id="cancel-pinned-sites" style="display: none;" href="http://stackoverflow.com/questions/196498/how-do-i-load-the-contents-of-a-text-file-into-a-javascript-variable#">cancel</A> 
+    </DIV>
+<DIV class="modal-content" id="your-communities-section">
+<UL class="my-sites">
+  <LI><A class="site-link js-gps-track" href="http://stackoverflow.com/" 
+  data-gps-track="&#10;            site.switch({ target_site:1, item_type:3 }),&#10;        site_switcher.click({ item_type:1 })" 
+  data-id="1">
+  <DIV title="Stack Overflow" 
+  class="site-icon favicon favicon-stackoverflow"></DIV>        Stack Overflow   
+            <SPAN class="rep-score">840</SPAN>     </A></LI>
+  <LI><A class="site-link js-gps-track" href="http://codereview.stackexchange.com/" 
+  data-gps-track="&#10;            site.switch({ target_site:196, item_type:3 }),&#10;        site_switcher.click({ item_type:1 })" 
+  data-id="196">
+  <DIV title="Code Review" class="site-icon favicon favicon-codereview"></DIV>   
+       Code Review             <SPAN class="rep-score">101</SPAN>     </A></LI>
+  <LI><A class="site-link js-gps-track" href="http://gamedev.stackexchange.com/" 
+  data-gps-track="&#10;            site.switch({ target_site:53, item_type:3 }),&#10;        site_switcher.click({ item_type:1 })" 
+  data-id="53">
+  <DIV title="Game Development" class="site-icon favicon favicon-gamedev"></DIV> 
+         Game Development             <SPAN class="rep-score">101</SPAN>     
+  </A></LI>
+  <LI><A class="site-link js-gps-track" href="http://german.stackexchange.com/" 
+  data-gps-track="&#10;            site.switch({ target_site:253, item_type:3 }),&#10;        site_switcher.click({ item_type:1 })" 
+  data-id="253">
+  <DIV title="German Language" class="site-icon favicon favicon-german"></DIV>   
+       German Language             <SPAN class="rep-score">101</SPAN>     
+  </A></LI>
+  <LI><A class="site-link js-gps-track" href="http://graphicdesign.stackexchange.com/" 
+  data-gps-track="&#10;            site.switch({ target_site:174, item_type:3 }),&#10;        site_switcher.click({ item_type:1 })" 
+  data-id="174">
+  <DIV title="Graphic Design" 
+  class="site-icon favicon favicon-graphicdesign"></DIV>        Graphic Design   
+            <SPAN class="rep-score">101</SPAN>     </A></LI></UL>
+<DIV class="pinned-site-editor-container" style="display: none;"><INPUT class="site-filter-input" id="js-site-search-txt" type="text" placeholder="Add a Stack Exchange community" value=""> 
+                    
+<INPUT disabled="disabled" id="pin-site-btn" type="submit" value="Add">          
+           
+<UL class="js-found-sites found-sites"></UL>
+<UL class="pinned-site-list sortable" 
+data-custom-list="False"></UL><INPUT disabled="disabled" id="save-pinned-sites-btn" type="submit" value="Save"> 
+                    <A id="reset-pinned-sites" href="http://stackoverflow.com/questions/196498/how-do-i-load-the-contents-of-a-text-file-into-a-javascript-variable#">reset 
+to default list</A>                 </DIV></DIV>
+<DIV class="header">
+<H3><A href="http://stackexchange.com/sites">more stack exchange 
+communities</A></H3></DIV>
+<DIV class="modal-content">
+<DIV class="child-content"></DIV></DIV></DIV></DIV>
+<DIV class="network-items"><A title="A list of all 150 Stack Exchange sites" 
+class="topbar-icon icon-site-switcher yes-hover js-site-switcher-button js-gps-track" 
+href="http://stackexchange.com/" data-gps-track="site_switcher.show"><SPAN 
+class="hidden-text">Stack Exchange</SPAN>             </A>     <A title="Recent inbox messages" 
+class="topbar-icon icon-inbox yes-hover js-inbox-button" href="http://stackoverflow.com/questions/196498/how-do-i-load-the-contents-of-a-text-file-into-a-javascript-variable#"><SPAN 
+class="hidden-text">Inbox</SPAN>         <SPAN class="unread-count" style="display: none;"></SPAN> 
+    </A>     <A title="You have new reputation changes" class="topbar-icon icon-achievements yes-hover js-achievements-button icon-achievements-unread" 
+href="http://stackoverflow.com/questions/196498/how-do-i-load-the-contents-of-a-text-file-into-a-javascript-variable#" 
+data-unread-class="icon-achievements-unread"><SPAN 
+class="hidden-text">Reputation and Badges</SPAN>         <SPAN class="unread-count"> 
+           +9         </SPAN>     </A>         </DIV>
+<DIV class="topbar-links"><A class="profile-me js-gps-track" href="http://stackoverflow.com/users/1389153/christopher-stock" 
+data-gps-track="profile_summary.click()">
+<DIV title="Christopher Stock" class="gravatar-wrapper-24"><IMG width="24" 
+height="24" class="avatar-me js-avatar-me" alt="" src="How%20do%20I%20load%20the%20contents%20of%20a%20text%20file%20into%20a%20javascript%20variable%20-%20Stack%20Overflow-Dateien/9c7d0acde3db4a3a725ee6d537eebf83.jpeg"></DIV>
+<DIV class="links-container topbar-flair"><SPAN title="your reputation: 840" 
+class="reputation">                            840                         
+</SPAN> <SPAN title="6 silver badges"><SPAN class="badge2"></SPAN><SPAN class="badgecount">6</SPAN></SPAN><SPAN 
+title="16 bronze badges"><SPAN class="badge3"></SPAN><SPAN 
+class="badgecount">16</SPAN></SPAN>                    </DIV></A>                
+ 
+<DIV class="links-container"><SPAN class="topbar-menu-links"><A title="Review queues - help improve the site" 
+href="http://stackoverflow.com/review">                                review    
+                         </A>     <A title="Help Center and other resources" 
+class="icon-help js-help-button" href="http://stackoverflow.com/questions/196498/how-do-i-load-the-contents-of-a-text-file-into-a-javascript-variable#"> 
+       help         <SPAN class="triangle"></SPAN>     </A>     
+<DIV class="topbar-dialog help-dialog js-help-dialog dno">
+<DIV class="modal-content">
+<UL>
+  <LI><A class="js-gps-track" href="http://stackoverflow.com/tour" 
+  data-gps-track="help_popup.click({ item_type:1 })">                            
+  Tour                             <SPAN class="item-summary">                   
+               Start here for a quick overview of the site                       
+        </SPAN></A>                     </LI>
+  <LI><A class="js-gps-track" href="http://stackoverflow.com/help" 
+  data-gps-track="help_popup.click({ item_type:4 })">                        
+  Help Center                         <SPAN class="item-summary">                
+              Detailed answers to any questions you might have                   
+        </SPAN></A>                 </LI>
+  <LI><A class="js-gps-track" href="http://meta.stackoverflow.com/" 
+  data-gps-track="help_popup.click({ item_type:2 })">                            
+  Meta                             <SPAN class="item-summary">                   
+               Discuss the workings and policies of this site                    
+           </SPAN></A>                     </LI></UL></DIV></DIV></SPAN>           
+      </DIV>
+<DIV class="search-container">
+<FORM id="search" action="/search" method="get" autocomplete="off"><INPUT name="q" tabindex="1" type="text" maxlength="240" placeholder="search" value="" autocomplete="off"> 
+                </FORM></DIV></DIV></DIV></DIV>
+<SCRIPT>
+        StackExchange.ready(function() { StackExchange.topbar.init(); });
+    </SCRIPT>
+     
+<DIV class="container">
+<DIV id="header"><BR class="cbt">
+<DIV id="hlogo"><A href="http://stackoverflow.com/">                    Stack 
+Overflow                 </A></DIV>
+<DIV id="hmenus">
+<DIV class="nav mainnavs">
+<UL>
+  <LI class="youarehere"><A id="nav-questions" href="http://stackoverflow.com/questions">Questions</A></LI>
+  <LI><A id="nav-tags" href="http://stackoverflow.com/tags">Tags</A></LI>
+  <LI><A id="nav-users" href="http://stackoverflow.com/users">Users</A></LI>
+  <LI><A id="nav-badges" 
+  href="http://stackoverflow.com/help/badges">Badges</A></LI>
+  <LI><A id="nav-unanswered" 
+  href="http://stackoverflow.com/unanswered">Unanswered</A></LI></UL></DIV>
+<DIV class="nav askquestion">
+<UL>
+  <LI><A id="nav-askquestion" href="http://stackoverflow.com/questions/ask">Ask 
+  Question</A></LI></UL></DIV></DIV></DIV>
+<DIV class="snippet-hidden" id="content">
+<DIV itemtype="http://schema.org/Question" itemscope=""><LINK href="//cdn.sstatic.net/stackoverflow/img/apple-touch-icon.png?v=c78bd457575a" 
+itemprop="image">			 
+<DIV id="question-header">
+<H1 itemprop="name"><A class="question-hyperlink" href="http://stackoverflow.com/questions/196498/how-do-i-load-the-contents-of-a-text-file-into-a-javascript-variable">How 
+do I load the contents of a text file into a javascript variable?</A></H1></DIV>
+<DIV id="mainbar">
+<DIV class="question" id="question" data-questionid="196498">
+<TABLE>
+  <TBODY>
+  <TR>
+    <TD class="votecell">
+      <DIV class="vote"><INPUT name="_id_" type="hidden" value="196498">         
+      <A title="This question shows research effort; it is useful and clear (click again to undo)" 
+      class="vote-up-off">up vote</A><SPAN class="vote-count-post " itemprop="upvoteCount">46</SPAN><A 
+      title="This question does not show any research effort; it is unclear or not useful (click again to undo)" 
+      class="vote-down-off">down vote</A><A title="This is a favorite question (click again to undo)" 
+      class="star-off" href="http://stackoverflow.com/questions/196498/how-do-i-load-the-contents-of-a-text-file-into-a-javascript-variable#">favorite</A>
+      <DIV class="favoritecount"><B>20</B></DIV></DIV></TD>
+    <TD class="postcell">
+      <DIV>
+      <DIV class="post-text" itemprop="text">
+      <P>I have a text file in the root of my web app <EM><A href="http://localhost/foo.txt">http://localhost/foo.txt</A></EM> 
+      and I'd like to load it into a variable in javascript.. in groovy I would 
+      do this:</P>
+<PRE><CODE>def fileContents = 'http://localhost/foo.txt'.toURL().text;
+println fileContents;
+</CODE></PRE>
+      <P>How can I get a similar result in javascript?</P></DIV>
+      <DIV class="post-taglist"><A title="show questions tagged 'javascript'" 
+      class="post-tag" href="http://stackoverflow.com/questions/tagged/javascript" 
+      rel="tag">javascript</A>     </DIV>
+      <TABLE class="fw">
+        <TBODY>
+        <TR>
+          <TD class="vt">
+            <DIV class="post-menu"><A title="short permalink to this question" 
+            class="short-link" id="link-post-196498" href="http://stackoverflow.com/q/196498/1389153">share</A><SPAN 
+            class="lsep">|</SPAN><A title="revise and improve this post" class="suggest-edit-post" 
+            href="http://stackoverflow.com/posts/196498/edit">edit</A><SPAN 
+            class="lsep">|</SPAN><A title="flag this post for serious problems or moderator attention" 
+            class="flag-post-link" href="http://stackoverflow.com/questions/196498/how-do-i-load-the-contents-of-a-text-file-into-a-javascript-variable#" 
+            data-postid="196498">flag</A></DIV></TD>
+          <TD class="post-signature owner">
+            <DIV class="user-info ">
+            <DIV class="user-action-time">        asked <SPAN title="2008-10-13 01:57:13Z" 
+            class="relativetime">Oct 13 '08 at 1:57</SPAN>     </DIV>
+            <DIV class="user-gravatar32"><A href="http://stackoverflow.com/users/2031/danb">
+            <DIV class="gravatar-wrapper-32"><IMG width="32" height="32" alt="" 
+            src="How%20do%20I%20load%20the%20contents%20of%20a%20text%20file%20into%20a%20javascript%20variable%20-%20Stack%20Overflow-Dateien/ea2cc607f794b41cafc861a9fe1ce4f1.jpeg"></DIV></A> 
+                </DIV>
+            <DIV class="user-details"><A href="http://stackoverflow.com/users/2031/danb">danb</A><BR><SPAN 
+            title="reputation score " class="reputation-score" 
+            dir="ltr">4,583</SPAN><SPAN title="7 gold badges"><SPAN class="badge1"></SPAN><SPAN 
+            class="badgecount">7</SPAN></SPAN><SPAN 
+            title="43 silver badges"><SPAN class="badge2"></SPAN><SPAN class="badgecount">43</SPAN></SPAN><SPAN 
+            title="66 bronze badges"><SPAN class="badge3"></SPAN><SPAN class="badgecount">66</SPAN></SPAN> 
+                </DIV></DIV></TD></TR></TBODY></TABLE></DIV></TD></TR>
+  <TR>
+    <TD class="votecell"></TD>
+    <TD>
+      <DIV class="comments  dno" id="comments-196498">
+      <TABLE>
+        <TBODY data-addlink-disabled="false" data-comments-unavailable="false" 
+        data-cansee="false" data-canpost="true" data-remaining-comments-count="0">
+        <TR>
+          <TD></TD>
+          <TD></TD></TR></TBODY>
+        <TFOOT>
+        <TR>
+          <TD></TD>
+          <TD class="comment-form">
+            <FORM id="add-comment-196498" data-placeholdertext="Use comments to ask for more information or suggest improvements. Avoid answering questions in comments."></FORM></TD></TR></TFOOT></TABLE></DIV>
+      <DIV id="comments-link-196498"><A title="Use comments to ask for more information or suggest improvements. Avoid answering questions in comments." 
+      class="js-add-link comments-link " href="http://stackoverflow.com/questions/196498/how-do-i-load-the-contents-of-a-text-file-into-a-javascript-variable#">add 
+      a comment</A><SPAN class="js-link-separator dno">&nbsp;|&nbsp;</SPAN>      
+             <A title="expand to show all comments on this post" class="js-show-link comments-link dno" 
+      onclick="" href="http://stackoverflow.com/questions/196498/how-do-i-load-the-contents-of-a-text-file-into-a-javascript-variable#"></A> 
+              </DIV></TD></TR>
+  <TR class="bounty-notification">
+    <TD class="votecell"></TD>
+    <TD>
+      <DIV style="margin-top: 20px;"><A title="offer some of your reputation for better answers" 
+      class="bounty-link bounty">                start a bounty             </A> 
+                </DIV></TD></TR></TBODY></TABLE></DIV>
+<DIV id="answers"><A name="tab-top"></A>				 
+<DIV id="answers-header">
+<DIV class="subheader answers-subheader">
+<H2>								5 Answers                                 <SPAN style="display: none;" 
+itemprop="answerCount">5</SPAN>						 </H2>
+<DIV>
+<DIV id="tabs"><A title="Answers with the latest activity first" href="http://stackoverflow.com/questions/196498/how-do-i-load-the-contents-of-a-text-file-into-a-javascript-variable?answertab=active#tab-top" 
+data-value="active" data-nav-xhref="">active</A><A title="Answers in the order they were provided" 
+href="http://stackoverflow.com/questions/196498/how-do-i-load-the-contents-of-a-text-file-into-a-javascript-variable?answertab=oldest#tab-top" 
+data-value="oldest" data-nav-xhref="">oldest</A><A title="Answers with the highest score first" 
+class="youarehere" href="http://stackoverflow.com/questions/196498/how-do-i-load-the-contents-of-a-text-file-into-a-javascript-variable?answertab=votes#tab-top" 
+data-value="votes" data-nav-xhref="">votes</A></DIV></DIV></DIV></DIV><A name="196510"></A> 
+<DIV class="answer accepted-answer" id="answer-196510" itemtype="http://schema.org/Answer" 
+itemscope="" itemprop="acceptedAnswer" data-answerid="196510">
+<TABLE>
+  <TBODY>
+  <TR>
+    <TD class="votecell">
+      <DIV class="vote"><INPUT name="_id_" type="hidden" value="196510">         
+      <A title="This answer is useful (click again to undo)" 
+      class="vote-up-off">up vote</A><SPAN class="vote-count-post " itemprop="upvoteCount">47</SPAN><A 
+      title="This answer is not useful (click again to undo)" class="vote-down-off">down 
+      vote</A><SPAN title="loading when this answer was accepted..." class="vote-accepted-on load-accepted-answer-date">accepted</SPAN></DIV></TD>
+    <TD class="answercell">
+      <DIV class="post-text" itemprop="text">
+      <P>XMLHttpRequest, i.e. AJAX, without the XML.</P>
+      <P>The precise manner you do this is dependent on what JavaScript 
+      framework you're using, but if we disregard interoperability issues, your 
+      code will look something like:</P>
+<PRE>var client = new XMLHttpRequest();
+client.open('GET', '/foo.txt');
+client.onreadystatechange = function() {
+  alert(client.responseText);
+}
+client.send();</PRE>
+      <P>Normally speaking, though, XMLHttpRequest isn't available on all 
+      platforms, so some fudgery is done. Once again, your best bet is to use an 
+      AJAX framework like jQuery.</P>
+      <P>One extra consideration: this will only work as long as foo.txt is on 
+      the same domain. If it's on a different domain, same-origin security 
+      policies will prevent you from reading the result.</P></DIV>
+      <TABLE class="fw">
+        <TBODY>
+        <TR>
+          <TD class="vt">
+            <DIV class="post-menu"><A title="short permalink to this answer" 
+            class="short-link" id="link-post-196510" href="http://stackoverflow.com/a/196510/1389153">share</A><SPAN 
+            class="lsep">|</SPAN><A title="revise and improve this post" class="suggest-edit-post" 
+            href="http://stackoverflow.com/posts/196510/edit">edit</A><SPAN 
+            class="lsep">|</SPAN><A title="flag this post for serious problems or moderator attention" 
+            class="flag-post-link" href="http://stackoverflow.com/questions/196498/how-do-i-load-the-contents-of-a-text-file-into-a-javascript-variable#" 
+            data-postid="196510">flag</A></DIV></TD>
+          <TD align="right" class="post-signature">
+            <DIV class="user-info ">
+            <DIV class="user-action-time"><A title="show all edits to this post" 
+            href="http://stackoverflow.com/posts/196510/revisions">edited <SPAN 
+            title="2008-10-13 02:10:22Z" class="relativetime">Oct 13 '08 at 
+            2:10</SPAN></A>     </DIV>
+            <DIV class="user-gravatar32"></DIV>
+            <DIV class="user-details"><BR></DIV></DIV></TD>
+          <TD align="right" class="post-signature">
+            <DIV class="user-info ">
+            <DIV class="user-action-time">        answered <SPAN title="2008-10-13 02:02:19Z" 
+            class="relativetime">Oct 13 '08 at 2:02</SPAN>     </DIV>
+            <DIV class="user-gravatar32"><A href="http://stackoverflow.com/users/23845/edward-z-yang">
+            <DIV class="gravatar-wrapper-32"><IMG width="32" height="32" alt="" 
+            src="How%20do%20I%20load%20the%20contents%20of%20a%20text%20file%20into%20a%20javascript%20variable%20-%20Stack%20Overflow-Dateien/434aee9ad675384a9e745c7217ac4abe.jpeg"></DIV></A> 
+                </DIV>
+            <DIV class="user-details"><A href="http://stackoverflow.com/users/23845/edward-z-yang">Edward 
+            Z. Yang</A><BR><SPAN title="reputation score 15737" class="reputation-score" 
+            dir="ltr">15.7k</SPAN><SPAN title="12 gold badges"><SPAN class="badge1"></SPAN><SPAN 
+            class="badgecount">12</SPAN></SPAN><SPAN 
+            title="49 silver badges"><SPAN class="badge2"></SPAN><SPAN class="badgecount">49</SPAN></SPAN><SPAN 
+            title="77 bronze badges"><SPAN class="badge3"></SPAN><SPAN class="badgecount">77</SPAN></SPAN> 
+                </DIV></DIV></TD></TR></TBODY></TABLE></TD></TR>
+  <TR>
+    <TD class="votecell"></TD>
+    <TD>
+      <DIV class="comments " id="comments-196510">
+      <TABLE>
+        <TBODY data-addlink-disabled="false" data-comments-unavailable="false" 
+        data-cansee="false" data-canpost="true" data-remaining-comments-count="1">
+        <TR class="comment " id="comment-15534983">
+          <TD class="comment-actions">
+            <TABLE>
+              <TBODY>
+              <TR>
+                <TD class=" comment-score"><SPAN title="number of 'useful comment' votes received" 
+                  class="cool">1</SPAN>                         </TD>
+                <TD><A title="this comment adds something useful to the post" 
+                  class="comment-up comment-up-off">upvote</A>                   
+                        </TD></TR>
+              <TR>
+                <TD>&nbsp;</TD>
+                <TD><A title="Flag this comment for serious problems or moderator attention" 
+                  class="comment-flag">flag</A>                                 
+                </TD></TR></TBODY></TABLE></TD>
+          <TD class="comment-text">
+            <DIV class="comment-body" style="display: block;"><SPAN class="comment-copy">A 
+            workaround for the same-origin policy is using <A href="http://en.wikipedia.org/wiki/JSONP" 
+            rel="nofollow">JSONP</A> that also is supported by jQuery (for the 
+            client side part)</SPAN>                 –&nbsp;                    
+            <A title="7891 reputation" class="comment-user" href="http://stackoverflow.com/users/433718/oneworld">OneWorld</A> 
+                            <SPAN class="comment-date" dir="ltr"><SPAN title="2012-07-29 17:19:02Z" 
+            class="relativetime-clean">Jul 29 '12 at 17:19</SPAN></SPAN>         
+                        <SPAN title="this comment was edited 1 time" class="edited-yes"></SPAN> 
+                                                                                 
+                   </DIV></TD></TR>
+        <TR class="comment " id="comment-17608983">
+          <TD class="comment-actions">
+            <TABLE>
+              <TBODY>
+              <TR>
+                <TD class=" comment-score"><SPAN title="number of 'useful comment' votes received" 
+                  class="cool">3</SPAN>                         </TD>
+                <TD><A title="this comment adds something useful to the post" 
+                  class="comment-up comment-up-off">upvote</A>                   
+                        </TD></TR>
+              <TR>
+                <TD>&nbsp;</TD>
+                <TD><A title="Flag this comment for serious problems or moderator attention" 
+                  class="comment-flag">flag</A>                                 
+                </TD></TR></TBODY></TABLE></TD>
+          <TD class="comment-text">
+            <DIV class="comment-body" style="display: block;"><SPAN class="comment-copy">it 
+            might be usefull to add that, inside onreadystatechange, you can 
+            access the readystate property of the XMLHttpRequest Object (in the 
+            example : client.readystate ) to know what is the status, since the 
+            onreadystatechange event is raised for loading, loaded, .... so you 
+            must wait for client.readystate == 4 inside onreadystatechange 
+            before you can use client.responseText.</SPAN>                 
+            –&nbsp;                    <A title="11383 reputation" class="comment-user" 
+            href="http://stackoverflow.com/users/856501/gamealchemist">GameAlchemist</A> 
+                            <SPAN class="comment-date" dir="ltr"><SPAN title="2012-10-19 21:52:00Z" 
+            class="relativetime-clean">Oct 19 '12 at 21:52</SPAN></SPAN>         
+                        <SPAN title="this comment was edited 1 time" class="edited-yes"></SPAN> 
+                                                                                 
+                   </DIV></TD></TR>
+        <TR class="comment " id="comment-30059368">
+          <TD class="comment-actions">
+            <TABLE>
+              <TBODY>
+              <TR>
+                <TD class=" comment-score"><SPAN title="number of 'useful comment' votes received" 
+                  class="cool">2</SPAN>                         </TD>
+                <TD><A title="this comment adds something useful to the post" 
+                  class="comment-up comment-up-off">upvote</A>                   
+                        </TD></TR>
+              <TR>
+                <TD>&nbsp;</TD>
+                <TD><A title="Flag this comment for serious problems or moderator attention" 
+                  class="comment-flag">flag</A>                                 
+                </TD></TR></TBODY></TABLE></TD>
+          <TD class="comment-text">
+            <DIV class="comment-body" style="display: block;"><SPAN class="comment-copy">@GameAlchemist: 
+            stumbled upon your great answer. I just wanted to note that in most 
+            browsers readyState is camel cased, so the code should be something 
+            like this: <CODE>if (client.readyState === 4){ }</CODE></SPAN>       
+                      –&nbsp;                    <A title="706 reputation" 
+            class="comment-user" href="http://stackoverflow.com/users/229189/snorpey">snorpey</A> 
+                            <SPAN class="comment-date" dir="ltr"><SPAN title="2013-11-23 16:55:02Z" 
+            class="relativetime-clean">Nov 23 '13 at 16:55</SPAN></SPAN>         
+                                                                                
+            </DIV></TD></TR>
+        <TR class="comment " id="comment-37897111">
+          <TD class="comment-actions">
+            <TABLE>
+              <TBODY>
+              <TR>
+                <TD class=" comment-score"><SPAN title="number of 'useful comment' votes received" 
+                  class="cool">2</SPAN>                         </TD>
+                <TD><A title="this comment adds something useful to the post" 
+                  class="comment-up comment-up-off">upvote</A>                   
+                        </TD></TR>
+              <TR>
+                <TD>&nbsp;</TD>
+                <TD><A title="Flag this comment for serious problems or moderator attention" 
+                  class="comment-flag">flag</A>                                 
+                </TD></TR></TBODY></TABLE></TD>
+          <TD class="comment-text">
+            <DIV class="comment-body" style="display: block;"><SPAN class="comment-copy">Additionally 
+            you can do <CODE>client.onloadend</CODE> and just get the completed 
+            data</SPAN>                 –&nbsp;                    <A title="4358 reputation" 
+            class="comment-user" 
+            href="http://stackoverflow.com/users/62575/yxk">yxk</A>              
+               <SPAN class="comment-date" dir="ltr"><SPAN title="2014-06-30 04:53:12Z" 
+            class="relativetime-clean">Jun 30 '14 at 4:53</SPAN></SPAN>          
+                       <SPAN title="this comment was edited 1 time" class="edited-yes"></SPAN> 
+                                                                                 
+                   </DIV></TD></TR>
+        <TR class="comment " id="comment-44891516">
+          <TD class="comment-actions">
+            <TABLE>
+              <TBODY>
+              <TR>
+                <TD class=" comment-score">                                
+                  &nbsp;&nbsp;                        </TD>
+                <TD><A title="this comment adds something useful to the post" 
+                  class="comment-up comment-up-off">upvote</A>                   
+                        </TD></TR>
+              <TR>
+                <TD>&nbsp;</TD>
+                <TD><A title="Flag this comment for serious problems or moderator attention" 
+                  class="comment-flag">flag</A>                                 
+                </TD></TR></TBODY></TABLE></TD>
+          <TD class="comment-text">
+            <DIV class="comment-body" style="display: block;"><SPAN class="comment-copy">The 
+            answer should be redacted to include checking for the 
+            <CODE>client.readyState</CODE> property value. I am downvoting it 
+            until it is, people are not going to read the comments to discover 
+            the answer is only partially right.</SPAN>                 –&nbsp;   
+                             <A title="2509 reputation" class="comment-user" 
+            href="http://stackoverflow.com/users/254343/amn">amn</A>             
+                <SPAN class="comment-date" dir="ltr"><SPAN title="2015-02-01 20:51:33Z" 
+            class="relativetime-clean">Feb 1 at 20:51</SPAN></SPAN>              
+                                                                           
+          </DIV></TD></TR></TBODY>
+        <TFOOT>
+        <TR>
+          <TD></TD>
+          <TD class="comment-form">
+            <FORM id="add-comment-196510" data-placeholdertext="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”."></FORM></TD></TR></TFOOT></TABLE></DIV>
+      <DIV id="comments-link-196510"><A title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”." 
+      class="js-add-link comments-link " href="http://stackoverflow.com/questions/196498/how-do-i-load-the-contents-of-a-text-file-into-a-javascript-variable#">add 
+      a comment</A><SPAN class="js-link-separator ">&nbsp;|&nbsp;</SPAN>         
+          <A title="expand to show all comments on this post" class="js-show-link comments-link " 
+      onclick="" href="http://stackoverflow.com/questions/196498/how-do-i-load-the-contents-of-a-text-file-into-a-javascript-variable#">show 
+      <B>1</B> more comment</A>         </DIV></TD></TR></TBODY></TABLE></DIV><A name="196550"></A> 
+<DIV class="answer" id="answer-196550" itemtype="http://schema.org/Answer" 
+itemscope="" data-answerid="196550">
+<TABLE>
+  <TBODY>
+  <TR>
+    <TD class="votecell">
+      <DIV class="vote"><INPUT name="_id_" type="hidden" value="196550">         
+      <A title="This answer is useful (click again to undo)" 
+      class="vote-up-off">up vote</A><SPAN class="vote-count-post " itemprop="upvoteCount">60</SPAN><A 
+      title="This answer is not useful (click again to undo)" class="vote-down-off">down 
+      vote</A></DIV></TD>
+    <TD class="answercell">
+      <DIV class="post-text" itemprop="text">
+      <P>here is how I did it in jquery:</P>
+<PRE><CODE>jQuery.get('http://localhost/foo.txt', function(data) {
+    alert(data);
+});
+</CODE></PRE></DIV>
+      <TABLE class="fw">
+        <TBODY>
+        <TR>
+          <TD class="vt">
+            <DIV class="post-menu"><A title="short permalink to this answer" 
+            class="short-link" id="link-post-196550" href="http://stackoverflow.com/a/196550/1389153">share</A><SPAN 
+            class="lsep">|</SPAN><A title="revise and improve this post" class="suggest-edit-post" 
+            href="http://stackoverflow.com/posts/196550/edit">edit</A><SPAN 
+            class="lsep">|</SPAN><A title="flag this post for serious problems or moderator attention" 
+            class="flag-post-link" href="http://stackoverflow.com/questions/196498/how-do-i-load-the-contents-of-a-text-file-into-a-javascript-variable#" 
+            data-postid="196550">flag</A></DIV></TD>
+          <TD align="right" class="post-signature owner">
+            <DIV class="user-info ">
+            <DIV class="user-action-time">        answered <SPAN title="2008-10-13 02:25:39Z" 
+            class="relativetime">Oct 13 '08 at 2:25</SPAN>     </DIV>
+            <DIV class="user-gravatar32"><A href="http://stackoverflow.com/users/2031/danb">
+            <DIV class="gravatar-wrapper-32"><IMG width="32" height="32" alt="" 
+            src="How%20do%20I%20load%20the%20contents%20of%20a%20text%20file%20into%20a%20javascript%20variable%20-%20Stack%20Overflow-Dateien/ea2cc607f794b41cafc861a9fe1ce4f1.jpeg"></DIV></A> 
+                </DIV>
+            <DIV class="user-details"><A href="http://stackoverflow.com/users/2031/danb">danb</A><BR><SPAN 
+            title="reputation score " class="reputation-score" 
+            dir="ltr">4,583</SPAN><SPAN title="7 gold badges"><SPAN class="badge1"></SPAN><SPAN 
+            class="badgecount">7</SPAN></SPAN><SPAN 
+            title="43 silver badges"><SPAN class="badge2"></SPAN><SPAN class="badgecount">43</SPAN></SPAN><SPAN 
+            title="66 bronze badges"><SPAN class="badge3"></SPAN><SPAN class="badgecount">66</SPAN></SPAN> 
+                </DIV></DIV></TD></TR></TBODY></TABLE></TD></TR>
+  <TR>
+    <TD class="votecell"></TD>
+    <TD>
+      <DIV class="comments " id="comments-196550">
+      <TABLE>
+        <TBODY data-addlink-disabled="false" data-comments-unavailable="false" 
+        data-cansee="false" data-canpost="true" data-remaining-comments-count="0">
+        <TR class="comment " id="comment-10963656">
+          <TD class="comment-actions">
+            <TABLE>
+              <TBODY>
+              <TR>
+                <TD class=" comment-score">                                
+                  &nbsp;&nbsp;                        </TD>
+                <TD><A title="this comment adds something useful to the post" 
+                  class="comment-up comment-up-off">upvote</A>                   
+                        </TD></TR>
+              <TR>
+                <TD>&nbsp;</TD>
+                <TD><A title="Flag this comment for serious problems or moderator attention" 
+                  class="comment-flag">flag</A>                                 
+                </TD></TR></TBODY></TABLE></TD>
+          <TD class="comment-text">
+            <DIV class="comment-body" style="display: block;"><SPAN class="comment-copy">that 
+            doesn't seem to work with plain tabular text data (<A href="http://docs.jquery.com/Specifying_the_Data_Type_for_AJAX_Requests" 
+            rel="nofollow">docs.jquery.com/Specifying_the_Data_Type_for_AJAX_Requests</A>)</SPAN> 
+                            –&nbsp;                    <A title="4343 reputation" 
+            class="comment-user" href="http://stackoverflow.com/users/30911/pufferfish">pufferfish</A> 
+                            <SPAN class="comment-date" dir="ltr"><SPAN title="2012-01-09 14:49:50Z" 
+            class="relativetime-clean">Jan 9 '12 at 14:49</SPAN></SPAN>          
+                                                                               
+            </DIV></TD></TR>
+        <TR class="comment " id="comment-52431915">
+          <TD class="comment-actions">
+            <TABLE>
+              <TBODY>
+              <TR>
+                <TD class=" comment-score">                                
+                  &nbsp;&nbsp;                        </TD>
+                <TD><A title="this comment adds something useful to the post" 
+                  class="comment-up comment-up-off">upvote</A>                   
+                        </TD></TR>
+              <TR>
+                <TD>&nbsp;</TD>
+                <TD><A title="Flag this comment for serious problems or moderator attention" 
+                  class="comment-flag">flag</A>                                 
+                </TD></TR></TBODY></TABLE></TD>
+          <TD class="comment-text">
+            <DIV class="comment-body" style="display: block;"><SPAN class="comment-copy">Notice 
+            that this does not work if you're testing it locally using 
+            <CODE>file://</CODE> i.e.: 
+            <CODE>file:///example.com/foo.html</CODE>. Firefox complains of a 
+            syntax error and Chrome blocks because it considers it as a 
+            Cross-Origin request.</SPAN>                 –&nbsp;                 
+               <A title="249 reputation" class="comment-user" href="http://stackoverflow.com/users/2904315/akronix">Akronix</A> 
+                            <SPAN class="comment-date" dir="ltr"><SPAN title="2015-08-28 17:26:14Z" 
+            class="relativetime-clean">Aug 28 at 17:26</SPAN></SPAN>             
+                                                                            
+            </DIV></TD></TR></TBODY>
+        <TFOOT>
+        <TR>
+          <TD></TD>
+          <TD class="comment-form">
+            <FORM id="add-comment-196550" data-placeholdertext="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”."></FORM></TD></TR></TFOOT></TABLE></DIV>
+      <DIV id="comments-link-196550"><A title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”." 
+      class="js-add-link comments-link " href="http://stackoverflow.com/questions/196498/how-do-i-load-the-contents-of-a-text-file-into-a-javascript-variable#">add 
+      a comment</A><SPAN class="js-link-separator dno">&nbsp;|&nbsp;</SPAN>      
+             <A title="expand to show all comments on this post" class="js-show-link comments-link dno" 
+      onclick="" href="http://stackoverflow.com/questions/196498/how-do-i-load-the-contents-of-a-text-file-into-a-javascript-variable#"></A> 
+              </DIV></TD></TR></TBODY></TABLE></DIV><A name="20724888"></A> 
+<DIV class="answer" id="answer-20724888" itemtype="http://schema.org/Answer" 
+itemscope="" data-answerid="20724888">
+<TABLE>
+  <TBODY>
+  <TR>
+    <TD class="votecell">
+      <DIV class="vote"><INPUT name="_id_" type="hidden" value="20724888">       
+        <A title="This answer is useful (click again to undo)" class="vote-up-off">up 
+      vote</A><SPAN class="vote-count-post " itemprop="upvoteCount">1</SPAN><A 
+      title="This answer is not useful (click again to undo)" class="vote-down-off">down 
+      vote</A></DIV></TD>
+    <TD class="answercell">
+      <DIV class="post-text" itemprop="text">
+      <P>One thing to keep in mind is that Javascript runs on the client, and 
+      not on the server. You  can't really "load a file" from the server in 
+      Javascript. What happens is that Javascript sends a request to the server, 
+      and the server sends back the contents of the requested file. How does 
+      Javascript receive the contents? That's what the callback function is for. 
+      In Edward's case, that is</P>
+<PRE><CODE>    client.onreadystatechange = function() {
+</CODE></PRE>
+      <P>and in danb's case, it is</P>
+<PRE><CODE> function(data) {
+</CODE></PRE>
+      <P>This function is called whenever the data happen to arrive. The jQuery 
+      version implicitly uses Ajax, it just makes the coding easier by 
+      encapsulating that code in the library.</P></DIV>
+      <TABLE class="fw">
+        <TBODY>
+        <TR>
+          <TD class="vt">
+            <DIV class="post-menu"><A title="short permalink to this answer" 
+            class="short-link" id="link-post-20724888" href="http://stackoverflow.com/a/20724888/1389153">share</A><SPAN 
+            class="lsep">|</SPAN><A title="revise and improve this post" class="suggest-edit-post" 
+            href="http://stackoverflow.com/posts/20724888/edit">edit</A><SPAN 
+            class="lsep">|</SPAN><A title="flag this post for serious problems or moderator attention" 
+            class="flag-post-link" href="http://stackoverflow.com/questions/196498/how-do-i-load-the-contents-of-a-text-file-into-a-javascript-variable#" 
+            data-postid="20724888">flag</A></DIV></TD>
+          <TD align="right" class="post-signature">
+            <DIV class="user-info ">
+            <DIV class="user-action-time">        answered <SPAN title="2013-12-22 00:13:00Z" 
+            class="relativetime">Dec 22 '13 at 0:13</SPAN>     </DIV>
+            <DIV class="user-gravatar32"><A href="http://stackoverflow.com/users/1502734/atmelino">
+            <DIV class="gravatar-wrapper-32"><IMG width="32" height="32" alt="" 
+            src="How%20do%20I%20load%20the%20contents%20of%20a%20text%20file%20into%20a%20javascript%20variable%20-%20Stack%20Overflow-Dateien/gVh80.jpg"></DIV></A> 
+                </DIV>
+            <DIV class="user-details"><A href="http://stackoverflow.com/users/1502734/atmelino">atmelino</A><BR><SPAN 
+            title="reputation score " class="reputation-score" 
+            dir="ltr">668</SPAN><SPAN title="8 silver badges"><SPAN class="badge2"></SPAN><SPAN 
+            class="badgecount">8</SPAN></SPAN><SPAN 
+            title="10 bronze badges"><SPAN class="badge3"></SPAN><SPAN class="badgecount">10</SPAN></SPAN> 
+                </DIV></DIV></TD></TR></TBODY></TABLE></TD></TR>
+  <TR>
+    <TD class="votecell"></TD>
+    <TD>
+      <DIV class="comments  dno" id="comments-20724888">
+      <TABLE>
+        <TBODY data-addlink-disabled="false" data-comments-unavailable="false" 
+        data-cansee="false" data-canpost="true" data-remaining-comments-count="0">
+        <TR>
+          <TD></TD>
+          <TD></TD></TR></TBODY>
+        <TFOOT>
+        <TR>
+          <TD></TD>
+          <TD class="comment-form">
+            <FORM id="add-comment-20724888" data-placeholdertext="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”."></FORM></TD></TR></TFOOT></TABLE></DIV>
+      <DIV id="comments-link-20724888"><A title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”." 
+      class="js-add-link comments-link " href="http://stackoverflow.com/questions/196498/how-do-i-load-the-contents-of-a-text-file-into-a-javascript-variable#">add 
+      a comment</A><SPAN class="js-link-separator dno">&nbsp;|&nbsp;</SPAN>      
+             <A title="expand to show all comments on this post" class="js-show-link comments-link dno" 
+      onclick="" href="http://stackoverflow.com/questions/196498/how-do-i-load-the-contents-of-a-text-file-into-a-javascript-variable#"></A> 
+              </DIV></TD></TR></TBODY></TABLE></DIV><A name="196511"></A> 
+<DIV class="answer" id="answer-196511" itemtype="http://schema.org/Answer" 
+itemscope="" data-answerid="196511">
+<TABLE>
+  <TBODY>
+  <TR>
+    <TD class="votecell">
+      <DIV class="vote"><INPUT name="_id_" type="hidden" value="196511">         
+      <A title="This answer is useful (click again to undo)" 
+      class="vote-up-off">up vote</A><SPAN class="vote-count-post " itemprop="upvoteCount">0</SPAN><A 
+      title="This answer is not useful (click again to undo)" class="vote-down-off">down 
+      vote</A></DIV></TD>
+    <TD class="answercell">
+      <DIV class="post-text" itemprop="text">
+      <P>If your input was structured as XML, you could use the 
+<CODE>importXML</CODE> function. (More info <A href="http://www.quirksmode.org/dom/importxml.html" 
+      rel="nofollow">here at quirksmode</A>).</P>
+      <P>If it isn't XML, and there isn't an equivalent function for importing 
+      plain text, then you could open it in a hidden iframe and then read the 
+      contents from there.</P></DIV>
+      <TABLE class="fw">
+        <TBODY>
+        <TR>
+          <TD class="vt">
+            <DIV class="post-menu"><A title="short permalink to this answer" 
+            class="short-link" id="link-post-196511" href="http://stackoverflow.com/a/196511/1389153">share</A><SPAN 
+            class="lsep">|</SPAN><A title="revise and improve this post" class="suggest-edit-post" 
+            href="http://stackoverflow.com/posts/196511/edit">edit</A><SPAN 
+            class="lsep">|</SPAN><A title="flag this post for serious problems or moderator attention" 
+            class="flag-post-link" href="http://stackoverflow.com/questions/196498/how-do-i-load-the-contents-of-a-text-file-into-a-javascript-variable#" 
+            data-postid="196511">flag</A></DIV></TD>
+          <TD align="right" class="post-signature">
+            <DIV class="user-info user-hover">
+            <DIV class="user-action-time">        answered <SPAN title="2008-10-13 02:02:23Z" 
+            class="relativetime">Oct 13 '08 at 2:02</SPAN>     </DIV>
+            <DIV class="user-gravatar32"><A href="http://stackoverflow.com/users/9021/nickf">
+            <DIV class="gravatar-wrapper-32"><IMG width="32" height="32" alt="" 
+            src="How%20do%20I%20load%20the%20contents%20of%20a%20text%20file%20into%20a%20javascript%20variable%20-%20Stack%20Overflow-Dateien/0a6d284d4e2ce68e1c60871858da800b.jpeg"></DIV></A> 
+                </DIV>
+            <DIV class="user-details"><A href="http://stackoverflow.com/users/9021/nickf">nickf</A><BR><SPAN 
+            title="reputation score 236099" class="reputation-score" 
+            dir="ltr">236k</SPAN><SPAN title="122 gold badges"><SPAN class="badge1"></SPAN><SPAN 
+            class="badgecount">122</SPAN></SPAN><SPAN 
+            title="481 silver badges"><SPAN class="badge2"></SPAN><SPAN class="badgecount">481</SPAN></SPAN><SPAN 
+            title="601 bronze badges"><SPAN class="badge3"></SPAN><SPAN class="badgecount">601</SPAN></SPAN> 
+                </DIV></DIV></TD></TR></TBODY></TABLE></TD></TR>
+  <TR>
+    <TD class="votecell"></TD>
+    <TD>
+      <DIV class="comments " id="comments-196511">
+      <TABLE>
+        <TBODY data-addlink-disabled="false" data-comments-unavailable="false" 
+        data-cansee="false" data-canpost="true" data-remaining-comments-count="0">
+        <TR class="comment " id="comment-46453298">
+          <TD class="comment-actions">
+            <TABLE>
+              <TBODY>
+              <TR>
+                <TD class=" comment-score">                                
+                  &nbsp;&nbsp;                        </TD>
+                <TD><A title="this comment adds something useful to the post" 
+                  class="comment-up comment-up-off">upvote</A>                   
+                        </TD></TR>
+              <TR>
+                <TD>&nbsp;</TD>
+                <TD><A title="Flag this comment for serious problems or moderator attention" 
+                  class="comment-flag">flag</A>                                 
+                </TD></TR></TBODY></TABLE></TD>
+          <TD class="comment-text">
+            <DIV class="comment-body" style="display: block;"><SPAN class="comment-copy">The 
+            link is dead.</SPAN>                 –&nbsp;                    <A 
+            title="5638 reputation" class="comment-user" href="http://stackoverflow.com/users/901641/artofwarfare">ArtOfWarfare</A> 
+                            <SPAN class="comment-date" dir="ltr"><SPAN title="2015-03-18 00:21:42Z" 
+            class="relativetime-clean">Mar 18 at 0:21</SPAN></SPAN>              
+                                                                           
+          </DIV></TD></TR></TBODY>
+        <TFOOT>
+        <TR>
+          <TD></TD>
+          <TD class="comment-form">
+            <FORM id="add-comment-196511" data-placeholdertext="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”."></FORM></TD></TR></TFOOT></TABLE></DIV>
+      <DIV id="comments-link-196511"><A title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”." 
+      class="js-add-link comments-link " href="http://stackoverflow.com/questions/196498/how-do-i-load-the-contents-of-a-text-file-into-a-javascript-variable#">add 
+      a comment</A><SPAN class="js-link-separator dno">&nbsp;|&nbsp;</SPAN>      
+             <A title="expand to show all comments on this post" class="js-show-link comments-link dno" 
+      onclick="" href="http://stackoverflow.com/questions/196498/how-do-i-load-the-contents-of-a-text-file-into-a-javascript-variable#"></A> 
+              </DIV></TD></TR></TBODY></TABLE></DIV><A name="30124032"></A> 
+<DIV class="answer" id="answer-30124032" itemtype="http://schema.org/Answer" 
+itemscope="" data-answerid="30124032">
+<TABLE>
+  <TBODY>
+  <TR>
+    <TD class="votecell">
+      <DIV class="vote"><INPUT name="_id_" type="hidden" value="30124032">       
+        <A title="This answer is useful (click again to undo)" class="vote-up-off">up 
+      vote</A><SPAN class="vote-count-post " itemprop="upvoteCount">0</SPAN><A 
+      title="This answer is not useful (click again to undo)" class="vote-down-off">down 
+      vote</A></DIV></TD>
+    <TD class="answercell">
+      <DIV class="post-text" itemprop="text">
+      <P>Make Sure your in your local host.   </P>
+      <P>Check your file is in the right location.</P>
+      <P>Create a div (i am using div id01)this is where it will post the data 
+      on your page.  </P>
+<PRE><CODE>var xmlhttp = new XMLHttpRequest();
+    var url = "file.txt";
+
+    xmlhttp.onreadystatechange = function() {
+
+        if (xmlhttp.readyState == 4 &amp;&amp; xmlhttp.status == 200) {
+            var myArr = JSON.parse(xmlhttp.responseText);
+            myFunction(myArr);
+
+            console.log("xmlhttp Request Asepted");
+        }
+
+
+    }
+
+        xmlhttp.open("GET", url, true);
+        xmlhttp.send();
+
+
+        function myFunction(arr) {
+            var out = "";
+            var i;
+            var row = 0;
+
+        for(i = 0; i &lt; arr.length; i++) {
+           // console.log( arr[1].data); change data to what every you have in  your file
+           // out +=  arr[i].data + '&lt;br&gt;' + arr[i].data2 ;
+            document.getElementById("id01").innerHTML = out;
+
+        }
+
+    }
+</CODE></PRE>
+      <P>Hope that helps</P></DIV>
+      <TABLE class="fw">
+        <TBODY>
+        <TR>
+          <TD class="vt">
+            <DIV class="post-menu"><A title="short permalink to this answer" 
+            class="short-link" id="link-post-30124032" href="http://stackoverflow.com/a/30124032/1389153">share</A><SPAN 
+            class="lsep">|</SPAN><A title="revise and improve this post" class="suggest-edit-post" 
+            href="http://stackoverflow.com/posts/30124032/edit">edit</A><SPAN 
+            class="lsep">|</SPAN><A title="flag this post for serious problems or moderator attention" 
+            class="flag-post-link" href="http://stackoverflow.com/questions/196498/how-do-i-load-the-contents-of-a-text-file-into-a-javascript-variable#" 
+            data-postid="30124032">flag</A></DIV></TD>
+          <TD align="right" class="post-signature">
+            <DIV class="user-info ">
+            <DIV class="user-action-time">        answered <SPAN title="2015-05-08 12:35:31Z" 
+            class="relativetime">May 8 at 12:35</SPAN>     </DIV>
+            <DIV class="user-gravatar32"><A href="http://stackoverflow.com/users/4450275/sabba-keynejad">
+            <DIV class="gravatar-wrapper-32"><IMG width="32" height="32" alt="" 
+            src="How%20do%20I%20load%20the%20contents%20of%20a%20text%20file%20into%20a%20javascript%20variable%20-%20Stack%20Overflow-Dateien/photo.jpg"></DIV></A> 
+                </DIV>
+            <DIV class="user-details"><A href="http://stackoverflow.com/users/4450275/sabba-keynejad">Sabba 
+            Keynejad</A><BR><SPAN title="reputation score " class="reputation-score" 
+            dir="ltr">141</SPAN><SPAN title="1 silver badge"><SPAN class="badge2"></SPAN><SPAN 
+            class="badgecount">1</SPAN></SPAN><SPAN 
+            title="4 bronze badges"><SPAN class="badge3"></SPAN><SPAN class="badgecount">4</SPAN></SPAN> 
+                </DIV></DIV></TD></TR></TBODY></TABLE></TD></TR>
+  <TR>
+    <TD class="votecell"></TD>
+    <TD>
+      <DIV class="comments  dno" id="comments-30124032">
+      <TABLE>
+        <TBODY data-addlink-disabled="false" data-comments-unavailable="false" 
+        data-cansee="false" data-canpost="true" data-remaining-comments-count="0">
+        <TR>
+          <TD></TD>
+          <TD></TD></TR></TBODY>
+        <TFOOT>
+        <TR>
+          <TD></TD>
+          <TD class="comment-form">
+            <FORM id="add-comment-30124032" data-placeholdertext="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”."></FORM></TD></TR></TFOOT></TABLE></DIV>
+      <DIV id="comments-link-30124032"><A title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”." 
+      class="js-add-link comments-link " href="http://stackoverflow.com/questions/196498/how-do-i-load-the-contents-of-a-text-file-into-a-javascript-variable#">add 
+      a comment</A><SPAN class="js-link-separator dno">&nbsp;|&nbsp;</SPAN>      
+             <A title="expand to show all comments on this post" class="js-show-link comments-link dno" 
+      onclick="" href="http://stackoverflow.com/questions/196498/how-do-i-load-the-contents-of-a-text-file-into-a-javascript-variable#"></A> 
+              </DIV></TD></TR></TBODY></TABLE></DIV><A name="new-answer"></A>						 
+<FORM class="post-form" id="post-form" action="/questions/196498/answer/submit" 
+method="post"><INPUT id="post-id" type="hidden" value="196498">                  
+           
+<INPUT name="qualityBanWarningShown" id="qualityBanWarningShown" type="hidden" value="false"> 
+                            <INPUT name="referrer" type="hidden">							 
+<H2 class="space">Your Answer</H2>
+<SCRIPT>
+            StackExchange.ifUsing("editor", function () {
+                StackExchange.using("externalEditor", function () {
+                    StackExchange.using("snippets", function () {
+                        StackExchange.snippets.init();
+                    });
+                });
+            }, "code-snippets");
+        </SCRIPT>
+     
+<SCRIPT>
+    StackExchange.ready(function() {
+        initTagRenderer("".split(" "), "".split(" "));
+       
+        StackExchange.using("externalEditor", function() {
+            // Have to fire editor after snippets, if snippets enabled
+            if (StackExchange.options.snippets.enabled) {
+                StackExchange.using("snippets", function() {
+                    createEditor();
+                });
+            }
+            else {
+                createEditor();
+            }
+        });
+
+        function createEditor() {
+            prepareEditor({
+                heartbeatType: 'answer',
+                bindNavPrevention: true,
+                postfix: "",
+                    onDemand: false,
+                    discardSelector: ".discard-answer"
+                
+                });
+                
+
+        }
+    });  
+</SCRIPT>
+ 
+<DIV class="post-editor js-post-editor" id="post-editor">
+<DIV style="position: relative;">
+<DIV class="wmd-container">
+<DIV class="wmd-button-bar" 
+id="wmd-button-bar"></DIV><TEXTAREA name="post-text" tabindex="101" class="wmd-input" id="wmd-input" rows="15" cols="92" data-min-length=""></TEXTAREA> 
+        </DIV></DIV>
+<DIV class="fl" style="height: 24px; margin-top: 8px;">&nbsp;</DIV>
+<DIV class="draft-saved community-option fl" id="draft-saved" style="height: 24px; margin-top: 8px; display: none;">draft 
+saved</DIV>
+<DIV class="draft-discarded community-option fl" id="draft-discarded" style="height: 24px; margin-top: 8px; display: none;">draft 
+discarded</DIV>
+<DIV class="community-option"><INPUT name="communitymode" id="communitymode" 
+type="checkbox">         <LABEL title="Marking an answer community wiki encourages others to edit it by lowering the reputation barrier required to edit. However, you will not gain any upvote reputation from it. This cannot be undone." 
+for="communitymode">community wiki</LABEL>     </DIV>
+<DIV class="wmd-preview" id="wmd-preview"></DIV>
+<DIV></DIV>
+<DIV class="edit-block"><INPUT name="fkey" id="fkey" type="hidden" value="e72ce234fe92566b5d80c1e75ed3d241"> 
+        <INPUT name="author" id="author" type="text">     </DIV></DIV>
+<DIV style="position: relative;"></DIV>
+<DIV class="form-submit cbt"><INPUT tabindex="110" id="submit-button" type="submit" value="Post Your Answer">
+									 <A class="discard-answer dno" href="http://stackoverflow.com/questions/196498/how-do-i-load-the-contents-of-a-text-file-into-a-javascript-variable#">discard</A>
+								 </DIV></FORM>
+<H2 class="bottom-notice" data-loc="1">Not the answer you're looking 
+for?							Browse other questions tagged <A title="show questions tagged 'javascript'" 
+class="post-tag" href="http://stackoverflow.com/questions/tagged/javascript" 
+rel="tag">javascript</A>  or <A 
+href="http://stackoverflow.com/questions/ask">ask your own 
+question</A>.						</H2></DIV></DIV>
+<DIV class="show-votes" id="sidebar">
+<DIV class="module question-stats">
+<TABLE id="qinfo">
+  <TBODY>
+  <TR>
+    <TD>
+      <P class="label-key">asked</P></TD>
+    <TD style="padding-left: 10px;">
+      <P title="2008-10-13 01:57:13Z" class="label-key"><B>6 years 
+  ago</B></P></TD></TR>
+  <TR>
+    <TD>
+      <P class="label-key">viewed</P></TD>
+    <TD style="padding-left: 10px;">
+      <P class="label-key"><B>117381 times</B>			                     </P></TD></TR>
+  <TR>
+    <TD>
+      <P class="label-key">active</P></TD>
+    <TD style="padding-left: 10px;">
+      <P class="label-key"><B><A title="2015-05-08 12:35:31Z" class="lastactivity-link" 
+      href="http://stackoverflow.com/questions/196498/how-do-i-load-the-contents-of-a-text-file-into-a-javascript-variable?lastactivity">4 
+      months ago</A></B></P></TD></TR></TBODY></TABLE></DIV>
+<DIV class="module community-bulletin" data-tracker="cb=1">
+<DIV class="related">
+<DIV class="bulletin-title">                    Featured on Meta                 
+</DIV>
+<HR>
+
+<DIV class="spacer">
+<DIV class="bulletin-item-type"><A class="question-hyperlink" href="http://meta.stackexchange.com/questions/266696/can-we-raise-the-bar-for-reputation-for-late-answers-to-enter-the-review-queue">
+<DIV title="Meta Stack Exchange" 
+class="favicon favicon-stackexchangemeta"></DIV></A>             </DIV>
+<DIV class="bulletin-item-content"><A class="question-hyperlink" href="http://meta.stackexchange.com/questions/266696/can-we-raise-the-bar-for-reputation-for-late-answers-to-enter-the-review-queue">Can 
+we raise the bar for reputation for late answers to enter the review queue?</A>  
+               </DIV><BR class="cbt"></DIV>
+<DIV class="spacer">
+<DIV class="bulletin-item-type"><A class="question-hyperlink" href="http://meta.stackoverflow.com/questions/306213/warlords-of-documentation-your-questions-answered">
+<DIV title="Meta Stack Overflow" 
+class="favicon favicon-stackoverflowmeta"></DIV></A>             </DIV>
+<DIV class="bulletin-item-content"><A class="question-hyperlink" href="http://meta.stackoverflow.com/questions/306213/warlords-of-documentation-your-questions-answered">Warlords 
+of Documentation: Your Quest(ions Answered)</A>                 </DIV><BR class="cbt"></DIV>
+<DIV class="bulletin-title">                    Hot Meta Posts                 
+</DIV>
+<HR>
+
+<DIV class="spacer">
+<DIV class="bulletin-item-type"><SPAN 
+title="Vote score (upvotes - downvotes)">18</SPAN>             </DIV>
+<DIV class="bulletin-item-content"><A class="question-hyperlink" href="http://meta.stackoverflow.com/questions/306980/user-suggesting-needless-edits">User 
+suggesting needless edits</A>                 </DIV><BR class="cbt"></DIV>
+<DIV class="spacer">
+<DIV class="bulletin-item-type"><SPAN 
+title="Vote score (upvotes - downvotes)">36</SPAN>             </DIV>
+<DIV class="bulletin-item-content"><A title="If Jon Skeet never used Stack Overflow again, how long until he gets less than 200 rep in a day?" 
+class="question-hyperlink" href="http://meta.stackoverflow.com/questions/307024/if-jon-skeet-never-used-stack-overflow-again-how-long-until-he-gets-less-than-2">If 
+Jon Skeet never used Stack Overflow again, how long until he gets less tha…</A>  
+               </DIV><BR class="cbt"></DIV></DIV></DIV>
+<DIV class="everyonelovesstackoverflow" id="careers2"></DIV>
+<DIV id="hireme">
+<SCRIPT>
+window.careers_adurl="//careers.stackoverflow.com/gethired/companyjs",window.careers_cssurl="//cdn-careers.sstatic.net/careers/gethired/company.min.css?v=b7dd614a01cc",window.careers_cssurl2="//cdn-careers.sstatic.net/careers/gethired/sidebar.min.css?v=19f7c7921388",window.careers_adselector="#hireme",StackExchange.ready(function(){var e="//cdn-careers.sstatic.net/careers/gethired/company-loader.min.js?v=447904e1be32";$.ajax({url:e,dataType:"script",cache:!1})});(function(){function f(t,r,f,e){var s=(r.cl||[]).join(" "),o=i.getElementById(t);o&&(s&&(o.className+=" "+s),o.innerHTML=r.cn.replace("&pt=0","&pt="+(e||"0")),o.onmousedown=function(t){var i,s,e,h,c,l;for(console.log(),i=t.target;i.tagName!=="A"&&i!==o;)i=i.parentNode;if(i!=o){for(s=n.enc,e=f,r.an&&(e+="?an="+r.an),h=0;h<i.attributes.length;++h)c=i.attributes[h],l=c.name.match(/^data-(.*)$/),l&&(e+="&"+s(l[1])+"="+s(c.value));e+="&utm="+s(u+r.utm);i.href=e}})}function e(){return[].map.call(n.qsa(".post-taglist .post-tag"),function(n){return n.innerText}).join(";")||null}var t=window,i=document,r=i.getElementsByTagName("head")[0],u="&utm_source="+location.hostname+"&utm_medium=ad&utm_campaign=",n={doc:i,head:r,enc:encodeURIComponent,dec:decodeURIComponent,se:t.StackExchange,ts:function(){return(new Date).getTime()},st:setTimeout,ct:clearTimeout,qsa:function(n){return document.querySelectorAll(n)}};n.as=function(n){var t=i.createElement("link");t.type="text/css";t.rel="stylesheet";t.href=n;r.appendChild(t)};n.ls=function(n,t,u){var f=i.createElement("script"),e=!1;f.async=!0;f.src=n;t&&(f.onload=f.onreadystatechange=function(){e||this.readyState&&this.readyState!=="loaded"&&this.readyState!=="complete"||(e=!0,t(f),f.onload=f.onreadystatechange=null,u&&f.parentNode.removeChild(f))});r.appendChild(f)};n.init=function(i){function o(){i.st.forEach(n.as);u.forEach(function(n){f(n,i.cr[n],r,e)});typeof t.clc_after_init=="function"&&t.clc_after_init()}var u=Object.keys(i.cr),r="//"+i.h+i.ct,e=n.cps?n.ts()-n.cps:0;i.an&&(r+="?an="+i.an);o()};n.lo=function(i){var u,f=t.location.hash,s=n.dec,r=n.se,o;i=i||{};switch(f){case"#large":opts.l=1;break;case"#abort":opts.abort=1;break;default:f.length>0&&f.substr(1).split("&").forEach(function(n){var t=n.split("=",2);this[s(t[0])]=s(t[1])},i)}return o=i.ac||i.accountid||r&&r.options&&r.options.user&&r.options.user.accountId,o&&(i.ac=o),i.tags||(u=e(),u&&(i.tags=u)),i};n.o2q=function(t,i){var r=n.enc;return Object.keys(t).filter(function(n){return i.indexOf(n)!==-1}).map(function(n){return r(n)+"="+r(t[n])}).join("&")};n.load=function(i,r,u){n.ls(i+"?"+n.o2q(r,u),function(){typeof t.clc_loaded=="function"&&t.clc_loaded()});n.cps=n.ts()};n.el=function(t){var i=n.qsa(t);return i.length>0?i[0]:null};n.hc=function(n){return n&&n.innerHTML&&n.innerHTML.replace(/\s+/g,"").length>0};n.wfc=function(t,i,r,u){function c(){n.hc(s)?(f(o),f(e),u(!0)):e=h(c,i)}function l(){f(e);u(!1)}var s=n.el(t),h=n.st,f=n.ct,o,e;if(s!==null)return c(),r&&(o=h(l,r)),function(){e&&f(e);o&&f(o)}};t.clc=n})();;(function(n){var r=window,t=r.clc,i=t.lo({d:"hireme",lt:"careers1",lb:"careers3"});i.abort||t.load(n.adurl,i,["d","lt","lb","ip","ac","eng","prov","tags","theme","cp"])}).call(null, {"adurl":"//clc.stackoverflow.com/cp/p.js"});            </SCRIPT>
+         </DIV>
+<DIV class="module sidebar-linked">
+<H4 id="h-linked">Linked</H4>
+<DIV class="linked" data-tracker="lq=1">
+<DIV class="spacer"><A title="Vote score (upvotes - downvotes)" href="http://stackoverflow.com/q/25439125">
+<DIV class="answer-votes answered-accepted default">0</DIV></A>	 <A class="question-hyperlink" 
+href="http://stackoverflow.com/questions/25439125/include-txt-file-in-existing-javascript-function">Include 
+.txt file in existing javascript function</A> </DIV>
+<DIV class="spacer"><A title="Vote score (upvotes - downvotes)" href="http://stackoverflow.com/q/32445665">
+<DIV class="answer-votes answered-accepted default">1</DIV></A>	 <A class="question-hyperlink" 
+href="http://stackoverflow.com/questions/32445665/reading-string-from-file-javascript">Reading 
+string from file: Javascript?</A> </DIV>
+<DIV class="spacer"><A title="Vote score (upvotes - downvotes)" href="http://stackoverflow.com/q/6348207">
+<DIV class="answer-votes answered-accepted default">4</DIV></A>	 <A class="question-hyperlink" 
+href="http://stackoverflow.com/questions/6348207/making-a-paragraph-in-html-contain-a-text-from-a-file">making 
+a paragraph in html contain a text from a file</A> </DIV>
+<DIV class="spacer"><A title="Vote score (upvotes - downvotes)" href="http://stackoverflow.com/q/4385380">
+<DIV class="answer-votes answered-accepted default">2</DIV></A>	 <A class="question-hyperlink" 
+href="http://stackoverflow.com/questions/4385380/how-to-access-file-in-javascript">how 
+to access file in javascript?</A> </DIV>
+<DIV class="spacer"><A title="Vote score (upvotes - downvotes)" href="http://stackoverflow.com/q/17453848">
+<DIV class="answer-votes answered-accepted default">2</DIV></A>	 <A class="question-hyperlink" 
+href="http://stackoverflow.com/questions/17453848/is-there-a-way-to-import-strings-from-a-text-file-in-javascript-meteor">Is 
+there a way to import strings from a text file in javascript, meteor?</A> </DIV>
+<DIV class="spacer"><A title="Vote score (upvotes - downvotes)" href="http://stackoverflow.com/q/18435836">
+<DIV class="answer-votes answered-accepted default">1</DIV></A>	 <A class="question-hyperlink" 
+href="http://stackoverflow.com/questions/18435836/loading-text-file-into-javascript-array">Loading 
+text file into javascript array</A> </DIV>
+<DIV class="spacer"><A title="Vote score (upvotes - downvotes)" href="http://stackoverflow.com/q/27840222">
+<DIV class="answer-votes answered-accepted default">0</DIV></A>	 <A class="question-hyperlink" 
+href="http://stackoverflow.com/questions/27840222/how-can-i-load-the-contents-of-a-small-text-file-into-a-javascript-var-wo-jquery">How 
+can I load the contents of a small text file into a javascript var 
+wo/JQuery?</A> </DIV>
+<DIV class="spacer"><A title="Vote score (upvotes - downvotes)" href="http://stackoverflow.com/q/14891499">
+<DIV class="answer-votes answered-accepted default">0</DIV></A>	 <A class="question-hyperlink" 
+href="http://stackoverflow.com/questions/14891499/unable-to-read-the-full-content-of-the-file-in-javascript">unable 
+to read the full content of the file in javascript</A> </DIV>
+<DIV class="spacer"><A title="Vote score (upvotes - downvotes)" href="http://stackoverflow.com/q/30461459">
+<DIV class="answer-votes  default">0</DIV></A>	 <A class="question-hyperlink" 
+href="http://stackoverflow.com/questions/30461459/flash-cc-html5-canvas-load-from-file-database">Flash 
+CC HTML5 Canvas load from file/database</A> </DIV>
+<DIV class="spacer"><A title="Vote score (upvotes - downvotes)" href="http://stackoverflow.com/q/26047996">
+<DIV class="answer-votes  default">1</DIV></A>	 <A class="question-hyperlink" 
+href="http://stackoverflow.com/questions/26047996/pasting-the-contents-of-a-paragraph-into-a-text-area-from-a-txt-file">Pasting 
+the contents of a paragraph into a text area from a .txt file</A> </DIV>
+<DIV class="spacer more"><A href="http://stackoverflow.com/questions/linked/196498">see 
+more linked questions…</A>			 </DIV></DIV></DIV>
+<DIV class="module sidebar-related">
+<H4 id="h-related">Related</H4>
+<DIV class="related js-gps-related-questions" data-tracker="rq=1">
+<DIV class="spacer"><A title="Vote score (upvotes - downvotes)" href="http://stackoverflow.com/q/111102">
+<DIV class="answer-votes answered-accepted extra-large">4501     </DIV></A><A 
+class="question-hyperlink" href="http://stackoverflow.com/questions/111102/how-do-javascript-closures-work">How 
+do JavaScript closures work?</A> </DIV>
+<DIV class="spacer"><A title="Vote score (upvotes - downvotes)" href="http://stackoverflow.com/q/166221">
+<DIV class="answer-votes extra-large">1657     </DIV></A><A class="question-hyperlink" 
+href="http://stackoverflow.com/questions/166221/how-can-i-upload-files-asynchronously">How 
+can I upload files asynchronously?</A> </DIV>
+<DIV class="spacer"><A title="Vote score (upvotes - downvotes)" href="http://stackoverflow.com/q/208105">
+<DIV class="answer-votes answered-accepted extra-large">2170     </DIV></A><A 
+class="question-hyperlink" href="http://stackoverflow.com/questions/208105/how-to-remove-a-property-from-a-javascript-object">How 
+to remove a property from a JavaScript object</A> </DIV>
+<DIV class="spacer"><A title="Vote score (upvotes - downvotes)" href="http://stackoverflow.com/q/221294">
+<DIV class="answer-votes answered-accepted extra-large">1905     </DIV></A><A 
+class="question-hyperlink" href="http://stackoverflow.com/questions/221294/how-do-you-get-a-timestamp-in-javascript">How 
+do you get a timestamp in JavaScript?</A> </DIV>
+<DIV class="spacer"><A title="Vote score (upvotes - downvotes)" href="http://stackoverflow.com/q/364952">
+<DIV class="answer-votes answered-accepted large">497     </DIV></A><A class="question-hyperlink" 
+href="http://stackoverflow.com/questions/364952/jquery-javascript-accessing-contents-of-an-iframe">jQuery/JavaScript: 
+accessing contents of an iframe</A> </DIV>
+<DIV class="spacer"><A title="Vote score (upvotes - downvotes)" href="http://stackoverflow.com/q/494035">
+<DIV class="answer-votes answered-accepted large">474     </DIV></A><A class="question-hyperlink" 
+href="http://stackoverflow.com/questions/494035/how-do-you-pass-a-variable-to-a-regular-expression-javascript">How 
+do you pass a variable to a Regular Expression JavaScript?</A> </DIV>
+<DIV class="spacer"><A title="Vote score (upvotes - downvotes)" href="http://stackoverflow.com/q/901115">
+<DIV class="answer-votes answered-accepted extra-large">2707     </DIV></A><A 
+class="question-hyperlink" href="http://stackoverflow.com/questions/901115/how-can-i-get-query-string-values-in-javascript">How 
+can I get query string values in JavaScript?</A> </DIV>
+<DIV class="spacer"><A title="Vote score (upvotes - downvotes)" href="http://stackoverflow.com/q/950087">
+<DIV class="answer-votes answered-accepted extra-large">2208     </DIV></A><A 
+class="question-hyperlink" href="http://stackoverflow.com/questions/950087/include-a-javascript-file-in-another-javascript-file">Include 
+a JavaScript file in another JavaScript file?</A> </DIV>
+<DIV class="spacer"><A title="Vote score (upvotes - downvotes)" href="http://stackoverflow.com/q/1232040">
+<DIV class="answer-votes answered-accepted extra-large">1178     </DIV></A><A 
+class="question-hyperlink" href="http://stackoverflow.com/questions/1232040/how-to-empty-an-array-in-javascript">How 
+to empty an array in JavaScript?</A> </DIV>
+<DIV class="spacer"><A title="Vote score (upvotes - downvotes)" href="http://stackoverflow.com/q/1661197">
+<DIV class="answer-votes answered-accepted large">402     </DIV></A><A class="question-hyperlink" 
+href="http://stackoverflow.com/questions/1661197/what-characters-are-valid-for-javascript-variable-names">What 
+characters are valid for JavaScript variable names?</A> </DIV></DIV></DIV>
+<DIV class="module" id="hot-network-questions">
+<H4><A class="js-gps-track" href="http://stackexchange.com/questions?tab=hot" 
+data-gps-track="posts_hot_network.click({ item_type:1, location:11 })">          
+  Hot Network Questions         </A>     </H4>
+<UL>
+  <LI>
+  <DIV title="Stack Overflow" class="favicon favicon-stackoverflow"></DIV><A 
+  class="js-gps-track" href="http://stackoverflow.com/questions/32850697/why-is-stdequal-to-useful" 
+  data-gps-track="site.switch({ item_type:11, target_site:1 }); posts_hot_network.click({ item_type:2, location:11 })"> 
+                     Why is std::equal_to useful?                 </A>           
+    </LI>
+  <LI>
+  <DIV title="Mathematics Stack Exchange" class="favicon favicon-math"></DIV><A 
+  class="js-gps-track" href="http://math.stackexchange.com/questions/1455826/why-can-there-be-an-infinite-difference-between-two-functions-as-x-grows-large" 
+  data-gps-track="site.switch({ item_type:11, target_site:69 }); posts_hot_network.click({ item_type:2, location:11 })"> 
+                     Why can there be an infinite difference between two 
+  functions as x grows large, but a ratio of 1?                 </A>             
+  </LI>
+  <LI>
+  <DIV title="User Experience Stack Exchange" 
+  class="favicon favicon-ux"></DIV><A class="js-gps-track" href="http://ux.stackexchange.com/questions/85164/should-promotional-codes-automatically-be-deleted" 
+  data-gps-track="site.switch({ item_type:11, target_site:102 }); posts_hot_network.click({ item_type:2, location:11 })"> 
+                     Should promotional codes automatically be deleted?          
+         </A>             </LI>
+  <LI>
+  <DIV title="Mathematics Stack Exchange" class="favicon favicon-math"></DIV><A 
+  class="js-gps-track" href="http://math.stackexchange.com/questions/1455968/counting-numbers-in-a-sequence-explain-add-1-before-youre-done-rule" 
+  data-gps-track="site.switch({ item_type:11, target_site:69 }); posts_hot_network.click({ item_type:2, location:11 })"> 
+                     Counting numbers in a sequence - explain "Add 1 before 
+  you're done" rule                 </A>             </LI>
+  <LI>
+  <DIV title="Puzzling Stack Exchange" class="favicon favicon-puzzling"></DIV><A 
+  class="js-gps-track" href="http://puzzling.stackexchange.com/questions/22711/i-am-one-out-of-fourteen" 
+  data-gps-track="site.switch({ item_type:11, target_site:559 }); posts_hot_network.click({ item_type:2, location:11 })"> 
+                     I am One Out of Fourteen                 </A>             
+  </LI>
+  <LI class="dno js-hidden">
+  <DIV title="Stack Overflow" class="favicon favicon-stackoverflow"></DIV><A 
+  class="js-gps-track" href="http://stackoverflow.com/questions/32851184/what-is-the-logic-behind-these-two-lines-of-tricky-c-code" 
+  data-gps-track="site.switch({ item_type:11, target_site:1 }); posts_hot_network.click({ item_type:2, location:11 })"> 
+                     What is the logic behind these two lines of tricky C++ 
+  code?                 </A>             </LI>
+  <LI class="dno js-hidden">
+  <DIV title="English Language &amp; Usage Stack Exchange" class="favicon favicon-english"></DIV><A 
+  class="js-gps-track" href="http://english.stackexchange.com/questions/276384/word-for-sleeping-somewhere-for-one-night" 
+  data-gps-track="site.switch({ item_type:11, target_site:97 }); posts_hot_network.click({ item_type:2, location:11 })"> 
+                     Word for sleeping somewhere for one night                 
+  </A>             </LI>
+  <LI class="dno js-hidden">
+  <DIV title="English Language &amp; Usage Stack Exchange" class="favicon favicon-english"></DIV><A 
+  class="js-gps-track" href="http://english.stackexchange.com/questions/276494/a-term-encompassing-both-salary-and-wages" 
+  data-gps-track="site.switch({ item_type:11, target_site:97 }); posts_hot_network.click({ item_type:2, location:11 })"> 
+                     A term encompassing both 'salary' and 'wage(s)'             
+      </A>             </LI>
+  <LI class="dno js-hidden">
+  <DIV title="Mathematica Stack Exchange" 
+  class="favicon favicon-mathematica"></DIV><A class="js-gps-track" href="http://mathematica.stackexchange.com/questions/95792/not-getting-expected-result-from-numerical-evaluation-of-solution-given-by-solve" 
+  data-gps-track="site.switch({ item_type:11, target_site:387 }); posts_hot_network.click({ item_type:2, location:11 })"> 
+                     Not getting expected result from numerical evaluation of 
+  solution given by Solve                 </A>             </LI>
+  <LI class="dno js-hidden">
+  <DIV title="Philosophy Stack Exchange" 
+  class="favicon favicon-philosophy"></DIV><A class="js-gps-track" href="http://philosophy.stackexchange.com/questions/28401/name-of-a-fallacy-excluding-an-outgroup-from-discussing-an-ingroups-issue" 
+  data-gps-track="site.switch({ item_type:11, target_site:265 }); posts_hot_network.click({ item_type:2, location:11 })"> 
+                     Name of a fallacy excluding an outgroup from discussing an 
+  ingroup's issue?                 </A>             </LI>
+  <LI class="dno js-hidden">
+  <DIV title="English Language Learners Stack Exchange" class="favicon favicon-ell"></DIV><A 
+  class="js-gps-track" href="http://ell.stackexchange.com/questions/69381/what-do-you-call-it-when-you-have-a-number-multiplied-by-10" 
+  data-gps-track="site.switch({ item_type:11, target_site:481 }); posts_hot_network.click({ item_type:2, location:11 })"> 
+                     What do you call it when you have a number multiplied by 
+  10?                 </A>             </LI>
+  <LI class="dno js-hidden">
+  <DIV title="Science Fiction &amp; Fantasy Stack Exchange" class="favicon favicon-scifi"></DIV><A 
+  class="js-gps-track" href="http://scifi.stackexchange.com/questions/103991/when-does-marty-travel-to-in-the-future" 
+  data-gps-track="site.switch({ item_type:11, target_site:186 }); posts_hot_network.click({ item_type:2, location:11 })"> 
+                     When does Marty Travel to in the future?                 
+  </A>             </LI>
+  <LI class="dno js-hidden">
+  <DIV title="The Great Outdoors Stack Exchange" class="favicon favicon-outdoors"></DIV><A 
+  class="js-gps-track" href="http://outdoors.stackexchange.com/questions/9548/does-a-bird-really-abandon-the-nest-will-similar-birds-re-use-it" 
+  data-gps-track="site.switch({ item_type:11, target_site:395 }); posts_hot_network.click({ item_type:2, location:11 })"> 
+                     Does a bird really abandon the nest? Will similar birds 
+  re-use it?                 </A>             </LI>
+  <LI class="dno js-hidden">
+  <DIV title="Ask Ubuntu" class="favicon favicon-askubuntu"></DIV><A class="js-gps-track" 
+  href="http://askubuntu.com/questions/679810/read-the-table-after-a-specific-line-and-count-occrences-with-awk" 
+  data-gps-track="site.switch({ item_type:11, target_site:89 }); posts_hot_network.click({ item_type:2, location:11 })"> 
+                     Read the table after a specific line and count occrences 
+  with awk                 </A>             </LI>
+  <LI class="dno js-hidden">
+  <DIV title="Code Review Stack Exchange" 
+  class="favicon favicon-codereview"></DIV><A class="js-gps-track" href="http://codereview.stackexchange.com/questions/106071/search-in-a-2d-array-to-find-if-there-is-a-row-or-a-column-that-contains-the-wor" 
+  data-gps-track="site.switch({ item_type:11, target_site:196 }); posts_hot_network.click({ item_type:2, location:11 })"> 
+                     Search in a 2D Array to find if there is a row or a column 
+  that contains the word “error” in every cell of that row or column             
+      </A>             </LI>
+  <LI class="dno js-hidden">
+  <DIV title="Network Engineering Stack Exchange" class="favicon favicon-networkengineering"></DIV><A 
+  class="js-gps-track" href="http://networkengineering.stackexchange.com/questions/22913/whats-the-difference-between-vtp-and-dtp" 
+  data-gps-track="site.switch({ item_type:11, target_site:496 }); posts_hot_network.click({ item_type:2, location:11 })"> 
+                     Whats the difference between VTP and DTP                 
+  </A>             </LI>
+  <LI class="dno js-hidden">
+  <DIV title="Aviation Stack Exchange" class="favicon favicon-aviation"></DIV><A 
+  class="js-gps-track" href="http://aviation.stackexchange.com/questions/21352/how-do-drones-overcome-latency" 
+  data-gps-track="site.switch({ item_type:11, target_site:528 }); posts_hot_network.click({ item_type:2, location:11 })"> 
+                     How do drones overcome latency?                 </A>        
+       </LI>
+  <LI class="dno js-hidden">
+  <DIV title="Electrical Engineering Stack Exchange" class="favicon favicon-electronics"></DIV><A 
+  class="js-gps-track" href="http://electronics.stackexchange.com/questions/192703/why-do-i-need-a-page-directory" 
+  data-gps-track="site.switch({ item_type:11, target_site:135 }); posts_hot_network.click({ item_type:2, location:11 })"> 
+                     Why do I need a page directory?                 </A>        
+       </LI>
+  <LI class="dno js-hidden">
+  <DIV title="Personal Finance &amp; Money Stack Exchange" class="favicon favicon-money"></DIV><A 
+  class="js-gps-track" href="http://money.stackexchange.com/questions/54393/should-i-continue-to-invest-in-an-sp-500-index-fund" 
+  data-gps-track="site.switch({ item_type:11, target_site:93 }); posts_hot_network.click({ item_type:2, location:11 })"> 
+                     Should I continue to invest in an S&amp;P 500 index fund?   
+                </A>             </LI>
+  <LI class="dno js-hidden">
+  <DIV title="Science Fiction &amp; Fantasy Stack Exchange" class="favicon favicon-scifi"></DIV><A 
+  class="js-gps-track" href="http://scifi.stackexchange.com/questions/103993/why-would-gandalf-as-ring-lord-be-worse-than-sauron" 
+  data-gps-track="site.switch({ item_type:11, target_site:186 }); posts_hot_network.click({ item_type:2, location:11 })"> 
+                     Why would Gandalf (as ring-lord) be worse than Sauron?      
+             </A>             </LI>
+  <LI class="dno js-hidden">
+  <DIV title="Photography Stack Exchange" class="favicon favicon-photo"></DIV><A 
+  class="js-gps-track" href="http://photo.stackexchange.com/questions/69587/are-there-cameras-that-can-photograph-wifi-wlan-or-mobilephone-radiation" 
+  data-gps-track="site.switch({ item_type:11, target_site:61 }); posts_hot_network.click({ item_type:2, location:11 })"> 
+                     Are there cameras that can photograph wifi/wlan or 
+  mobilephone radiation?                 </A>             </LI>
+  <LI class="dno js-hidden">
+  <DIV title="Programming Puzzles &amp; Code Golf Stack Exchange" class="favicon favicon-codegolf"></DIV><A 
+  class="js-gps-track" href="http://codegolf.stackexchange.com/questions/58615/1-2-fizz-4-buzz" 
+  data-gps-track="site.switch({ item_type:11, target_site:200 }); posts_hot_network.click({ item_type:2, location:11 })"> 
+                     1, 2, Fizz, 4, Buzz                 </A>             </LI>
+  <LI class="dno js-hidden">
+  <DIV title="Programmers Stack Exchange" 
+  class="favicon favicon-programmers"></DIV><A class="js-gps-track" href="http://programmers.stackexchange.com/questions/298564/is-there-a-specific-reason-for-the-poor-readability-of-regular-expression-syntax" 
+  data-gps-track="site.switch({ item_type:11, target_site:131 }); posts_hot_network.click({ item_type:2, location:11 })"> 
+                     Is there a specific reason for the poor readability of 
+  regular expression syntax design?                 </A>             </LI>
+  <LI class="dno js-hidden">
+  <DIV title="Physics Stack Exchange" class="favicon favicon-physics"></DIV><A 
+  class="js-gps-track" href="http://physics.stackexchange.com/questions/209648/what-happens-when-anti-matter-falls-into-a-black-hole" 
+  data-gps-track="site.switch({ item_type:11, target_site:151 }); posts_hot_network.click({ item_type:2, location:11 })"> 
+                     What happens when anti-matter falls into a black hole?      
+             </A>             </LI></UL><A class="show-more js-show-more js-gps-track" 
+href="http://stackoverflow.com/questions/196498/how-do-i-load-the-contents-of-a-text-file-into-a-javascript-variable#" 
+data-gps-track="posts_hot_network.click({ item_type:3, location:11 })">          
+  more hot questions         </A> </DIV></DIV>
+<DIV id="feed-link">
+<DIV id="feed-link-text"><A title="feed of this question and its answers" href="http://stackoverflow.com/feeds/question/196498"><SPAN 
+class="feed-icon"></SPAN>question feed         </A>     </DIV></DIV>
+<SCRIPT>
+StackExchange.ready(function(){$.get('/posts/196498/ivc/4276');});
+</SCRIPT>
+ <NOSCRIPT>    &lt;div&gt;&lt;img src="/posts/196498/ivc/4276" class="dno" 
+alt="" width="0" height="0"&gt;&lt;/div&gt; </NOSCRIPT>
+<DIV id="prettify-lang" style="display: none;">default</DIV></DIV>
+<SCRIPT>
+        $('#wmd-input').one("keypress", function() {
+            $.ajax({
+                url: '/accounts/email-settings-form',
+                cache: false,
+                success: function(data) {
+                    $('#submit-button').parent().prepend(data);
+                }
+            });
+        });
+
+    </SCRIPT>
+         </DIV></DIV>
+<DIV class="categories" id="footer">
+<DIV class="footerwrap">
+<DIV id="footer-menu">
+<DIV class="top-footer-links"><A href="http://stackoverflow.com/tour">tour</A>   
+                  <A href="http://stackoverflow.com/help">help</A>               
+      <A href="http://blog.stackoverflow.com/?blb=1">blog</A>                    
+     <A href="http://chat.stackoverflow.com/">chat</A>                     <A 
+href="http://data.stackexchange.com/">data</A>                     <A href="http://stackexchange.com/legal">legal</A> 
+                    <A 
+href="http://stackexchange.com/legal/privacy-policy">privacy policy</A>          
+           <A href="http://stackexchange.com/work-here">work here</A>            
+         <A href="http://stackexchange.com/mediakit">advertising info</A>        
+             <A onclick='StackExchange.switchMobile("on")'>mobile</A>            
+         <B><A href="http://stackoverflow.com/contact">contact us</A></B>        
+                 <B><A href="http://meta.stackoverflow.com/">feedback</A></B>    
+                                 </DIV>
+<DIV id="footer-sites">
+<TABLE>
+  <TBODY>
+  <TR>
+    <TH colspan="3">                Technology             </TH>
+    <TH>                Life / Arts             </TH>
+    <TH>                Culture / Recreation             </TH>
+    <TH>                Science             </TH>
+    <TH>                Other             </TH></TR>
+  <TR>
+    <TD>
+      <OL>
+        <LI><A title="professional and enthusiast programmers" href="http://stackoverflow.com/">Stack 
+        Overflow</A></LI>
+        <LI><A title="system and network administrators" href="http://serverfault.com/">Server 
+        Fault</A></LI>
+        <LI><A title="computer enthusiasts and power users" href="http://superuser.com/">Super 
+        User</A></LI>
+        <LI><A title="power users of web applications" href="http://webapps.stackexchange.com/">Web 
+        Applications</A></LI>
+        <LI><A title="Ubuntu users and developers" 
+        href="http://askubuntu.com/">Ask Ubuntu</A></LI>
+        <LI><A title="pro webmasters" href="http://webmasters.stackexchange.com/">Webmasters</A></LI>
+        <LI><A title="professional and independent game developers" href="http://gamedev.stackexchange.com/">Game 
+        Development</A></LI>
+        <LI><A title="users of TeX, LaTeX, ConTeXt, and related typesetting systems" 
+        href="http://tex.stackexchange.com/">TeX - LaTeX</A></LI></OL></TD>
+    <TD>
+      <OL>
+        <LI><A title="professional programmers interested in conceptual questions about software development" 
+        href="http://programmers.stackexchange.com/">Programmers</A></LI>
+        <LI><A title="users of Linux, FreeBSD and other Un*x-like operating systems" 
+        href="http://unix.stackexchange.com/">Unix &amp; Linux</A></LI>
+        <LI><A title="power users of Apple hardware and software" href="http://apple.stackexchange.com/">Ask 
+        Different (Apple)</A></LI>
+        <LI><A title="WordPress developers and administrators" href="http://wordpress.stackexchange.com/">WordPress 
+        Development</A></LI>
+        <LI><A title="cartographers, geographers and GIS professionals" href="http://gis.stackexchange.com/">Geographic 
+        Information Systems</A></LI>
+        <LI><A title="electronics and electrical engineering professionals, students, and enthusiasts" 
+        href="http://electronics.stackexchange.com/">Electrical 
+        Engineering</A></LI>
+        <LI><A title="enthusiasts and power users of the Android operating system" 
+        href="http://android.stackexchange.com/">Android Enthusiasts</A></LI>
+        <LI><A title="information security professionals" href="http://security.stackexchange.com/">Information 
+        Security</A></LI></OL></TD>
+    <TD>
+      <OL>
+        <LI><A title="database professionals who wish to improve their database skills and learn from others in the community" 
+        href="http://dba.stackexchange.com/">Database Administrators</A></LI>
+        <LI><A title="Drupal developers and administrators" href="http://drupal.stackexchange.com/">Drupal 
+        Answers</A></LI>
+        <LI><A title="SharePoint enthusiasts" href="http://sharepoint.stackexchange.com/">SharePoint</A></LI>
+        <LI><A title="user experience researchers and experts" href="http://ux.stackexchange.com/">User 
+        Experience</A></LI>
+        <LI><A title="users of Mathematica" href="http://mathematica.stackexchange.com/">Mathematica</A></LI>
+        <LI><A title="Salesforce administrators, implementation experts, developers and anybody in-between" 
+        href="http://salesforce.stackexchange.com/">Salesforce</A></LI>
+        <LI><A title="administrators, end users, developers and designers for ExpressionEngine® CMS" 
+        href="http://expressionengine.stackexchange.com/">ExpressionEngine® 
+        Answers</A></LI>
+        <LI><A class="more" href="http://stackexchange.com/sites#technology">    
+                                    more (13)                             </A>   
+                              </LI></OL></TD>
+    <TD>
+      <OL>
+        <LI><A title="professional, enthusiast and amateur photographers" href="http://photo.stackexchange.com/">Photography</A></LI>
+        <LI><A title="science fiction and fantasy enthusiasts" href="http://scifi.stackexchange.com/">Science 
+        Fiction &amp; Fantasy</A></LI>
+        <LI><A title="Graphic Design professionals, students, and enthusiasts" 
+        href="http://graphicdesign.stackexchange.com/">Graphic Design</A></LI>
+        <LI><A title="movie and tv enthusiasts" href="http://movies.stackexchange.com/">Movies 
+        &amp; TV</A></LI>
+        <LI><A title="professional and amateur chefs" href="http://cooking.stackexchange.com/">Seasoned 
+        Advice (cooking)</A></LI>
+        <LI><A title="contractors and serious DIYers" href="http://diy.stackexchange.com/">Home 
+        Improvement</A></LI>
+        <LI><A title="people who want to be financially literate" href="http://money.stackexchange.com/">Personal 
+        Finance &amp; Money</A></LI>
+        <LI><A title="academics and those enrolled in higher education" href="http://academia.stackexchange.com/">Academia</A></LI>
+        <LI><A class="more" href="http://stackexchange.com/sites#lifearts">      
+                                  more (9)                             </A>      
+                           </LI></OL></TD>
+    <TD>
+      <OL>
+        <LI><A title="linguists, etymologists, and serious English language enthusiasts" 
+        href="http://english.stackexchange.com/">English Language &amp; 
+        Usage</A></LI>
+        <LI><A title="scientific skepticism" href="http://skeptics.stackexchange.com/">Skeptics</A></LI>
+        <LI><A title="those who base their lives on Jewish law and tradition and anyone interested in learning more" 
+        href="http://judaism.stackexchange.com/">Mi Yodeya (Judaism)</A></LI>
+        <LI><A title="road warriors and seasoned travelers" href="http://travel.stackexchange.com/">Travel</A></LI>
+        <LI><A title="committed Christians, experts in Christianity and those interested in learning more" 
+        href="http://christianity.stackexchange.com/">Christianity</A></LI>
+        <LI><A title="passionate videogamers on all platforms" href="http://gaming.stackexchange.com/">Arqade 
+        (gaming)</A></LI>
+        <LI><A title="people who build and repair bicycles, people who train cycling, or commute on bicycles" 
+        href="http://bicycles.stackexchange.com/">Bicycles</A></LI>
+        <LI><A title="gamemasters and players of tabletop, paper-and-pencil role-playing games" 
+        href="http://rpg.stackexchange.com/">Role-playing Games</A></LI>
+        <LI><A class="more" href="http://stackexchange.com/sites#culturerecreation"> 
+                                       more (21)                             
+        </A>                         </LI></OL></TD>
+    <TD>
+      <OL>
+        <LI><A title="people studying math at any level and professionals in related fields" 
+        href="http://math.stackexchange.com/">Mathematics</A></LI>
+        <LI><A title="people interested in statistics, machine learning, data analysis, data mining, and data visualization" 
+        href="http://stats.stackexchange.com/">Cross Validated (stats)</A></LI>
+        <LI><A title="theoretical computer scientists and researchers in related fields" 
+        href="http://cstheory.stackexchange.com/">Theoretical Computer 
+        Science</A></LI>
+        <LI><A title="active researchers, academics and students of physics" 
+        href="http://physics.stackexchange.com/">Physics</A></LI>
+        <LI><A title="professional mathematicians" href="http://mathoverflow.net/">MathOverflow</A></LI>
+        <LI><A title="scientists, academics, teachers and students" href="http://chemistry.stackexchange.com/">Chemistry</A></LI>
+        <LI><A title="biology researchers, academics, and students" href="http://biology.stackexchange.com/">Biology</A></LI>
+        <LI><A class="more" href="http://stackexchange.com/sites#science">       
+                                 more (5)                             </A>       
+                          </LI></OL></TD>
+    <TD>
+      <OL>
+        <LI><A title="apps, scripts, and development with the Stack Exchange API" 
+        href="http://stackapps.com/">Stack Apps</A></LI>
+        <LI><A title="meta-discussion of the Stack Exchange family of Q&amp;A websites" 
+        href="http://meta.stackexchange.com/">Meta Stack Exchange</A></LI>
+        <LI><A title="proposing new sites in the Stack Exchange network" href="http://area51.stackexchange.com/">Area 
+        51</A></LI>
+        <LI><A href="http://careers.stackoverflow.com/">Stack Overflow 
+        Careers</A></LI></OL></TD></TR></TBODY></TABLE></DIV></DIV>
+<DIV id="copyright">                site design / logo © 2015 Stack Exchange 
+Inc; user contributions licensed under <A href="http://creativecommons.org/licenses/by-sa/3.0/" 
+rel="license">cc by-sa 3.0</A>                 with <A href="http://blog.stackoverflow.com/2009/06/attribution-required/" 
+rel="license">attribution required</A>             </DIV>
+<DIV id="svnrev">                rev 2015.9.30.2856             
+</DIV></DIV></DIV><NOSCRIPT>        &lt;div id="noscript-warning"&gt;Stack 
+Overflow works best with JavaScript enabled&lt;img 
+src="http://pixel.quantserve.com/pixel/p-c1rF4kxgLUzNc.gif" alt="" 
+class="dno"&gt;&lt;/div&gt;     </NOSCRIPT>     
+<SCRIPT>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () { (i[r].q = i[r].q || []).push(arguments) }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m);
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+        ga('create', 'UA-5620270-1', {'userId': '1479453' });
+                ga('set', 'dimension1', '1479453');                 ga('set', 'dimension2', '|javascript|');         ga('send', 'pageview');
+        var _qevents = _qevents || [],
+            _comscore = _comscore || [];
+        (function () {
+            var ssl='https:'==document.location.protocol,
+                s=document.getElementsByTagName('script')[0],
+                qc=document.createElement('script');
+            qc.async=true;
+            qc.src=(ssl?'https://secure':'http://edge')+'.quantserve.com/quant.js';
+            s.parentNode.insertBefore(qc, s);
+            var sc=document.createElement('script');
+            sc.async=true;
+            sc.src=(ssl?'https://sb':'http://b') + '.scorecardresearch.com/beacon.js';
+            s.parentNode.insertBefore(sc, s);
+        })();
+        _comscore.push({ c1: "2", c2: "17440561" });
+        _qevents.push({ qacct: "p-c1rF4kxgLUzNc" });
+    </SCRIPT>
+                 </BODY></HTML>
