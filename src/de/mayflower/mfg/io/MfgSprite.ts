@@ -1,7 +1,7 @@
 
     /*****************************************************************************
-    *   Specifies all sprites being used.
-    *   A sprite is one image that contains several animation states.
+    *   Specifies all sprites being used in this app.
+    *   Sprites are images that contain several animation frames.
     *
     *   @author     Christopher Stock
     *   @version    0.0.1

@@ -44,7 +44,7 @@
         /** The relative path from index.html where all sounds the app makes use of reside. */
         public      static      PATH_SOUND                                  :string             = "res/sound/";
         /** The relative path from index.html where all 3d model files the app makes use of reside. */
-        public      static      PATH_3DS_MODELS                             :string             = "res/3ds/";
+        public      static      PATH_3DS                                    :string             = "res/3ds/";
 
         /** The vector for the camera position. */
         public      static      CAMERA_POSITION                             :LibVertex          = new LibVertex( 0, 0, 1, 0, 0 );

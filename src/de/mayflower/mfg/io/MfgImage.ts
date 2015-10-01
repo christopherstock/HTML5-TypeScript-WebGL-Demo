@@ -1,6 +1,6 @@
 
     /*****************************************************************************
-    *   Represents the image system that handles all images being used by the app.
+    *   Defines the filenames and IDs of all image resources being used in this app.
     *
     *   @author     Christopher Stock
     *   @version    0.0.1

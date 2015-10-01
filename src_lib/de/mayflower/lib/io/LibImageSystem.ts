@@ -26,8 +26,8 @@
         *   Creates a new instance of the image system.
         *
         *   @param  fileNames           All image-filenames to load.
-        *   @param  callbackFunction   The function to invoke after all images have been loaded.
-        *   @param  debug              The debug context.
+        *   @param  callbackFunction    The function to invoke after all images have been loaded.
+        *   @param  debug               The debug context.
         *****************************************************************************/
         constructor( fileNames:Array<string>, callbackFunction:any, debug:LibDebug )
         {
@@ -64,7 +64,7 @@
             img.src                     = filename;
             img.onload                  = function()
             {
-                instance.onImageLoaded(instance);
+                instance.onImageLoaded();
             };
 
             return img;
@@ -73,7 +73,7 @@
         /*****************************************************************************
         *   This function is invoked each time <b>one</b> image has been fully loaded.
         *****************************************************************************/
-        private onImageLoaded( passing:LibImageSystem )
+        private onImageLoaded()
         {
             ++this.loadedCount;
             this.debug.log( "loaded imgage [" + this.loadedCount + "] / [" + this.fileNames.length + "]" );

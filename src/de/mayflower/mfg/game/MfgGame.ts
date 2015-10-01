@@ -15,6 +15,8 @@
         public          static          imageSystem         :LibImageSystem                 = null;
         /** The sound loading system. */
         public          static          soundSystem         :LibSoundSystem                 = null;
+        /** The 3ds resource loading system. */
+        public          static          res3dsSystem        :LibTextFileSystem              = null;
         /** The game loop mechanism. */
         private         static          mainThread          :LibMainThread                  = null;
         /** The WebGL 3D context. */
@@ -46,16 +48,16 @@
             MfgGame.imageSystem = new LibImageSystem
             (
                 MfgImage.FILE_NAMES,
-                MfgGame.initWhenImagesAreComplete,
+                MfgGame.initWhenImagesAreLoaded,
                 MfgDebug.imageLoader
             );
         }
 
         /*****************************************************************************
         *   This method is invoked when all images are loaded
-        *   and will initialize the remaining stuff.
+        *   and will continue the program.
         *****************************************************************************/
-        private static initWhenImagesAreComplete()
+        private static initWhenImagesAreLoaded()
         {
             //init sprites
             MfgSprite.init();
@@ -64,23 +66,35 @@
             MfgGame.soundSystem = new LibSoundSystem(
                 MfgSound.FILE_NAMES
             );
-            if ( !MfgDebugSettings.DEBUG_DISABLE_SOUNDS ) MfgGame.soundSystem.playSound( MfgSound.SOUND_BG_PD_INVESTIGATION_X );
 
-
-
-
-/*
-            //load all 3d models ??
-            var client = new XMLHttpRequest();
-            client.open( 'GET', MfgSettings.PATH_3DS_MODELS + '/aChairOffice1.ase' );
-            client.onreadystatechange = function()
+            //play the bg sound NOW!
+            if ( !MfgDebugSettings.DEBUG_DISABLE_SOUNDS )
             {
-                alert( client.responseText );
-            };
-            client.send();
-*/
+                MfgGame.soundSystem.playSound( MfgSound.SOUND_BG_PD_INVESTIGATION_X );
+            }
 
 
+MfgDebug.textLoader.log( "Now loading all 3ds txt files ..." );
+
+            //load 3ds model files
+            MfgGame.res3dsSystem = new LibTextFileSystem(
+                Mfg3ds.FILE_NAMES,
+                MfgGame.initWhen3dsModelsAreLoaded,
+                MfgDebug.textLoader
+            );
+        }
+
+        /*****************************************************************************
+        *   This method is invoked when all 3ds models are loaded
+        *   and will continue the program.
+        *****************************************************************************/
+        private static initWhen3dsModelsAreLoaded()
+        {
+
+            MfgDebug.textLoader.log( "All 3ds txt files SUCCESSFULLY loaded !" );
+
+
+//            MfgGame.testLoading3ds();
 
             //init level data
             MfgGame.level = new MfgLevelData();
@@ -108,5 +122,39 @@
 
             //paint game
             MfgGame.game3D.draw();
+        }
+
+        /*****************************************************************************
+        *   Loads all external 3ds model files.
+        *****************************************************************************/
+        public static unreferencedTestLoading3ds()
+        {
+            var client = null;
+
+            //check browser support for external file requests
+            if ( "ActiveXObject" in window )
+            {
+                //internet explorer
+                client = new ActiveXObject( "Microsoft.XMLHTTP" );
+            }
+            else
+            {
+                //firefox
+                client = new XMLHttpRequest();
+            }
+
+            client.open( 'GET', MfgSettings.PATH_3DS + 'officeChair.ase' );
+            client.onreadystatechange = function( event:Event )
+            {
+                console.log( "onReadyStateChange ... " + client.readyState );
+
+                //this is horrible ...
+                if ( client.readyState == 4 )
+                {
+                    console.log( "Data is here!" );
+                    console.log( client.responseText );
+                }
+            };
+            client.send();
         }
     }

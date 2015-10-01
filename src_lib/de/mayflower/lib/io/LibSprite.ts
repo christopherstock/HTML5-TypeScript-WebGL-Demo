@@ -1,7 +1,7 @@
 
     /*****************************************************************************
-    *   Represents a 2d sprite - An image that consists of different frames.
-    *   and is used to display an animation.
+    *   Represents a 2D sprite - An image that consists of different frames
+    *   and is used for displaying an animation.
     *
     *   @author     Christopher Stock
     *   @version    0.0.1

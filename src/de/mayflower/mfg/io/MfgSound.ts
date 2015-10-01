@@ -1,6 +1,6 @@
 
     /*****************************************************************************
-    *   Manages all sound effects.
+    *   Defines the filenames and IDs of all sound resources being used in this app.
     *
     *   @author     Christopher Stock
     *   @version    0.0.1
