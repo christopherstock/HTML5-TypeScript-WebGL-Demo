@@ -36,6 +36,8 @@
         public      static      PLAYER_SPEED_LOOK_UP_DOWN                   :number             = 2.5;
         /** The player's maximum looking up/down in degrees. */
         public      static      PLAYER_MAX_LOOK_UP_DOWN                     :number             = 60.0;
+        /** The player's speed for centering the up/down view aim in degrees per tick. */
+        public      static      PLAYER_SPEED_CENTER_VIEW_AIM                :number             = 5.0;
 
         /** The relative path from index.html where all images the app makes use of reside. */
         public      static      PATH_IMAGE                                  :string             = "res/image/";

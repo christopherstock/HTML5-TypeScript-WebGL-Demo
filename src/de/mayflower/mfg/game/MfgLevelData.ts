@@ -13,7 +13,9 @@
         /** All meshes for level 1. */
         private     level1Meshes                    :Array<LibMesh>         =
         [
-            MfgLevelDataFactory.createMeshBlock( 0, 0, 0, 100, 200, 300, MfgImage.TEXTURE_TEST ),
+            MfgLevelDataFactory.createMeshBlock( 0,    0,   0, 100,  200, 300,  MfgImage.TEXTURE_TEST   ),
+            MfgLevelDataFactory.createMeshBlock( -900, 200, 0, 1000, 10,  1000, MfgImage.TEXTURE_STONES ),
+
 /*
             // x y z size
             MfgLevelDataFactory.createMeshCube( -300, 100,  200,  100, MfgImage.TEXTURE_BRICKS ),

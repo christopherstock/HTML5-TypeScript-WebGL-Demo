@@ -21,15 +21,17 @@
         /** All ortho fgmeshes. */
         private                 meshesOrthoFg                   :Array<LibMesh>             = null;
 
-        /** Player's position. */
-        private                 pos                             :LibVertex                  = null;
-        /** Player's rotation. */
-        private                 rot                             :LibVertex                  = null;
-
         /** The current drawing index for all faces to draw. Prune this sooner or later..! */
         private                 faceDrawingIndex                :number                     = 0;
         /** Just a temporary test. */
         private                 testCreateAllTextures           :boolean                    = true;
+
+        /** Player's position. */
+        private                 pos                             :LibVertex                  = null;
+        /** Player's rotation. */
+        private                 rot                             :LibVertex                  = null;
+        /** Player's flag to center the view aim. */
+        private                 centerViewAim                   :boolean                    = false;
 
         /*****************************************************************************
         *   Inits the 3D context and scene.
@@ -45,12 +47,13 @@
             orthoMeshesFg:Array<LibMesh>
         )
         {
-            this.gl            = gl;
-            this.meshes3D      = meshes;
-            this.meshesOrthoFg = orthoMeshesFg;
+            this.gl             = gl;
+            this.meshes3D       = meshes;
+            this.meshesOrthoFg  = orthoMeshesFg;
 
-            this.pos    = new LibVertex( 0.0, 0.0, 0.0, 0.0, 0.0 );
-            this.rot    = new LibVertex( 0.0, 0.0, 0.0, 0.0, 0.0 );
+            this.pos            = new LibVertex( 0.0, 0.0, 0.0, 0.0, 0.0 );
+            this.rot            = new LibVertex( 0.0, 0.0, 0.0, 0.0, 0.0 );
+            this.centerViewAim  = false;
 
             //setup GLSL program and get uniform lookup matrix
             this.program        = LibGL.createProgramFromScripts( this.gl, [ "3d-vertex-shader", "3d-fragment-shader" ] );
@@ -87,6 +90,7 @@
         {
             this.handlePlayerKeys();
             this.updateBackgroundMeshes();
+            this.updatePlayerLooking();
         }
 
         /*****************************************************************************
@@ -147,11 +151,20 @@
                 this.rot.y = LibMath2D.normalizeAngle( this.rot.y );
             }
 
+            if ( MfgGame.keySystem.isPressed( LibKeySystem.KEY_NUMPAD_5 ) )
+            {
+                //start view aim centering
+                this.centerViewAim = true;
+            }
+
             if ( MfgGame.keySystem.isPressed( LibKeySystem.KEY_PAGE_UP ) )
             {
                 //alter and clip rot x
                 this.rot.x -= MfgSettings.PLAYER_SPEED_LOOK_UP_DOWN;
                 if ( this.rot.x < -MfgSettings.PLAYER_MAX_LOOK_UP_DOWN ) this.rot.x = -MfgSettings.PLAYER_MAX_LOOK_UP_DOWN;
+
+                //stop view aim centering
+                this.centerViewAim = false;
             }
 
             if ( MfgGame.keySystem.isPressed( LibKeySystem.KEY_PAGE_DOWN ) )
@@ -159,12 +172,9 @@
                 //alter and clip rot x
                 this.rot.x += MfgSettings.PLAYER_SPEED_LOOK_UP_DOWN;
                 if ( this.rot.x > MfgSettings.PLAYER_MAX_LOOK_UP_DOWN ) this.rot.x = MfgSettings.PLAYER_MAX_LOOK_UP_DOWN;
-            }
 
-            if ( MfgGame.keySystem.isPressed( LibKeySystem.KEY_NUMPAD_5 ) )
-            {
-                //reset rot x
-                this.rot.x = 0.0;
+                //stop view aim centering
+                this.centerViewAim = false;
             }
         }
 
@@ -310,5 +320,33 @@
         private getOrthographicMatrix():Float32Array
         {
             return LibMatrix.createOrthographicMatrix( 0, MfgSettings.CANVAS_WIDTH, MfgSettings.CANVAS_HEIGHT, 0, MfgSettings.CAMERA_NEAR, MfgSettings.CAMERA_FAR );
+        }
+
+        /*****************************************************************************
+        *   Updates the player looking aim if it shall be resetted.
+        *****************************************************************************/
+        private updatePlayerLooking():void
+        {
+            if ( this.centerViewAim )
+            {
+                if ( this.rot.x < 0.0 )
+                {
+                    this.rot.x += MfgSettings.PLAYER_SPEED_CENTER_VIEW_AIM;
+                    if ( this.rot.x >= 0.0 )
+                    {
+                        this.rot.x         = 0.0;
+                        this.centerViewAim = false;
+                    }
+                }
+                else if ( this.rot.x > 0.0 )
+                {
+                    this.rot.x -= MfgSettings.PLAYER_SPEED_CENTER_VIEW_AIM;
+                    if ( this.rot.x <= 0.0 )
+                    {
+                        this.rot.x         = 0.0;
+                        this.centerViewAim = false;
+                    }
+                }
+            }
         }
     }

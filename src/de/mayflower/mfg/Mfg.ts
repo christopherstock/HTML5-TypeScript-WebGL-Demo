@@ -2,24 +2,28 @@
     /************************************************************************************
     *   The main class contains the application's points of entry and termination.
     *
-    *   TODO ASAP   Importer for 3Dsmax ASE-Files.
+    *   TODO ASAP   Extract class MfgPlayer.
+    *   TODO ASAP   Enable numeric keys on the numeric keypad if num lock is on!
     *   TODO ASAP   System for loading external textfiles via AJAX/XmlHttpRequest.
-    *
-    *   TODO ASAP   Refactor MfgGame3DSetup and prune initial transformation or translation?
-    *   TODO ASAP   Buffer look aim centering.
+    *   TODO ASAP   Importer for 3Dsmax ASE-Files.
+    *   TODO ASAP   Outsource shader files if external files can be used.
+     *  TODO ASAP   Refactor MfgGame3DSetup and prune initial transformation or translation?
+    *   TODO HIGH   Flexible drawing system with a dynamic drawing vector.
+    *   TODO ASAP   Prune faceDrawingIndex in class MfgGame3D.
+    *   TODO ASAP   PRUNE initial transformations/translations in setup!!
     *   TODO ASAP   Merge setup functions in MfgGame3DSetup and write position and text-coord values in one loop?
     *   TODO ASAP   Increase performance?
-    *   TODO ASAP   Create floor ledge.
-    *   TODO ASAP   Prune E-prefix from resource file names.
-    *   TODO ASAP   Prune faceDrawingIndex in class MfgGame3D.
     *   TODO ASAP   Adjust all axis according to 3dsMax? - reset player startup. Check and flatten perspective matrix operations.
-    *   TODO HIGH   Flexible drawing system with a dynamic drawing vector.
+    *   TODO ASAP   Fading HUD images.
     *   TODO INIT   Draw ortho fonts?
     *   TODO INIT   Create FPS counter.
     *   TODO WEAK   Y modifier for holded wearpon.
-    *   TODO INIT   Enable Y modifier while walking.
+    *   TODO INIT   Y modifier while walking.
     *
-    *   DONE        Split player movement and player looking functions.
+    *   DONE        Buffer view aim centering.
+    *   DONE        Pruned E-prefix from all resources file names.
+    *   DONE        Created floor ledge.
+    *   DONE        Splitted player movement and player looking functions.
     *   DONE        Created and implemented function for normalizing angles.
     *   DONE        Clipped looking up/down.
     *   DONE        Include key for centering look aim.

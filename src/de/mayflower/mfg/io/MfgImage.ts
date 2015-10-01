@@ -8,23 +8,23 @@
     class MfgImage
     {
         /** The image for the 'texture test' image. */
-        public      static      TEXTURE_TEST            :string                     = MfgSettings.PATH_IMAGE + "texture/ETest.jpg";
+        public      static      TEXTURE_TEST            :string                     = MfgSettings.PATH_IMAGE + "texture/test.jpg";
         /** The image for the 'texture bricks' image. */
-        public      static      TEXTURE_BRICKS          :string                     = MfgSettings.PATH_IMAGE + "texture/EBricks.jpg";
+        public      static      TEXTURE_BRICKS          :string                     = MfgSettings.PATH_IMAGE + "texture/bricks.jpg";
         /** The image for the 'texture marble' image. */
-        public      static      TEXTURE_MARBLE          :string                     = MfgSettings.PATH_IMAGE + "texture/EMarble.jpg";
+        public      static      TEXTURE_MARBLE          :string                     = MfgSettings.PATH_IMAGE + "texture/marble.jpg";
         /** The image for the 'texture metal' image. */
-        public      static      TEXTURE_METAL           :string                     = MfgSettings.PATH_IMAGE + "texture/EMetal.jpg";
+        public      static      TEXTURE_METAL           :string                     = MfgSettings.PATH_IMAGE + "texture/metal.jpg";
         /** The image for the 'texture stones' image. */
-        public      static      TEXTURE_STONES          :string                     = MfgSettings.PATH_IMAGE + "texture/EStones.jpg";
+        public      static      TEXTURE_STONES          :string                     = MfgSettings.PATH_IMAGE + "texture/stones.jpg";
 
         /** The image for the 'auto shotgun' image. */
-        public      static      ORTHO_AUTO_SHOTGUN      :string                     = MfgSettings.PATH_IMAGE + "ortho/EAutoShotgun.png";
+        public      static      ORTHO_AUTO_SHOTGUN      :string                     = MfgSettings.PATH_IMAGE + "ortho/autoShotgun.png";
         /** The image for the 'background landscape' image. */
-        public      static      ORTHO_BG_LANDSCAPE      :string                     = MfgSettings.PATH_IMAGE + "ortho/EBgLandscape.png";
+        public      static      ORTHO_BG_LANDSCAPE      :string                     = MfgSettings.PATH_IMAGE + "ortho/bgLandscape.png";
 
         /** The image for the 'Mayflower logo' sprite. */
-        public      static      ITEM_MF_LOGO            :string                     = MfgSettings.PATH_IMAGE + "item/mf-logo.png";
+        public      static      ITEM_MF_LOGO            :string                     = MfgSettings.PATH_IMAGE + "item/mfLogo.png";
 
         /** This array contains all filenames of all images that shall be loaded. */
         public      static      FILE_NAMES              :Array<string>              =
