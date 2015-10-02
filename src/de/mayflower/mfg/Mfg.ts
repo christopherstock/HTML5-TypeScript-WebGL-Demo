@@ -2,6 +2,7 @@
     /************************************************************************************
     *   The main class contains the application's points of entry and termination.
     *
+    *   TODO ASAP   Implement RegEx functionality.
     *   TODO ASAP   Extract class MfgPlayer.
     *   TODO ASAP   Enable numeric keys on the numeric keypad if num lock is on!
     *   TODO ASAP   Importer for 3Dsmax ASE-Files.
@@ -20,6 +21,7 @@
     *   TODO WEAK   Y modifier for holded wearpon.
     *   TODO INIT   Y modifier while walking.
     *
+    *   DONE        Implemented invocation of callback function when all sounds have been loaded.
     *   DONE        Created system for loading external textfiles via AJAX/XmlHttpRequest.
     *   DONE        Buffer view aim centering.
     *   DONE        Pruned E-prefix from all resources file names.

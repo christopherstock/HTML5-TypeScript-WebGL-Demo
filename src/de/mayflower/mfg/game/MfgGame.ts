@@ -62,20 +62,27 @@
             //init sprites
             MfgSprite.init();
 
-            //load all sounds
-            MfgGame.soundSystem = new LibSoundSystem(
-                MfgSound.FILE_NAMES
-            );
-
-            //play the bg sound NOW!
-            if ( !MfgDebugSettings.DEBUG_DISABLE_SOUNDS )
+            //skip loading sounds if desired
+            if ( MfgDebugSettings.DEBUG_DISABLE_SOUNDS )
             {
-                MfgGame.soundSystem.playSound( MfgSound.SOUND_BG_PD_INVESTIGATION_X );
+                MfgGame.initWhenSoundsAreLoaded();
+                return;
             }
 
+            //load all sounds
+            MfgGame.soundSystem = new LibSoundSystem(
+                MfgSound.FILE_NAMES,
+                MfgGame.initWhenSoundsAreLoaded,
+                MfgDebug.soundLoader
+            );
+        }
 
-MfgDebug.textLoader.log( "Now loading all 3ds txt files ..." );
-
+        /*****************************************************************************
+        *   This method is invoked when all sounds are loaded
+        *   and will continue the program.
+        *****************************************************************************/
+        private static initWhenSoundsAreLoaded()
+        {
             //load 3ds model files
             MfgGame.res3dsSystem = new LibTextFileSystem(
                 Mfg3ds.FILE_NAMES,
@@ -90,12 +97,6 @@ MfgDebug.textLoader.log( "Now loading all 3ds txt files ..." );
         *****************************************************************************/
         private static initWhen3dsModelsAreLoaded()
         {
-
-            MfgDebug.textLoader.log( "All 3ds txt files SUCCESSFULLY loaded !" );
-
-
-//            MfgGame.testLoading3ds();
-
             //init level data
             MfgGame.level = new MfgLevelData();
 
@@ -106,6 +107,12 @@ MfgDebug.textLoader.log( "Now loading all 3ds txt files ..." );
                 MfgGame.level.getAllMeshes3D(),
                 MfgGame.level.getAllMeshes2DForeground()
             );
+
+            //play the bg sound NOW!
+            if ( !MfgDebugSettings.DEBUG_DISABLE_SOUNDS )
+            {
+                MfgGame.soundSystem.playSound( MfgSound.SOUND_BG_PD_INVESTIGATION_X );
+            }
 
             //start main thread
             MfgGame.mainThread = new LibMainThread( MfgGame.tick, MfgSettings.THREAD_DELAY );
@@ -122,39 +129,5 @@ MfgDebug.textLoader.log( "Now loading all 3ds txt files ..." );
 
             //paint game
             MfgGame.game3D.draw();
-        }
-
-        /*****************************************************************************
-        *   Loads all external 3ds model files.
-        *****************************************************************************/
-        public static unreferencedTestLoading3ds()
-        {
-            var client = null;
-
-            //check browser support for external file requests
-            if ( "ActiveXObject" in window )
-            {
-                //internet explorer
-                client = new ActiveXObject( "Microsoft.XMLHTTP" );
-            }
-            else
-            {
-                //firefox
-                client = new XMLHttpRequest();
-            }
-
-            client.open( 'GET', MfgSettings.PATH_3DS + 'officeChair.ase' );
-            client.onreadystatechange = function( event:Event )
-            {
-                console.log( "onReadyStateChange ... " + client.readyState );
-
-                //this is horrible ...
-                if ( client.readyState == 4 )
-                {
-                    console.log( "Data is here!" );
-                    console.log( client.responseText );
-                }
-            };
-            client.send();
         }
     }

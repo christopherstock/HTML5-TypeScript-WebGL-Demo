@@ -60,9 +60,9 @@
         {
             var instance:LibImageSystem = this;
 
-            var img                     = new Image();
-            img.src                     = filename;
-            img.onload                  = function()
+            var img    = new Image();
+            img.src    = filename;
+            img.onload = function()
             {
                 instance.onImageLoaded();
             };
@@ -76,7 +76,7 @@
         private onImageLoaded()
         {
             ++this.loadedCount;
-            this.debug.log( "loaded imgage [" + this.loadedCount + "] / [" + this.fileNames.length + "]" );
+            this.debug.log( "loaded image [" + this.loadedCount + "] / [" + this.fileNames.length + "]" );
 
             if ( this.loadedCount == this.fileNames.length )
             {
