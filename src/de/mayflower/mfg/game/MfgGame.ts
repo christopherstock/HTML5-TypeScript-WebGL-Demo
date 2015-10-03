@@ -1,6 +1,6 @@
 
     /*****************************************************************************
-    *   Manages the game logic.
+    *   Specifies the paramount part of the game logic.
     *
     *   @author     Christopher Stock
     *   @version    0.0.1
@@ -114,6 +114,11 @@
                 MfgGame.soundSystem.playSound( MfgSound.SOUND_BG_PD_INVESTIGATION_X );
             }
 
+
+MfgGame.testRegEx();
+
+
+
             //start main thread
             MfgGame.mainThread = new LibMainThread( MfgGame.tick, MfgSettings.THREAD_DELAY );
             MfgGame.mainThread.start();
@@ -129,5 +134,26 @@
 
             //paint game
             MfgGame.game3D.draw();
+        }
+
+        private static testRegEx()
+        {
+            //test RegEx functionality in JS
+            var regEx:RegExp              = /(\d+)/g;
+            var subject:string            = 'Test 12345 test 67890 test 1357 test';
+            var results:RegExpMatchArray  = subject.match( regEx );
+
+            if ( results == null )
+            {
+                MfgDebug.bugfix.log( " Keine Results!" );
+            }
+            else
+            {
+                MfgDebug.bugfix.log( "found result count: [" + results.length + "]" );
+                for ( var i:number = 0; i < results.length; ++i )
+                {
+                    MfgDebug.bugfix.log( " result [" + results[ i ] + "]" );
+                }
+            }
         }
     }

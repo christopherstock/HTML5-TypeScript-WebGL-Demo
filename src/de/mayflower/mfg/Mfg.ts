@@ -2,14 +2,13 @@
     /************************************************************************************
     *   The main class contains the application's points of entry and termination.
     *
-    *   TODO ASAP   Implement RegEx functionality.
     *   TODO ASAP   Extract class MfgPlayer.
     *   TODO ASAP   Enable numeric keys on the numeric keypad if num lock is on!
     *   TODO ASAP   Importer for 3Dsmax ASE-Files.
     *   TODO ASAP   Outsource shader files if external files can be used.
     *   TODO ASAP   Refactor MfgGame3DSetup and prune initial transformation or translation?
     *   TODO HIGH   Flexible drawing system with a dynamic drawing vector.
-    *   TODO HIGH   Give modules one more try?? ...
+    *   TODO HIGH   Give JS-modules one more try?? ...
     *   TODO ASAP   Prune faceDrawingIndex in class MfgGame3D.
     *   TODO ASAP   PRUNE initial transformations/translations in setup!!
     *   TODO ASAP   Merge setup functions in MfgGame3DSetup and write position and text-coord values in one loop?
@@ -21,6 +20,7 @@
     *   TODO WEAK   Y modifier for holded wearpon.
     *   TODO INIT   Y modifier while walking.
     *
+    *   DONE        Solved RegEx functionality.
     *   DONE        Implemented invocation of callback function when all sounds have been loaded.
     *   DONE        Created system for loading external textfiles via AJAX/XmlHttpRequest.
     *   DONE        Buffer view aim centering.
