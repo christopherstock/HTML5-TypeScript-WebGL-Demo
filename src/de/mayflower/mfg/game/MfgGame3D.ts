@@ -26,13 +26,6 @@
         /** Just a temporary test. */
         private                 testCreateAllTextures           :boolean                    = true;
 
-        /** Player's position. */
-        private                 pos                             :LibVertex                  = null;
-        /** Player's rotation. */
-        private                 rot                             :LibVertex                  = null;
-        /** Player's flag to center the view aim. */
-        private                 centerViewAim                   :boolean                    = false;
-
         /*****************************************************************************
         *   Inits the 3D context and scene.
         *
@@ -51,10 +44,6 @@
             this.meshes3D       = meshes;
             this.meshesOrthoFg  = orthoMeshesFg;
 
-            this.pos            = new LibVertex( 0.0, 0.0, 0.0, 0.0, 0.0 );
-            this.rot            = new LibVertex( 0.0, 0.0, 0.0, 0.0, 0.0 );
-            this.centerViewAim  = false;
-
             //setup GLSL program and get uniform lookup matrix
             this.program        = LibGL.createProgramFromScripts( this.gl, [ "3d-vertex-shader", "3d-fragment-shader" ] );
             this.gl.useProgram( this.program );
@@ -69,7 +58,7 @@
             //enable cull facing
             this.gl.enable(     WebGLRenderingContext.CULL_FACE                                                 );
             //clear the viewport after setting MF Orange as the clear color
-            this.gl.clearColor( 1.0, 0.5, 0.0, 1.0                                                              );
+            this.gl.clearColor( 0.1, 0.1, 0.1, 1.0                                                              );
         }
 
         /*****************************************************************************
@@ -79,7 +68,7 @@
         {
             var allMeshes = [].concat( this.meshesOrthoBg ).concat( this.meshes3D ).concat( this.meshesOrthoFg );
 
-            MfgGame3DSetup.setPositions(  this.gl, this.program, allMeshes );
+            MfgGame3DSetup.setPositions( this.gl, this.program, allMeshes );
             MfgGame3DSetup.setTexcoords( this.gl, this.program, allMeshes );
         }
 
@@ -88,94 +77,9 @@
         *****************************************************************************/
         public render()
         {
-            this.handlePlayerKeys();
+            MfgGame.player.handlePlayerKeys();
+            MfgGame.player.updatePlayerLooking();
             this.updateBackgroundMeshes();
-            this.updatePlayerLooking();
-        }
-
-        /*****************************************************************************
-        *   Handles the player's keys.
-        *****************************************************************************/
-        private handlePlayerKeys()
-        {
-            this.handlePlayerKeysForMoving();
-            this.handlePlayerKeysForLooking();
-        }
-
-        /*****************************************************************************
-        *   Handles the player's keys for moving.
-        *****************************************************************************/
-        private handlePlayerKeysForMoving()
-        {
-            if ( MfgGame.keySystem.isPressed( LibKeySystem.KEY_DOWN ) || MfgGame.keySystem.isPressed( LibKeySystem.KEY_S ) )
-            {
-                this.pos.z -= LibMath2D.cosDeg( this.rot.y ) * MfgSettings.PLAYER_SPEED_MOVE;
-                this.pos.x -= LibMath2D.sinDeg( this.rot.y ) * MfgSettings.PLAYER_SPEED_MOVE;
-            }
-
-            if ( MfgGame.keySystem.isPressed( LibKeySystem.KEY_UP ) || MfgGame.keySystem.isPressed( LibKeySystem.KEY_W ) )
-            {
-                this.pos.z += LibMath2D.cosDeg( this.rot.y ) * MfgSettings.PLAYER_SPEED_MOVE;
-                this.pos.x += LibMath2D.sinDeg( this.rot.y ) * MfgSettings.PLAYER_SPEED_MOVE;
-            }
-
-            if ( MfgGame.keySystem.isPressed( LibKeySystem.KEY_A ) )
-            {
-                this.pos.z -= LibMath2D.sinDeg( this.rot.y ) * MfgSettings.PLAYER_SPEED_MOVE;
-                this.pos.x += LibMath2D.cosDeg( this.rot.y ) * MfgSettings.PLAYER_SPEED_MOVE;
-            }
-
-            if ( MfgGame.keySystem.isPressed( LibKeySystem.KEY_D ) )
-            {
-                this.pos.z += LibMath2D.sinDeg( this.rot.y ) * MfgSettings.PLAYER_SPEED_MOVE;
-                this.pos.x -= LibMath2D.cosDeg( this.rot.y ) * MfgSettings.PLAYER_SPEED_MOVE;
-            }
-        }
-
-        /*****************************************************************************
-        *   Handles the player's keys for looking.
-        *****************************************************************************/
-        private handlePlayerKeysForLooking()
-        {
-            if ( MfgGame.keySystem.isPressed( LibKeySystem.KEY_LEFT   ) || MfgGame.keySystem.isPressed( LibKeySystem.KEY_Q ) )
-            {
-                //alter and clip rot y
-                this.rot.y += MfgSettings.PLAYER_SPEED_TURN;
-                this.rot.y = LibMath2D.normalizeAngle( this.rot.y );
-            }
-
-            if ( MfgGame.keySystem.isPressed( LibKeySystem.KEY_RIGHT  ) || MfgGame.keySystem.isPressed( LibKeySystem.KEY_E ) )
-            {
-                //alter and clip rot y
-                this.rot.y -= MfgSettings.PLAYER_SPEED_TURN;
-                this.rot.y = LibMath2D.normalizeAngle( this.rot.y );
-            }
-
-            if ( MfgGame.keySystem.isPressed( LibKeySystem.KEY_NUMPAD_5 ) )
-            {
-                //start view aim centering
-                this.centerViewAim = true;
-            }
-
-            if ( MfgGame.keySystem.isPressed( LibKeySystem.KEY_PAGE_UP ) )
-            {
-                //alter and clip rot x
-                this.rot.x -= MfgSettings.PLAYER_SPEED_LOOK_UP_DOWN;
-                if ( this.rot.x < -MfgSettings.PLAYER_MAX_LOOK_UP_DOWN ) this.rot.x = -MfgSettings.PLAYER_MAX_LOOK_UP_DOWN;
-
-                //stop view aim centering
-                this.centerViewAim = false;
-            }
-
-            if ( MfgGame.keySystem.isPressed( LibKeySystem.KEY_PAGE_DOWN ) )
-            {
-                //alter and clip rot x
-                this.rot.x += MfgSettings.PLAYER_SPEED_LOOK_UP_DOWN;
-                if ( this.rot.x > MfgSettings.PLAYER_MAX_LOOK_UP_DOWN ) this.rot.x = MfgSettings.PLAYER_MAX_LOOK_UP_DOWN;
-
-                //stop view aim centering
-                this.centerViewAim = false;
-            }
         }
 
         /*****************************************************************************
@@ -188,7 +92,7 @@
 
             var widthU  = MfgSettings.CANVAS_WIDTH / MfgGame.imageSystem.getImage( MfgImage.ORTHO_BG_LANDSCAPE ).width;
 
-            var offsetU = 1.0 * this.rot.y / 360;
+            var offsetU = 1.0 * MfgGame.player.rot.y / 360;
 
             var minU = 0.0 - offsetU;
             var maxU = 0.0 + widthU - offsetU;
@@ -293,11 +197,14 @@
             var cameraMatrix      :Float32Array = LibMatrix.createLookAtMatrix( MfgSettings.CAMERA_POSITION, MfgSettings.CAMERA_TARGET, MfgSettings.CAMERA_UP );
             var viewMatrix        :Float32Array = LibMatrix.inverseMatrix( cameraMatrix );
 
-            //compute all translation and rotation matrices
-            var translationMatrix :Float32Array = LibMatrix.createTranslationMatrix( this.pos.x, this.pos.y, this.pos.z );
-            var rotationXMatrix   :Float32Array = LibMatrix.createXRotationMatrix( this.rot.x           );
-            var rotationYMatrix   :Float32Array = LibMatrix.createYRotationMatrix( 360.0 - this.rot.y   );
-            var rotationZMatrix   :Float32Array = LibMatrix.createZRotationMatrix( this.rot.z           );
+            //compute all translation and rotation matrices according to the player's positon and rotation
+            var playerPos:LibVertex = MfgGame.player.pos;
+            var playerRot:LibVertex = MfgGame.player.rot;
+
+            var translationMatrix :Float32Array = LibMatrix.createTranslationMatrix( playerPos.x, playerPos.y, playerPos.z );
+            var rotationXMatrix   :Float32Array = LibMatrix.createXRotationMatrix( playerRot.x          );
+            var rotationYMatrix   :Float32Array = LibMatrix.createYRotationMatrix( 360.0 - playerRot.y  );
+            var rotationZMatrix   :Float32Array = LibMatrix.createZRotationMatrix( playerRot.z          );
 
             //specify the applied matrix by starting with the view matrix
             var matrixToApply     :Float32Array = viewMatrix;
@@ -320,33 +227,5 @@
         private getOrthographicMatrix():Float32Array
         {
             return LibMatrix.createOrthographicMatrix( 0, MfgSettings.CANVAS_WIDTH, MfgSettings.CANVAS_HEIGHT, 0, MfgSettings.CAMERA_NEAR, MfgSettings.CAMERA_FAR );
-        }
-
-        /*****************************************************************************
-        *   Updates the player looking aim if it shall be resetted.
-        *****************************************************************************/
-        private updatePlayerLooking():void
-        {
-            if ( this.centerViewAim )
-            {
-                if ( this.rot.x < 0.0 )
-                {
-                    this.rot.x += MfgSettings.PLAYER_SPEED_CENTER_VIEW_AIM;
-                    if ( this.rot.x >= 0.0 )
-                    {
-                        this.rot.x         = 0.0;
-                        this.centerViewAim = false;
-                    }
-                }
-                else if ( this.rot.x > 0.0 )
-                {
-                    this.rot.x -= MfgSettings.PLAYER_SPEED_CENTER_VIEW_AIM;
-                    if ( this.rot.x <= 0.0 )
-                    {
-                        this.rot.x         = 0.0;
-                        this.centerViewAim = false;
-                    }
-                }
-            }
         }
     }

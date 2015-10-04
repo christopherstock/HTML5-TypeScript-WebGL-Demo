@@ -10,39 +10,22 @@
         /** All meshes the level consists of. */
         public      allMeshes                       :Array<LibMesh>         = null;
 
-        /** All meshes for level 1. */
-        private     level1Meshes                    :Array<LibMesh>         =
-        [
-            MfgLevelDataFactory.createMeshBlock( 0,    0,   0, 100,  200, 300,  MfgImage.TEXTURE_TEST   ),
-            MfgLevelDataFactory.createMeshBlock( -900, 200, 0, 1000, 10,  1000, MfgImage.TEXTURE_STONES ),
-
-/*
-            // x y z size
-            MfgLevelDataFactory.createMeshCube( -300, 100,  200,  100, MfgImage.TEXTURE_BRICKS ),
-            MfgLevelDataFactory.createMeshCube( -300, 0,    200,  100, MfgImage.TEXTURE_BRICKS ),
-            MfgLevelDataFactory.createMeshCube( -300, -100, 200,  100, MfgImage.TEXTURE_BRICKS ),
-            MfgLevelDataFactory.createMeshCube( -300, -200, 200,  100, MfgImage.TEXTURE_BRICKS ),
-            MfgLevelDataFactory.createMeshCube( -300, -200, 100,  100, MfgImage.TEXTURE_BRICKS ),
-            MfgLevelDataFactory.createMeshCube( -300, -200, 0,    100, MfgImage.TEXTURE_BRICKS ),
-            MfgLevelDataFactory.createMeshCube( -300, -200, -100, 100, MfgImage.TEXTURE_BRICKS ),
-            MfgLevelDataFactory.createMeshCube( -300, -100, -100, 100, MfgImage.TEXTURE_BRICKS ),
-            MfgLevelDataFactory.createMeshCube( -300, 0,    -100, 100, MfgImage.TEXTURE_BRICKS ),
-            MfgLevelDataFactory.createMeshCube( -300, 100,  -100, 100, MfgImage.TEXTURE_BRICKS ),
-
-            MfgLevelDataFactory.createMeshCube( -200, 100,  -100, 100, MfgImage.TEXTURE_BRICKS ),
-            MfgLevelDataFactory.createMeshCube( -100, 100,  -100, 100, MfgImage.TEXTURE_BRICKS ),
-
-            MfgLevelDataFactory.createMeshCube( 100,  100,  200,  150, MfgImage.TEXTURE_METAL ),
-            MfgLevelDataFactory.createMeshCube( 100,  -50,  200,  150, MfgImage.TEXTURE_METAL ),
-*/
-        ];
-
         /*****************************************************************************
         *   Sets up all level data.
         *****************************************************************************/
         constructor()
         {
-            this.allMeshes = this.level1Meshes;
+
+
+
+            this.allMeshes =
+            [
+                MfgLevelDataFactory.createMeshBlock( 0,    0,   0, 100,  200, 300,  MfgImage.TEXTURE_TEST   ),
+                MfgLevelDataFactory.createMeshBlock( -900, 200, 0, 1000, 10,  1000, MfgImage.TEXTURE_STONES ),
+
+
+
+            ];
         }
 
         /*****************************************************************************

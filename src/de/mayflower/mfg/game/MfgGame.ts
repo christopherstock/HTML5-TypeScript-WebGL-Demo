@@ -23,6 +23,8 @@
         private         static          game3D              :MfgGame3D                      = null;
         /** The level data. */
         public          static          level               :MfgLevelData                   = null;
+        /** The player instance. */
+        public          static          player              :MfgPlayer                      = null;
 
         /*****************************************************************************
         *   Inits this app from scratch.
@@ -108,16 +110,14 @@
                 MfgGame.level.getAllMeshes2DForeground()
             );
 
+            //init the player isntance
+            MfgGame.player = new MfgPlayer()
+
             //play the bg sound NOW!
             if ( !MfgDebugSettings.DEBUG_DISABLE_SOUNDS )
             {
                 MfgGame.soundSystem.playSound( MfgSound.SOUND_BG_PD_INVESTIGATION_X );
             }
-
-
-MfgGame.testRegEx();
-
-
 
             //start main thread
             MfgGame.mainThread = new LibMainThread( MfgGame.tick, MfgSettings.THREAD_DELAY );
@@ -134,26 +134,5 @@ MfgGame.testRegEx();
 
             //paint game
             MfgGame.game3D.draw();
-        }
-
-        private static testRegEx()
-        {
-            //test RegEx functionality in JS
-            var regEx:RegExp              = /(\d+)/g;
-            var subject:string            = 'Test 12345 test 67890 test 1357 test';
-            var results:RegExpMatchArray  = subject.match( regEx );
-
-            if ( results == null )
-            {
-                MfgDebug.bugfix.log( " Keine Results!" );
-            }
-            else
-            {
-                MfgDebug.bugfix.log( "found result count: [" + results.length + "]" );
-                for ( var i:number = 0; i < results.length; ++i )
-                {
-                    MfgDebug.bugfix.log( " result [" + results[ i ] + "]" );
-                }
-            }
         }
     }
