@@ -102,8 +102,6 @@
         *****************************************************************************/
         private static initWhen3dsModelsAreLoaded()
         {
-
-
             //parse a 3d model
             var parserD3ds = new Lib3dsParser( MfgGame.res3dsContents.getContent( Mfg3ds.OFFICE_CHAIR ), MfgDebug.res3ds );
 

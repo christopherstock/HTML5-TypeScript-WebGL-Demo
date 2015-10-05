@@ -31,7 +31,7 @@
             this.debug = debug;
 
             this.debug.log( "=======================================" );
-            this.debug.log( "Parsing 3dsmax content: " + fileContent );
+            this.debug.log( "Parsing 3dsmax content ... " );
 /*
             //pick and parse materials
             var chunkMaterialList:string = LibStrings.getViaRegEx( fileSrc, "\\*MATERIAL_LIST \\{.+?\\n\\}" )[ 0 ];
