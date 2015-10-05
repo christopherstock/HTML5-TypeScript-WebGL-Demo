@@ -18,6 +18,7 @@
     *   TODO WEAK   Y modifier for holded wearpon.
     *   TODO INIT   Y modifier while walking.
     *
+    *   DONE        Pruneed loading processes from constructor of libs.
     *   DONE        Enabled numeric keys on the numeric keypad if num lock is on.
     *   DONE        Extracted class MfgPlayer and encapsulated player instance.
     *   DONE        Created LibString class for RegEx functionality.

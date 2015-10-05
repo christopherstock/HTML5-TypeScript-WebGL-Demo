@@ -31,14 +31,12 @@
             this.fileNames         = fileNames;
             this.onAllSoundsLoaded = callbackFunction;
             this.debug             = debug;
-
-            this.loadSounds();
         }
 
         /*****************************************************************************
         *   Loads all sounds that shall be loaded for the sound system.
         *****************************************************************************/
-        private loadSounds()
+        public loadSounds()
         {
             var instance:LibSoundSystem = this;
 

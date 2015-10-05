@@ -34,14 +34,12 @@
             this.fileNames         = fileNames;
             this.onAllImagesLoaded = callbackFunction;
             this.debug             = debug;
-
-            this.loadImages();
         }
 
         /*****************************************************************************
         *   Loads all images that shall be loaded for the image system.
         *****************************************************************************/
-        private loadImages()
+        public loadImages()
         {
             //browse all filenames
             for ( var i = 0; i < this.fileNames.length; ++i )

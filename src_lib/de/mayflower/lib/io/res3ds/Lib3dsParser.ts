@@ -23,16 +23,16 @@
         /*************************************************************************************
         *   Parses the given content of an .ASE file and assigns the parsed faces and materials.
         *
-        *   @param  fileSrc The content of the .ASE file to parse.
-        *   @param  debug   The debug context.
+        *   @param  fileContent The content of the .ASE file to parse.
+        *   @param  debug       The debug context.
         *************************************************************************************/
-        constructor( fileSrc:string, debug:LibDebug )
+        constructor( fileContent:string, debug:LibDebug )
         {
             this.debug = debug;
 
-            this.debug.out( "=======================================" );
-            this.debug.out( "Parsing 3dsmax content" );
-
+            this.debug.log( "=======================================" );
+            this.debug.log( "Parsing 3dsmax content: " + fileContent );
+/*
             //pick and parse materials
             var chunkMaterialList:string = LibStrings.getViaRegEx( fileSrc, "\\*MATERIAL_LIST \\{.+?\\n\\}" )[ 0 ];
             parseMaterials( chunkMaterialList );
@@ -46,10 +46,12 @@
             {
                 this.debug.log( "WARNING! 3dsmax-file [" + iFilename + "] specifies more than [" + MAX_FACES + "] faces - [" + iFaces.length + "] faces defined" );
             }
+*/
         }
 
         private parseMaterials( src:String ):void
         {
+/*
             //check if materials are defined
             String[] chunksMaterials = LibStrings.getViaRegEx( src, "\\t\\*MATERIAL \\d+ \\{.+?\\n\\t\\}" );
             if ( chunksMaterials != null )
@@ -80,10 +82,12 @@
                     iDebug.out( "Material [" + i + "]: [" + iMaterials3ds[ i ].name + "][" + iMaterials3ds[ i ].offsetU + "][" + iMaterials3ds[ i ].offsetV + "][" + iMaterials3ds[ i ].tilingU + "][" + iMaterials3ds[ i ].tilingV + "]" );
                 }
             }
+*/
         }
 
         private parseMeshes( meshesSrc:Array<string> ):void
         {
+/*
             iDebug.out( "meshes to parse: [" + meshesSrc.length + "]" );
 
             Vector<LibMaxTriangle>      allFaces                = new Vector<LibMaxTriangle>();
@@ -256,9 +260,10 @@
 
             //done
             iDebug.out( "done" );
+*/
         }
 
-        public getFaces():Array<LibMaxTriangle>
+        public getFaces():Array<Lib3dsTriangle>
         {
             return this.faces;
         }

@@ -34,14 +34,12 @@
             this.fileNames              = fileNames;
             this.onAllTextFilesLoaded   = callbackFunction;
             this.debug                  = debug;
-
-            this.loadTextFiles();
         }
 
         /*****************************************************************************
         *   Loads all textfiles that shall be loaded for the textfile system.
         *****************************************************************************/
-        private loadTextFiles()
+        public loadTextFiles()
         {
             //browse all filenames
             for ( var i = 0; i < this.fileNames.length; ++i )
@@ -81,6 +79,8 @@
                     instance.debug.log( "Data loaded for file [" + filename + "]" );
                     instance.loadedContents[ filename ] = client.responseText;
 
+                    console.log( "Saving content for filename [" + filename + "] content is here!" );
+
                     instance.onTextFileLoaded();
                 }
             };
@@ -105,15 +105,13 @@
         }
 
         /*****************************************************************************
-        *   Delivers the image with the specified filename.
+        *   Delivers the content with the specified filename.
         *
-        *   @param  id  The filename of the image to return.
-        *   @return     The image object with the specified filename.
+        *   @param  id  The filename of the content to return.
+        *   @return     The content with the specified filename as a string.
         *****************************************************************************/
-/*
-        public getImage( id:string ):HTMLImageElement
+        public getContent( id:string ):string
         {
-            return this.loadedImages[ id ];
+            return this.loadedContents[ id ];
         }
-*/
     }

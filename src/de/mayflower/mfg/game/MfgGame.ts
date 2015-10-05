@@ -16,7 +16,7 @@
         /** The sound loading system. */
         public          static          soundSystem         :LibSoundSystem                 = null;
         /** The 3ds resource loading system. */
-        public          static          res3dsSystem        :LibTextFileSystem              = null;
+        public          static          res3dsContents      :LibTextFileSystem              = null;
         /** The game loop mechanism. */
         private         static          mainThread          :LibMainThread                  = null;
         /** The WebGL 3D context. */
@@ -53,6 +53,7 @@
                 MfgGame.initWhenImagesAreLoaded,
                 MfgDebug.imageLoader
             );
+            MfgGame.imageSystem.loadImages();
         }
 
         /*****************************************************************************
@@ -77,6 +78,7 @@
                 MfgGame.initWhenSoundsAreLoaded,
                 MfgDebug.soundLoader
             );
+            MfgGame.soundSystem.loadSounds();
         }
 
         /*****************************************************************************
@@ -86,11 +88,12 @@
         private static initWhenSoundsAreLoaded()
         {
             //load 3ds model files
-            MfgGame.res3dsSystem = new LibTextFileSystem(
+            MfgGame.res3dsContents = new LibTextFileSystem(
                 Mfg3ds.FILE_NAMES,
                 MfgGame.initWhen3dsModelsAreLoaded,
                 MfgDebug.textLoader
             );
+            MfgGame.res3dsContents.loadTextFiles();
         }
 
         /*****************************************************************************
@@ -99,8 +102,18 @@
         *****************************************************************************/
         private static initWhen3dsModelsAreLoaded()
         {
+
+
+            //parse a 3d model
+            var parserD3ds = new Lib3dsParser( MfgGame.res3dsContents.getContent( Mfg3ds.OFFICE_CHAIR ), MfgDebug.res3ds );
+
+
+
             //init level data
             MfgGame.level = new MfgLevelData();
+
+            //init the player isntance
+            MfgGame.player = new MfgPlayer();
 
             //init the 3D webGL surface
             MfgGame.game3D = new MfgGame3D
@@ -109,9 +122,6 @@
                 MfgGame.level.getAllMeshes3D(),
                 MfgGame.level.getAllMeshes2DForeground()
             );
-
-            //init the player isntance
-            MfgGame.player = new MfgPlayer()
 
             //play the bg sound NOW!
             if ( !MfgDebugSettings.DEBUG_DISABLE_SOUNDS )
