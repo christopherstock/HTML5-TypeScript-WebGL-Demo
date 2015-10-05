@@ -7,7 +7,7 @@
     ********************************************************************************/
     class Lib3dsFace
     {
-        /** The face's normal. This is the point that crosses the face where all all angles have 90°. */
+        /** The face's normal. This is the point that crosses the face where all all angles have 90Â°. */
         public          faceNormal:Lib3dsVertex             = null;
         /** The face's 1st vertex. */
         public          vertex1:Lib3dsVertex                = null;

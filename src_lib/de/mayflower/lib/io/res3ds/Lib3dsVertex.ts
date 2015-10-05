@@ -38,7 +38,7 @@
         *   @param  v   The max-vertex to create a copy from.
         *   @return     A copy of the specified max-vertex.
         ***********************************************************************************/
-        public static copy( v:Lib3dsVertex )
+        public static copy( v:Lib3dsVertex ):Lib3dsVertex
         {
             return new Lib3dsVertex( v.x, v.y, v.z );
         }
