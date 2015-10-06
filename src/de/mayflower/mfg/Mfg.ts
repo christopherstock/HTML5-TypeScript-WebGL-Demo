@@ -2,6 +2,7 @@
     /************************************************************************************
     *   The main class contains the application's points of entry and termination.
     *
+    *   TODO ASAP   Rename MfgGame to MfgInit.
     *   TODO ASAP   Importer/Parser for 3Dsmax ASE-Files.
     *   TODO HIGH   Give JS-modules one more try?? ...
     *   TODO ASAP   Outsource shader files if external files can be used.
