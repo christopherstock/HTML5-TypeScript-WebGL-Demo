@@ -170,7 +170,6 @@
         *   @param  gl              The WebGLRenderingContext to use.
         *   @param  image           The image to set as a texture.
         *   @param  createTexture   If the texture should be created (conceptional!).
-        *   @return                 The created shader.
         *****************************************************************************/
         public static setTexture( gl:WebGLRenderingContext, image:HTMLImageElement, createTexture:boolean )
         {
@@ -191,10 +190,15 @@
             );
 
             gl.generateMipmap(WebGLRenderingContext.TEXTURE_2D);
+        }
 
-/*
-            //set solid color
-            gl.bindTexture( WebGLRenderingContext.TEXTURE_2D, texture );
+        /*****************************************************************************
+        *   Sets a solid color for GL.
+        *
+        *   @param  gl              The WebGLRenderingContext to use.
+        *****************************************************************************/
+        public static setSolidColor( gl:WebGLRenderingContext )
+        {
             gl.texImage2D(
                 WebGLRenderingContext.TEXTURE_2D,
                 0,
@@ -206,6 +210,5 @@
                 WebGLRenderingContext.UNSIGNED_BYTE,
                 new Uint8Array( [ 0, 0, 255, 255 ] )
             );
-*/
         }
     }

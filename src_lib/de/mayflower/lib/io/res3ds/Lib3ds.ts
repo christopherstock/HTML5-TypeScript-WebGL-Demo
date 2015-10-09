@@ -16,9 +16,9 @@
         /** The debug context. */
         private                     debug                   :LibDebug                   = null;
         /** All parsed triangles. */
-        private                     faces                   :Array<Lib3dsTriangle>      = null;
+        private                     faces                   :Array<Lib3dsTriangle>      = [];
         /** All parsed materials. */
-        private                     materials               :Array<Lib3dsMaterial>      = null;
+        private                     materials               :Array<Lib3dsMaterial>      = [];
 
         /*************************************************************************************
         *   Parses the given content of an .ase file and assigns the parsed faces and materials.
@@ -233,7 +233,6 @@
                 iDebug.out( "picked texture: " + material.name );
 */
                 //construct all triangles
-                this.faces = [];
                 for ( var i:number = 0; i < faces3ds.length; ++i )
                 {
                     var triangle:Lib3dsTriangle = new Lib3dsTriangle
@@ -265,8 +264,35 @@
         *
         *   @return     All parsed faces from this file.
         *************************************************************************************/
+/*
         public getFaces():Array<Lib3dsTriangle>
         {
             return this.faces;
+        }
+*/
+        /*************************************************************************************
+        *   Converts this parsed 3ds model to a new mesh object.
+        *
+        *   @param  texture The image texture for all faces of this mesh.
+        *   @return         A mesh object from this parsed 3ds model.
+        *************************************************************************************/
+        public toLibMesh( texture:HTMLImageElement ):LibMesh
+        {
+            var libFaces:Array<LibFace> = [];
+
+            for ( var i:number = 0; i < this.faces.length; ++i )
+            {
+                libFaces.push
+                (
+                    new LibFace
+                    (
+                        this.faces[ i ].a,
+                        this.faces[ i ].b,
+                        this.faces[ i ].c
+                    )
+                );
+            }
+
+            return new LibMesh( libFaces, texture );
         }
     }

@@ -140,15 +140,23 @@
             this.gl.depthMask( true );
 
             //browse all meshes
-            for (var i:number = 0; i < this.meshes3D.length; ++i) {
+            for ( var i:number = 0; i < this.meshes3D.length; ++i )
+            {
                 //set texture for this mesh
-                LibGL.setTexture(this.gl, this.meshes3D[i].texture, this.testCreateAllTextures);
+                if ( this.meshes3D[ i ].texture == null )
+                {
+                    LibGL.setSolidColor( this.gl );
+                }
+                else
+                {
+                    LibGL.setTexture( this.gl, this.meshes3D[ i ].texture, this.testCreateAllTextures );
+                }
 
                 //browse all faces
-                for (var j:number = 0; j < this.meshes3D[i].faces.length; ++j)
+                for ( var j:number = 0; j < this.meshes3D[ i ].faces.length; ++j )
                 {
                     //draw face
-                    this.gl.drawArrays(WebGLRenderingContext.TRIANGLES, this.faceDrawingIndex * 3, 3);
+                    this.gl.drawArrays( WebGLRenderingContext.TRIANGLES, this.faceDrawingIndex * 3, 3 );
                     ++this.faceDrawingIndex;
                 }
             }

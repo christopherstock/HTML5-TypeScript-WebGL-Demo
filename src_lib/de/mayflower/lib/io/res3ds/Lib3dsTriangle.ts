@@ -33,7 +33,7 @@
         *   @param  c           Vertex C.
         *   @param  faceNormal  The face normal.
         ********************************************************************************/
-        public LibMaxTriangle
+        constructor
         (
             anchor      :LibVertex,
             textureName :string,
