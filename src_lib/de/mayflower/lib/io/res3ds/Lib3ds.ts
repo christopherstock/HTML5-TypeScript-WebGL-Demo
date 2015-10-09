@@ -1,7 +1,7 @@
 
     /********************************************************************************
     *   A parser that outputs faces and materials from a specified
-    *   3d studio max ASCII Scene Export File (.ASE).
+    *   3d studio max ASCII Scene Export File (.ase).
     *
     *   @author     Christopher Stock
     *   @version    0.0.1
@@ -21,9 +21,9 @@
         private                     materials               :Array<Lib3dsMaterial>      = null;
 
         /*************************************************************************************
-        *   Parses the given content of an .ASE file and assigns the parsed faces and materials.
+        *   Parses the given content of an .ase file and assigns the parsed faces and materials.
         *
-        *   @param  fileContent The content of the .ASE file to parse.
+        *   @param  fileContent The content of the .ase file to parse.
         *   @param  debug       The debug context.
         *************************************************************************************/
         constructor( fileContent:string, debug:LibDebug )
@@ -32,15 +32,17 @@
 
             this.debug.log( "=======================================" );
             this.debug.log( "Parsing 3dsmax content ... [" + fileContent.length + "] chars" );
-/*
+
             //pick and parse materials
-            var chunkMaterialList:string = LibStrings.getViaRegEx( fileSrc, "\\*MATERIAL_LIST \\{.+?\\n\\}" )[ 0 ];
-            parseMaterials( chunkMaterialList );
+            var chunkMaterialList:string = LibString.searchRegEx( fileContent, /\*MATERIAL_LIST \{[\s\S]+?\n}/ )[ 0 ];
+            this.debug.log( "material list [" + chunkMaterialList.length + "] chars" );
+//            this.parseMaterials( chunkMaterialList );
 
             //pick and parse meshes
-            var chunksGeomObjects:Array<string> = LibStrings.getViaRegEx( fileSrc, "\\*GEOMOBJECT \\{.+?\\n\\}"    );
-            parseMeshes( chunksGeomObjects );
-
+            var chunksGeomObjects:Array<string> = LibString.searchRegEx( fileContent, /\*GEOMOBJECT \{[\s\S]+?\n}/g );
+            this.debug.log( "geom list [" + chunksGeomObjects.length + "] geom objects" );
+//            this.parseMeshes( chunksGeomObjects );
+/*
             //warning if more than max faces
             if ( iFaces.length > MAX_FACES )
             {

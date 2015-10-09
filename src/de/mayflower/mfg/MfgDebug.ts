@@ -23,6 +23,6 @@
         public      static  canvas3D                    :LibDebug                       = new LibDebug( false   && MfgSettings.MODE == MfgDebugSettings.MODE_DEBUG );
         /** The debug group for the text file loading system. */
         public      static  textLoader                  :LibDebug                       = new LibDebug( false   && MfgSettings.MODE == MfgDebugSettings.MODE_DEBUG );
-        /** The debug group for the 3ds max .ASE file parser. */
+        /** The debug group for the 3ds max .ase file parser. */
         public      static  res3ds                      :LibDebug                       = new LibDebug( true    && MfgSettings.MODE == MfgDebugSettings.MODE_DEBUG );
     }

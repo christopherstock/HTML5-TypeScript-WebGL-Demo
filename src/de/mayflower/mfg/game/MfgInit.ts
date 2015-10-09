@@ -99,7 +99,7 @@
         private static initWhen3dsModelsAreLoaded()
         {
             //parse a 3d model
-            var parserD3ds = new Lib3ds( MfgInit.res3dsContents.getContent( Mfg3ds.OFFICE_CHAIR ), MfgDebug.res3ds );
+            var parserD3ds:Lib3ds = new Lib3ds( MfgInit.res3dsContents.getContent( Mfg3ds.OFFICE_CHAIR ), MfgDebug.res3ds );
 
 
 
