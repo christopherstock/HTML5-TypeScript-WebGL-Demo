@@ -106,7 +106,7 @@
             var textureVertices3ds :Array<Lib3dsTextureVertex>  = [];
 
             //browse all meshes
-            for ( var meshIndex = 0; meshIndex < srcMeshes.length; ++meshIndex )
+            for ( var meshIndex:number = 0; meshIndex < srcMeshes.length; ++meshIndex )
             {
                 this.debug.log( " Importing mesh # [" + meshIndex + "]" );
 
@@ -123,23 +123,25 @@
                 //get number of texture-vertices
                 var numTextureVertices:string = LibString.searchRegEx( srcMesh, /\*MESH_NUMTVERTEX (\d+)/ )[ 1 ];
                 this.debug.log( " number of texture-vertices: [" + numTextureVertices + "]" );
-/*
-                //read all vertices
-                String[][]  verticesAA      = LibStrings.getViaRegExGrouped( meshSrc, 3, "\\*MESH_VERTEX\\s+\\d+\\s+([\\d\\.\\-]+)\\s+([\\d\\.\\-]+)\\s+([\\d\\.\\-]+)\\n" );
-                iDebug.out( "parsing [" + verticesAA.length + "] vertices.." );
-                //assign them
-                for ( int i = 0; i < verticesAA.length; ++i )
-                {
-                    //assign all vertices
-                    vertices3ds[ i ] = new LibMaxVertex
-                    (
-                        Float.parseFloat( verticesAA[ i ][ 0 ] ) / POINTS_SCALATION,
-                        Float.parseFloat( verticesAA[ i ][ 1 ] ) / POINTS_SCALATION,
-                        Float.parseFloat( verticesAA[ i ][ 2 ] ) / POINTS_SCALATION
-                    );
-                    //Debug.d3dsRegEx.out( "[" + verticesAA[ i ][ 0 ] + "][" + verticesAA[ 0 ][ 1 ] + "][" + verticesAA[ 0 ][ 2 ] + "]" );
-                }
 
+                //read all vertices
+                var verticesChunks:Array<string> = LibString.searchRegEx( srcMesh, /\*MESH_VERTEX\s+\d+\s+[\s\S]+?\n/g );
+                this.debug.log( " parsing [" + verticesChunks.length + "] vertices chunks.." );
+                for ( var i:number = 0; i < verticesChunks.length; ++i )
+                {
+                    var verticesParsed:Array<string> = LibString.searchRegEx( verticesChunks[ i ], /\*MESH_VERTEX\s+\d+\s+([\d\.\-]+)\s+([\d\.\-]+)\s+([\d\.\-]+)/ );
+
+                    //assign all vertices
+                    vertices3ds[ i ] = new Lib3dsVertex
+                    (
+                        parseFloat( verticesParsed[ 1 ] ) / Lib3ds.POINTS_SCALATION,
+                        parseFloat( verticesParsed[ 2 ] ) / Lib3ds.POINTS_SCALATION,
+                        parseFloat( verticesParsed[ 3 ] ) / Lib3ds.POINTS_SCALATION
+                    );
+
+                    this.debug.log( "  [" + vertices3ds[ i ].x + "][" + vertices3ds[ i ].y + "][" + vertices3ds[ i ].z + "]" );
+                }
+/*
                 //read all face normals ( optional )
                 String[][]  facesNormalsAA  = LibStrings.getViaRegExGrouped( meshSrc, 4, "\\*MESH_FACENORMAL\\s+(\\d+)\\s+([\\d\\.\\-]+)\\s+([\\d\\.\\-]+)\\s+([\\d\\.\\-]+)" );
                 LibMaxVertex[] facesNormals    = null;
@@ -159,7 +161,9 @@
 
                     iDebug.out( "parsed [" + facesNormalsAA.length + "] face-normals" );
                 }
+*/
 
+/*
                 //read all faces
                 String[][]  facesAA         = LibStrings.getViaRegExGrouped( meshSrc, 4, "\\*MESH_FACE\\s+(\\d+)\\:\\s+A\\:\\s+([\\d\\.\\-]+)\\s+B\\:\\s+([\\d\\.\\-]+)\\s+C\\:\\s+([\\d\\.\\-]+)" );
                 iDebug.out( "parsing [" + facesAA.length + "] faces.." );
@@ -175,7 +179,9 @@
                         vertices3ds[ Integer.parseInt( facesAA[ i ][ 3 ] ) ]
                     );
                 }
+*/
 
+/*
                 //read all texture-vertices
                 String[][]  textureVerticesAA      = LibStrings.getViaRegExGrouped( meshSrc, 3, "\\*MESH_TVERT\\s+\\d+\\s+([\\d\\.\\-]+)\\s+([\\d\\.\\-]+)\\s+([\\d\\.\\-]+)\\n" );
                 if ( textureVerticesAA != null )
