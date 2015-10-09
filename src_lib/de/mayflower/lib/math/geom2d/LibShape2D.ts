@@ -10,6 +10,7 @@
     {
         /** The left top coordinate of the bounding rectangle. */
         public              anchor          :LibPoint2D                 = null;
+
         /** The width and height of the bounding rectangle. */
         public              size            :LibDimension2D             = null;
 

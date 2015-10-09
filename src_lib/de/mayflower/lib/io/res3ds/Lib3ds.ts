@@ -6,12 +6,12 @@
     *   @author     Christopher Stock
     *   @version    0.0.1
     ********************************************************************************/
-    class Lib3dsParser
+    class Lib3ds
     {
-        /** All vertex-coordinates from the .ase-file are DIVIDED by this factor during import. */
+        /** The factor to DIVIDE all vertex-coordinates from the .ase-file during import. */
         public      static          POINTS_SCALATION        :number                     = 10;
-        /** Number of faces in one d3ds-files for triggering a 'high poly model' warning. */
-        public      static          MAX_FACES               :number                     = 3000;
+        /** Specifies number of faces for triggering a 'high poly model' warning. */
+        public      static          MAX_FACES               :number                     = 1000;
 
         /** The debug context. */
         private                     debug                   :LibDebug                   = null;
@@ -31,7 +31,7 @@
             this.debug = debug;
 
             this.debug.log( "=======================================" );
-            this.debug.log( "Parsing 3dsmax content ... " );
+            this.debug.log( "Parsing 3dsmax content ... [" + fileContent.length + "] chars" );
 /*
             //pick and parse materials
             var chunkMaterialList:string = LibStrings.getViaRegEx( fileSrc, "\\*MATERIAL_LIST \\{.+?\\n\\}" )[ 0 ];

@@ -9,6 +9,7 @@
     {
         /** Offset's horizontal amount. */
         public              x           :number                     = 0;
+
         /** Offset's vertical amount. */
         public              y           :number                     = 0;
 

@@ -9,6 +9,7 @@
     {
         /** Dimension's width. */
         public              width                  :number                     = 0;
+
         /** Dimension's height. */
         public              height                 :number                     = 0;
 

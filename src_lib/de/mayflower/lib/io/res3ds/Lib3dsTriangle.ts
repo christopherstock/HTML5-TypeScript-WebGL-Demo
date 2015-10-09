@@ -8,19 +8,19 @@
     class Lib3dsTriangle
     {
         /** Triangle's anchor point. */
-        public          anchor:LibVertex                = null;
+        public          anchor              :LibVertex                  = null;
         /** Triangle's texture. */
-        public          textureName:string              = null;
+        public          textureName         :string                     = null;
         /** Triangle's color. */
-        public          col:string                      = null;
+        public          col                 :string                     = null;
         /** Triangle's vertex A. */
-        public          a:LibVertex                     = null;
+        public          a                   :LibVertex                  = null;
         /** Triangle's vertex B. */
-        public          b:LibVertex                     = null;
+        public          b                   :LibVertex                  = null;
         /** Triangle's vertex C. */
-        public          c:LibVertex                     = null;
+        public          c                   :LibVertex                  = null;
        /** Triangle's normal. */
-        public          faceNormal:LibVertex            = null;
+        public          faceNormal          :LibVertex                  = null;
 
         /********************************************************************************
         *   Creates one trinale that can be used in the GL lib.
@@ -35,13 +35,13 @@
         ********************************************************************************/
         public LibMaxTriangle
         (
-            anchor:LibVertex,
-            textureName:string,
-            col:string,
-            a:LibVertex,
-            b:LibVertex,
-            c:LibVertex,
-            faceNormal:LibVertex
+            anchor      :LibVertex,
+            textureName :string,
+            col         :string,
+            a           :LibVertex,
+            b           :LibVertex,
+            c           :LibVertex,
+            faceNormal  :LibVertex
         )
         {
             this.anchor         = anchor;
