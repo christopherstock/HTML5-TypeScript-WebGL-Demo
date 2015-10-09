@@ -128,7 +128,7 @@
                         new LibVertex( x,           y + sizeY,  z,              0,          0           )
                     ),
                 ],
-                MfgGame.imageSystem.getImage( imageId )
+                MfgInit.imageSystem.getImage( imageId )
             );
         }
     }

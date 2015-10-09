@@ -27,22 +27,22 @@
         /*****************************************************************************
         *   Handles the player's keys.
         *****************************************************************************/
-        public handlePlayerKeys()
+        public handleKeys()
         {
-            this.handlePlayerKeysForMoving();
-            this.handlePlayerKeysForLooking();
+            this.handleKeysForMoving();
+            this.handleKeysForLooking();
         }
 
         /*****************************************************************************
         *   Handles the player's keys for moving.
         *****************************************************************************/
-        private handlePlayerKeysForMoving()
+        private handleKeysForMoving()
         {
             if
             (
-                    MfgGame.keySystem.isPressed( LibKeySystem.KEY_DOWN      )
-                ||  MfgGame.keySystem.isPressed( LibKeySystem.KEY_S         )
-                ||  MfgGame.keySystem.isPressed( LibKeySystem.KEY_NUMPAD_2  )
+                    MfgInit.keySystem.isPressed( LibKeySystem.KEY_DOWN      )
+                ||  MfgInit.keySystem.isPressed( LibKeySystem.KEY_S         )
+                ||  MfgInit.keySystem.isPressed( LibKeySystem.KEY_NUMPAD_2  )
             )
             {
                 this.pos.z -= LibMath2D.cosDeg( this.rot.y ) * MfgSettings.PLAYER_SPEED_MOVE;
@@ -51,9 +51,9 @@
 
             if
             (
-                    MfgGame.keySystem.isPressed( LibKeySystem.KEY_UP        )
-                ||  MfgGame.keySystem.isPressed( LibKeySystem.KEY_W         )
-                ||  MfgGame.keySystem.isPressed( LibKeySystem.KEY_NUMPAD_8  )
+                    MfgInit.keySystem.isPressed( LibKeySystem.KEY_UP        )
+                ||  MfgInit.keySystem.isPressed( LibKeySystem.KEY_W         )
+                ||  MfgInit.keySystem.isPressed( LibKeySystem.KEY_NUMPAD_8  )
             )
             {
                 this.pos.z += LibMath2D.cosDeg( this.rot.y ) * MfgSettings.PLAYER_SPEED_MOVE;
@@ -62,7 +62,7 @@
 
             if
             (
-                    MfgGame.keySystem.isPressed( LibKeySystem.KEY_A )
+                    MfgInit.keySystem.isPressed( LibKeySystem.KEY_A )
             )
             {
                 this.pos.z -= LibMath2D.sinDeg( this.rot.y ) * MfgSettings.PLAYER_SPEED_MOVE;
@@ -71,7 +71,7 @@
 
             if
             (
-                    MfgGame.keySystem.isPressed( LibKeySystem.KEY_D )
+                    MfgInit.keySystem.isPressed( LibKeySystem.KEY_D )
             )
             {
                 this.pos.z += LibMath2D.sinDeg( this.rot.y ) * MfgSettings.PLAYER_SPEED_MOVE;
@@ -82,13 +82,13 @@
         /*****************************************************************************
         *   Handles the player's keys for looking.
         *****************************************************************************/
-        private handlePlayerKeysForLooking()
+        private handleKeysForLooking()
         {
             if
             (
-                    MfgGame.keySystem.isPressed( LibKeySystem.KEY_LEFT      )
-                ||  MfgGame.keySystem.isPressed( LibKeySystem.KEY_Q         )
-                ||  MfgGame.keySystem.isPressed( LibKeySystem.KEY_NUMPAD_4  )
+                    MfgInit.keySystem.isPressed( LibKeySystem.KEY_LEFT      )
+                ||  MfgInit.keySystem.isPressed( LibKeySystem.KEY_Q         )
+                ||  MfgInit.keySystem.isPressed( LibKeySystem.KEY_NUMPAD_4  )
             )
             {
                 //alter and clip rot y
@@ -98,9 +98,9 @@
 
             if
             (
-                    MfgGame.keySystem.isPressed( LibKeySystem.KEY_RIGHT     )
-                ||  MfgGame.keySystem.isPressed( LibKeySystem.KEY_E         )
-                ||  MfgGame.keySystem.isPressed( LibKeySystem.KEY_NUMPAD_6  )
+                    MfgInit.keySystem.isPressed( LibKeySystem.KEY_RIGHT     )
+                ||  MfgInit.keySystem.isPressed( LibKeySystem.KEY_E         )
+                ||  MfgInit.keySystem.isPressed( LibKeySystem.KEY_NUMPAD_6  )
             )
             {
                 //alter and clip rot y
@@ -110,8 +110,8 @@
 
             if
             (
-                    MfgGame.keySystem.isPressed( LibKeySystem.KEY_CENTER_NUMPAD )
-                ||  MfgGame.keySystem.isPressed( LibKeySystem.KEY_NUMPAD_5      )
+                    MfgInit.keySystem.isPressed( LibKeySystem.KEY_CENTER_NUMPAD )
+                ||  MfgInit.keySystem.isPressed( LibKeySystem.KEY_NUMPAD_5      )
             )
             {
                 //start view aim centering
@@ -120,8 +120,8 @@
 
             if
             (
-                    MfgGame.keySystem.isPressed( LibKeySystem.KEY_PAGE_UP  )
-                ||  MfgGame.keySystem.isPressed( LibKeySystem.KEY_NUMPAD_9 )
+                    MfgInit.keySystem.isPressed( LibKeySystem.KEY_PAGE_UP  )
+                ||  MfgInit.keySystem.isPressed( LibKeySystem.KEY_NUMPAD_9 )
             )
             {
                 //alter and clip rot x
@@ -134,8 +134,8 @@
 
             if
             (
-                    MfgGame.keySystem.isPressed( LibKeySystem.KEY_PAGE_DOWN )
-                ||  MfgGame.keySystem.isPressed( LibKeySystem.KEY_NUMPAD_3  )
+                    MfgInit.keySystem.isPressed( LibKeySystem.KEY_PAGE_DOWN )
+                ||  MfgInit.keySystem.isPressed( LibKeySystem.KEY_NUMPAD_3  )
             )
             {
                 //alter and clip rot x
@@ -150,7 +150,7 @@
         /*****************************************************************************
         *   Updates the player looking aim if it shall be resetted.
         *****************************************************************************/
-        public updatePlayerLooking():void
+        public updateLooking():void
         {
             if ( this.centerViewAim )
             {

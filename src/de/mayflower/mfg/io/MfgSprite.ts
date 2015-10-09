@@ -27,7 +27,7 @@
         *****************************************************************************/
         public static init():void
         {
-            MfgSprite.ITEM_MF_LOGO       = new LibSprite( MfgGame.imageSystem.getImage( MfgImage.ITEM_MF_LOGO       ), 3, 6, 18, 4  );
+            MfgSprite.ITEM_MF_LOGO       = new LibSprite( MfgInit.imageSystem.getImage( MfgImage.ITEM_MF_LOGO       ), 3, 6, 18, 4  );
 /*
             MfgSprite.PLAYER_DEFAULT     = new LibSprite( MfgGame.imageSystem.getImage( MfgImage.PLAYER_DEFAULT     ), 1, 1, 1,  1  );
             MfgSprite.PLAYER_STAND_LEFT  = new LibSprite( MfgGame.imageSystem.getImage( MfgImage.PLAYER_STAND_LEFT  ), 1, 1, 1,  1  );

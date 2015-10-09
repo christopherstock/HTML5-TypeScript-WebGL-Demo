@@ -2,23 +2,23 @@
     /************************************************************************************
     *   The main class contains the application's points of entry and termination.
     *
-    *   TODO ASAP   Rename MfgGame to MfgInit.
     *   TODO ASAP   Importer/Parser for 3Dsmax ASE-Files.
     *   TODO HIGH   Give JS-modules one more try?? ...
     *   TODO ASAP   Outsource shader files if external files can be used.
     *   TODO ASAP   Refactor MfgGame3DSetup and prune initial transformation or translation?
     *   TODO HIGH   Flexible drawing system with a dynamic drawing vector.
-    *   TODO ASAP   Prune faceDrawingIndex in class MfgGame3D.
+    *   TODO ASAP   Prune faceDrawingIndex in class MfgGL3D.
     *   TODO ASAP   PRUNE initial transformations/translations in setup!!
     *   TODO ASAP   Merge setup functions in MfgGame3DSetup and write position and text-coord values in one loop?
-    *   TODO ASAP   Increase performance?
     *   TODO ASAP   Adjust all axis according to 3dsMax? - reset player startup. Check and flatten perspective matrix operations.
     *   TODO ASAP   Fading HUD images.
     *   TODO INIT   Draw ortho fonts?
     *   TODO INIT   Create FPS counter.
-    *   TODO WEAK   Y modifier for holded wearpon.
     *   TODO INIT   Y modifier while walking.
+    *   TODO LOW    Increase performance?
+    *   TODO WEAK   Y modifier for holded wearpon.
     *
+    *   DONE        Separated intitialization logic from game logic.
     *   DONE        Pruneed loading processes from constructor of libs.
     *   DONE        Enabled numeric keys on the numeric keypad if num lock is on.
     *   DONE        Extracted class MfgPlayer and encapsulated player instance.
@@ -90,7 +90,7 @@
             MfgDebug.acclaim.log( MfgSettings.TITLE );
 
             //init game engine
-            MfgGame.init();
+            MfgInit.init();
         }
     }
 

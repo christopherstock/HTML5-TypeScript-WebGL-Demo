@@ -5,7 +5,7 @@
     *   @author     Christopher Stock
     *   @version    0.0.1
     *****************************************************************************/
-    class MfgGame3D
+    class MfgGL3D
     {
         /** The OpenGL context. */
         private                 gl                              :WebGLRenderingContext      = null;
@@ -33,7 +33,7 @@
         *   @param  meshes          All 3D meshes to draw.
         *   @param  orthoMeshesFg   All orthographic meshes to draw in the fg.
         *****************************************************************************/
-        public constructor
+        constructor
         (
             gl:WebGLRenderingContext,
             meshes:Array<LibMesh>,
@@ -62,49 +62,11 @@
         }
 
         /*****************************************************************************
-        *   Updates the mesh pipeline to draw.
-        *****************************************************************************/
-        private setAllMeshes()
-        {
-            var allMeshes = [].concat( this.meshesOrthoBg ).concat( this.meshes3D ).concat( this.meshesOrthoFg );
-
-            MfgGame3DSetup.setPositions( this.gl, this.program, allMeshes );
-            MfgGame3DSetup.setTexcoords( this.gl, this.program, allMeshes );
-        }
-
-        /*****************************************************************************
         *   Renders the 3D scene.
         *****************************************************************************/
         public render()
         {
-            MfgGame.player.handlePlayerKeys();
-            MfgGame.player.updatePlayerLooking();
             this.updateBackgroundMeshes();
-        }
-
-        /*****************************************************************************
-        *   Translates the background so it is adjusted to the player's rotation Y.
-        *****************************************************************************/
-        public updateBackgroundMeshes()
-        {
-            //console.log( "> " + this.rot.y );
-            //var ratio = ( 1.0 / this.rot.y );
-
-            var widthU  = MfgSettings.CANVAS_WIDTH / MfgGame.imageSystem.getImage( MfgImage.ORTHO_BG_LANDSCAPE ).width;
-
-            var offsetU = 1.0 * MfgGame.player.rot.y / 360;
-
-            var minU = 0.0 - offsetU;
-            var maxU = 0.0 + widthU - offsetU;
-
-            this.meshesOrthoBg = MfgGame.level.getAllMeshes2DBackground(
-                0,
-                0,
-                minU,
-                maxU,
-                0.0,
-                1.0
-            );
         }
 
         /*****************************************************************************
@@ -129,6 +91,43 @@
             this.draw2D( this.meshesOrthoFg );
 
             this.testCreateAllTextures = false;
+        }
+
+        /*****************************************************************************
+        *   Updates the mesh pipeline to draw.
+        *****************************************************************************/
+        private setAllMeshes()
+        {
+            var allMeshes = [].concat( this.meshesOrthoBg ).concat( this.meshes3D ).concat( this.meshesOrthoFg );
+
+            MfgGame3DSetup.setPositions( this.gl, this.program, allMeshes );
+            MfgGame3DSetup.setTexcoords( this.gl, this.program, allMeshes );
+        }
+
+
+        /*****************************************************************************
+        *   Translates the background so it is adjusted to the player's rotation Y.
+        *****************************************************************************/
+        private updateBackgroundMeshes()
+        {
+            //console.log( "> " + this.rot.y );
+            //var ratio = ( 1.0 / this.rot.y );
+
+            var widthU  = MfgSettings.CANVAS_WIDTH / MfgInit.imageSystem.getImage( MfgImage.ORTHO_BG_LANDSCAPE ).width;
+
+            var offsetU = 1.0 * MfgGame.player.rot.y / 360;
+
+            var minU = 0.0 - offsetU;
+            var maxU = 0.0 + widthU - offsetU;
+
+            this.meshesOrthoBg = MfgGame.level.getAllMeshes2DBackground(
+                0,
+                0,
+                minU,
+                maxU,
+                0.0,
+                1.0
+            );
         }
 
         /*****************************************************************************

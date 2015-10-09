@@ -48,8 +48,8 @@
             return [
                 this.create2DMesh(
                     MfgImage.ORTHO_AUTO_SHOTGUN,
-                    MfgSettings.CANVAS_WIDTH - MfgGame.imageSystem.getImage(MfgImage.ORTHO_AUTO_SHOTGUN).width,
-                    MfgSettings.CANVAS_HEIGHT - MfgGame.imageSystem.getImage(MfgImage.ORTHO_AUTO_SHOTGUN).height,
+                    MfgSettings.CANVAS_WIDTH  - MfgInit.imageSystem.getImage(MfgImage.ORTHO_AUTO_SHOTGUN).width,
+                    MfgSettings.CANVAS_HEIGHT - MfgInit.imageSystem.getImage(MfgImage.ORTHO_AUTO_SHOTGUN).height,
                     0.0,
                     1.0,
                     0.0,
@@ -85,7 +85,7 @@
         *****************************************************************************/
         public create2DMesh( imageId:string, x:number, y:number, uMin:number, uMax:number, vMin:number, vMax:number ) : LibMesh
         {
-            var image:HTMLImageElement = MfgGame.imageSystem.getImage( imageId );
+            var image:HTMLImageElement = MfgInit.imageSystem.getImage( imageId );
 
             // where do these OFFSETs come from?
             var imgWidth       = image.width;
