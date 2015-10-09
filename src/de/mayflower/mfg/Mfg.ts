@@ -2,7 +2,6 @@
     /************************************************************************************
     *   The main class contains the application's points of entry and termination.
     *
-    *   TODO ASAP   Importer/Parser for 3Dsmax ASE-Files.
     *   TODO HIGH   Give JS-modules one more try?? ...
     *   TODO ASAP   Outsource shader files if external files can be used.
     *   TODO ASAP   Refactor MfgGame3DSetup and prune initial transformation or translation?
@@ -18,6 +17,7 @@
     *   TODO LOW    Increase performance?
     *   TODO WEAK   Y modifier for holded wearpon.
     *
+    *   DONE        Completed importer/parser for 3Dsmax ASE-Files.
     *   DONE        Separated intitialization logic from game logic.
     *   DONE        Pruneed loading processes from constructor of libs.
     *   DONE        Enabled numeric keys on the numeric keypad if num lock is on.

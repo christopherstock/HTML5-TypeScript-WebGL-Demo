@@ -106,7 +106,7 @@
 
 
             //parse a 3d model (office chair) and add to level meshes
-            var parserD3ds:Lib3ds = new Lib3ds( MfgInit.res3dsContents.getContent( Mfg3ds.OFFICE_CHAIR ), MfgDebug.res3ds );
+            var parserD3ds:Lib3ds = new Lib3ds( MfgInit.res3dsContents.getContent( Mfg3ds.MAYFLOWER_LOGO ), MfgDebug.res3ds );
           //MfgDebug.bugfix.log( " >> parsed office chair faces: [" + parserD3ds.getFaces().length + "] faces" );
           //MfgGame.level.allMeshes.push( parserD3ds.toLibMesh( MfgInit.imageSystem.getImage( MfgImage.TEXTURE_TEST ) ) );
             MfgGame.level.allMeshes.push( parserD3ds.toLibMesh( null ) );

@@ -11,11 +11,14 @@
         public      static      OFFICE_CHAIR            :string                     = MfgSettings.PATH_3DS + "officeChair.ase";
         /** The 3ds file for the model 'office desk'. */
         public      static      OFFICE_DESK             :string                     = MfgSettings.PATH_3DS + "officeDesk.ase";
+        /** The 3ds file for the model 'mayflower logo'. */
+        public      static      MAYFLOWER_LOGO          :string                     = MfgSettings.PATH_3DS + "mfLogo.ase";
 
         /** This array contains all filenames of all 3ds model files that shall be loaded. */
         public      static      FILE_NAMES              :Array<string>              =
         [
             Mfg3ds.OFFICE_CHAIR,
             Mfg3ds.OFFICE_DESK,
+            Mfg3ds.MAYFLOWER_LOGO,
         ];
     }

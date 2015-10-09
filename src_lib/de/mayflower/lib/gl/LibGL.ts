@@ -208,7 +208,7 @@
                 0,
                 WebGLRenderingContext.RGBA,
                 WebGLRenderingContext.UNSIGNED_BYTE,
-                new Uint8Array( [ 0, 0, 255, 255 ] )
+                new Uint8Array( [ 237, 115, 4, 255 ] )
             );
         }
     }
