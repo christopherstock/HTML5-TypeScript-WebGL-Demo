@@ -26,15 +26,15 @@
         ********************************************************************************/
         constructor
         (
-            faceNormal:Lib3dsVertex,
-            vertex1:Lib3dsVertex,
-            vertex2:Lib3dsVertex,
-            vertex3:Lib3dsVertex
+            faceNormal :Lib3dsVertex,
+            vertex1    :Lib3dsVertex,
+            vertex2    :Lib3dsVertex,
+            vertex3    :Lib3dsVertex
         )
         {
-            this.faceNormal = Lib3dsVertex.copy( faceNormal );
-            this.vertex1    = Lib3dsVertex.copy( vertex1    );
-            this.vertex2    = Lib3dsVertex.copy( vertex2    );
-            this.vertex3    = Lib3dsVertex.copy( vertex3    );
+            this.faceNormal = ( faceNormal == null ? null : Lib3dsVertex.copy( faceNormal ) );
+            this.vertex1    =                               Lib3dsVertex.copy( vertex1    );
+            this.vertex2    =                               Lib3dsVertex.copy( vertex2    );
+            this.vertex3    =                               Lib3dsVertex.copy( vertex3    );
         }
     }

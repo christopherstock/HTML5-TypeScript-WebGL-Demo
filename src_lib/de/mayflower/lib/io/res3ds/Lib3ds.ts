@@ -130,6 +130,7 @@
                 for ( var i:number = 0; i < verticesChunks.length; ++i )
                 {
                     var verticesParsed:Array<string> = LibString.searchRegEx( verticesChunks[ i ], /\*MESH_VERTEX\s+\d+\s+([\d\.\-]+)\s+([\d\.\-]+)\s+([\d\.\-]+)/ );
+                    this.debug.log( "  [" + verticesParsed[ 1 ] + "][" + verticesParsed[ 2 ] + "][" + verticesParsed[ 3 ] + "]" );
 
                     //assign all vertices
                     vertices3ds[ i ] = new Lib3dsVertex
@@ -138,8 +139,6 @@
                         parseFloat( verticesParsed[ 2 ] ) / Lib3ds.POINTS_SCALATION,
                         parseFloat( verticesParsed[ 3 ] ) / Lib3ds.POINTS_SCALATION
                     );
-
-                    this.debug.log( "  [" + vertices3ds[ i ].x + "][" + vertices3ds[ i ].y + "][" + vertices3ds[ i ].z + "]" );
                 }
 /*
                 //read all face normals ( optional )
@@ -162,25 +161,23 @@
                     iDebug.out( "parsed [" + facesNormalsAA.length + "] face-normals" );
                 }
 */
-
-/*
                 //read all faces
-                String[][]  facesAA         = LibStrings.getViaRegExGrouped( meshSrc, 4, "\\*MESH_FACE\\s+(\\d+)\\:\\s+A\\:\\s+([\\d\\.\\-]+)\\s+B\\:\\s+([\\d\\.\\-]+)\\s+C\\:\\s+([\\d\\.\\-]+)" );
-                iDebug.out( "parsing [" + facesAA.length + "] faces.." );
-                //assign them
-                for ( int i = 0; i < facesAA.length; ++i )
+                var facesChunks:Array<string> = LibString.searchRegEx( srcMesh, /\*MESH_FACE\s+\d+:\s+[\s\S]+?\n/g );
+                this.debug.log( " parsing [" + facesChunks.length + "] faces chunks.." );
+                for ( var i:number = 0; i < facesChunks.length; ++i )
                 {
+                    var facesParsed:Array<string> = LibString.searchRegEx( facesChunks[ i ], /\*MESH_FACE\s+(\d+):\s+A:\s+([\d\.\-]+)\s+B:\s+([\d\.\-]+)\s+C:\s+([\d\.\-]+)/ );
+                    this.debug.log( "  [" + facesParsed[ 2 ] + "][" + facesParsed[ 3 ] + "][" + facesParsed[ 4 ] + "]" );
+
                     //assign all faces
-                    faces3ds[ i ] = new LibMaxFace
+                    faces3ds[ i ] = new Lib3dsFace
                     (
-                        ( facesNormals == null ? null : facesNormals[ i ] ),
-                        vertices3ds[ Integer.parseInt( facesAA[ i ][ 1 ] ) ],
-                        vertices3ds[ Integer.parseInt( facesAA[ i ][ 2 ] ) ],
-                        vertices3ds[ Integer.parseInt( facesAA[ i ][ 3 ] ) ]
+                        null, //( facesNormals == null ? null : facesNormals[ i ] ),
+                        vertices3ds[ facesParsed[ 2 ] ],
+                        vertices3ds[ facesParsed[ 3 ] ],
+                        vertices3ds[ facesParsed[ 4 ] ]
                     );
                 }
-*/
-
 /*
                 //read all texture-vertices
                 String[][]  textureVerticesAA      = LibStrings.getViaRegExGrouped( meshSrc, 3, "\\*MESH_TVERT\\s+\\d+\\s+([\\d\\.\\-]+)\\s+([\\d\\.\\-]+)\\s+([\\d\\.\\-]+)\\n" );
@@ -261,6 +258,7 @@
                     }
                 }
 */
+break;
             }
 /*
             //convert all faces from vector to array
