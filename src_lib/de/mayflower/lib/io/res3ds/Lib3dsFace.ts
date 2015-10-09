@@ -8,13 +8,13 @@
     class Lib3dsFace
     {
         /** The face's normal. This is the point that crosses the face where all all angles have 90°. */
-        public          faceNormal:Lib3dsVertex             = null;
+        public          faceNormal              :Lib3dsVertex               = null;
         /** The face's 1st vertex. */
-        public          vertex1:Lib3dsVertex                = null;
+        public          vertex1                 :Lib3dsVertex               = null;
         /** The face's 2nd vertex. */
-        public          vertex2:Lib3dsVertex                = null;
+        public          vertex2                 :Lib3dsVertex               = null;
         /** The face's 3rd vertex. */
-        public          vertex3:Lib3dsVertex                = null;
+        public          vertex3                 :Lib3dsVertex               = null;
 
         /********************************************************************************
         *   Represents a specified face in a 3ds max file.

@@ -231,39 +231,31 @@
                 }
 
                 iDebug.out( "picked texture: " + material.name );
-
-                //add all faces to the vector
-                for( LibMaxFace face : faces3ds )
+*/
+                //construct all triangles
+                this.faces = [];
+                for ( var i:number = 0; i < faces3ds.length; ++i )
                 {
-                    //Debug.d3dsRegEx.out( "CREATE FACE!" + material.name );
-                    try
-                    {
-                        //create free-triangle and add it to the faces stack
-                        LibMaxTriangle ft = new LibMaxTriangle
-                        (
-                            new LibVertex( 0.0f, 0.0f, 0.0f ),
-                            material.name,
-                            material.color,
-                            new LibVertex ( face.vertex1.y,     face.vertex1.x,     face.vertex1.z, ( face.vertex1.u + material.offsetU ) * material.tilingU, ( face.vertex1.v + material.offsetV ) * material.tilingV ),
-                            new LibVertex ( face.vertex2.y,     face.vertex2.x,     face.vertex2.z, ( face.vertex2.u + material.offsetU ) * material.tilingU, ( face.vertex2.v + material.offsetV ) * material.tilingV ),
-                            new LibVertex ( face.vertex3.y,     face.vertex3.x,     face.vertex3.z, ( face.vertex3.u + material.offsetU ) * material.tilingU, ( face.vertex3.v + material.offsetV ) * material.tilingV ),
-                            ( face.iFaceNormal == null ? null : new LibVertex ( face.iFaceNormal.y, face.iFaceNormal.x, face.iFaceNormal.z  ) )
-                        );
-                        allFaces.add( ft );
-                    }
-                    catch ( Exception ioe )
-                    {
-                        iDebug.err( "I/O Exception on writing parsed ASE-File!" );
-                        iDebug.trace( ioe );
-                    }
-                }
-*/
-break;
-            }
+                    var triangle:Lib3dsTriangle = new Lib3dsTriangle
+                    (
+                        new LibVertex( 0.0, 0.0, 0.0, 0.0, 0.0 ),
+                        null, //material.name,
+                        null, //material.color,
+
+                        new LibVertex( faces3ds[ i ].vertex1.x,     faces3ds[ i ].vertex1.y,    faces3ds[ i ].vertex1.z, 0.0, 1.0 ),
+                        new LibVertex( faces3ds[ i ].vertex2.x,     faces3ds[ i ].vertex2.y,    faces3ds[ i ].vertex2.z, 0.0, 1.0 ),
+                        new LibVertex( faces3ds[ i ].vertex3.x,     faces3ds[ i ].vertex3.y,    faces3ds[ i ].vertex3.z, 0.0, 1.0 ),
 /*
-            //convert all faces from vector to array
-            iFaces = allFaces.toArray( new LibMaxTriangle[] {} );
+                        new LibVertex( face.vertex1.y,     face.vertex1.x,     face.vertex1.z, ( face.vertex1.u + material.offsetU ) * material.tilingU, ( face.vertex1.v + material.offsetV ) * material.tilingV ),
+                        new LibVertex( face.vertex2.y,     face.vertex2.x,     face.vertex2.z, ( face.vertex2.u + material.offsetU ) * material.tilingU, ( face.vertex2.v + material.offsetV ) * material.tilingV ),
+                        new LibVertex( face.vertex3.y,     face.vertex3.x,     face.vertex3.z, ( face.vertex3.u + material.offsetU ) * material.tilingU, ( face.vertex3.v + material.offsetV ) * material.tilingV ),
 */
+                        null //( face.iFaceNormal == null ? null : new LibVertex ( face.iFaceNormal.y, face.iFaceNormal.x, face.iFaceNormal.z  ) )
+                    );
+                    this.faces.push( triangle );
+                }
+            }
+
             //done
             this.debug.log( " done parsing meshes" );
         }
