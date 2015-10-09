@@ -40,8 +40,7 @@
 
             //pick and parse meshes
             var chunksGeomObjects:Array<string> = LibString.searchRegEx( fileContent, /\*GEOMOBJECT \{[\s\S]+?\n}/g );
-            this.debug.log( "geom list [" + chunksGeomObjects.length + "] geom objects" );
-//            this.parseMeshes( chunksGeomObjects );
+            this.parseMeshes( chunksGeomObjects );
 /*
             //warning if more than max faces
             if ( iFaces.length > MAX_FACES )
@@ -51,6 +50,11 @@
 */
         }
 
+        /*************************************************************************************
+        *   Parses the given textfile chunk for all specified materials.
+        *
+        *   @param  src     The textfile chunk that contains all material information.
+        *************************************************************************************/
         private parseMaterials( src:String ):void
         {
 /*
@@ -87,25 +91,25 @@
 */
         }
 
-        private parseMeshes( meshesSrc:Array<string> ):void
+        /*************************************************************************************
+        *   Parses all given textfile chunk for all specified meshes.
+        *
+        *   @param  srcMeshes   All textfile chunks each containing one mesh.
+        *************************************************************************************/
+        private parseMeshes( srcMeshes:Array<string> ):void
         {
-/*
-            iDebug.out( "meshes to parse: [" + meshesSrc.length + "]" );
+            this.debug.log( " meshes to parse: [" + srcMeshes.length + "]" );
 
-            Vector<LibMaxTriangle>      allFaces                = new Vector<LibMaxTriangle>();
-            LibMaxVertex[]              vertices3ds             = null;
-            LibMaxFace[]                faces3ds                = null;
-            LibMaxTextureVertex[]       textureVertices3ds      = null;
+            var allFaces           :Array<Lib3dsTriangle>       = [];
+            var vertices3ds        :Array<Lib3dsVertex>         = [];
+            var faces3ds           :Array<Lib3dsFace>           = [];
+            var textureVertices3ds :Array<Lib3dsTextureVertex>  = [];
 
             //browse all meshes
-            int cur = 0;
-            for ( String meshSrc : meshesSrc )
+            for ( var meshIndex = 0; meshIndex < srcMeshes.length; ++meshIndex )
             {
-                //BufferedReader inStream = new BufferedReader( new StringReader( chunksGeomObjects[ i ] ) );
-
-                //next texture!
-                ++cur;
-                iDebug.out( "\nImporting mesh # [" + cur + "]" );
+                this.debug.log( " Importing mesh # [" + meshIndex + "]" );
+/*
 
                 //get number of vertices
                 String[][]  numVerticesAA   = LibStrings.getViaRegExGrouped( meshSrc, 1, "\\*MESH_NUMVERTEX (\\d+)" );
@@ -255,16 +259,21 @@
                         iDebug.trace( ioe );
                     }
                 }
+*/
             }
-
+/*
             //convert all faces from vector to array
             iFaces = allFaces.toArray( new LibMaxTriangle[] {} );
-
-            //done
-            iDebug.out( "done" );
 */
+            //done
+            this.debug.log( " done parsing meshes" );
         }
 
+        /*************************************************************************************
+        *   Delivers all parsed faces from this imported 3ds max .ase file.
+        *
+        *   @return     All parsed faces from this file.
+        *************************************************************************************/
         public getFaces():Array<Lib3dsTriangle>
         {
             return this.faces;
