@@ -109,26 +109,21 @@
             for ( var meshIndex = 0; meshIndex < srcMeshes.length; ++meshIndex )
             {
                 this.debug.log( " Importing mesh # [" + meshIndex + "]" );
-/*
+
+                var srcMesh = srcMeshes[ meshIndex ];
 
                 //get number of vertices
-                String[][]  numVerticesAA   = LibStrings.getViaRegExGrouped( meshSrc, 1, "\\*MESH_NUMVERTEX (\\d+)" );
-                int         numVertices     = Integer.parseInt( numVerticesAA[ 0 ][ 0 ] );
-                            vertices3ds     = new LibMaxVertex[ numVertices ];
-                iDebug.out( "number of vertices: [" + numVertices + "]" );
+                var numVertices:string = LibString.searchRegEx( srcMesh, /\*MESH_NUMVERTEX (\d+)/ )[ 1 ];
+                this.debug.log( " number of vertices: [" + numVertices + "]" );
 
                 //get number of faces
-                String[][]  numFacesAA      = LibStrings.getViaRegExGrouped( meshSrc, 1, "\\*MESH_NUMFACES (\\d+)" );
-                int         numFaces        = Integer.parseInt( numFacesAA[ 0 ][ 0 ] );
-                            faces3ds        = new LibMaxFace[ numFaces ];
-                iDebug.out( "number of faces: [" + numFaces + "]" );
+                var numFaces:string = LibString.searchRegEx( srcMesh, /\*MESH_NUMFACES (\d+)/ )[ 1 ];
+                this.debug.log( " number of faces: [" + numFaces + "]" );
 
                 //get number of texture-vertices
-                String[][]  numTVerticesAA      = LibStrings.getViaRegExGrouped( meshSrc, 1, "\\*MESH_NUMTVERTEX (\\d+)" );
-                int         numTVertices        = Integer.parseInt( numTVerticesAA[ 0 ][ 0 ] );
-                            textureVertices3ds  = new LibMaxTextureVertex[ numTVertices ];
-                iDebug.out( "number of texture-vertices: [" + numTVertices + "]" );
-
+                var numTextureVertices:string = LibString.searchRegEx( srcMesh, /\*MESH_NUMTVERTEX (\d+)/ )[ 1 ];
+                this.debug.log( " number of texture-vertices: [" + numTextureVertices + "]" );
+/*
                 //read all vertices
                 String[][]  verticesAA      = LibStrings.getViaRegExGrouped( meshSrc, 3, "\\*MESH_VERTEX\\s+\\d+\\s+([\\d\\.\\-]+)\\s+([\\d\\.\\-]+)\\s+([\\d\\.\\-]+)\\n" );
                 iDebug.out( "parsing [" + verticesAA.length + "] vertices.." );
