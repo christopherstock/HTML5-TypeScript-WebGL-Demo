@@ -3,7 +3,7 @@
     *   Manages the 3D logic for the WebGL context.
     *
     *   @author     Christopher Stock
-    *   @version    0.0.1
+    *   @version    0.0.2
     *****************************************************************************/
     class MfgGL3D
     {

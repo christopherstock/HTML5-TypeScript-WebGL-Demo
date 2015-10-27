@@ -3,7 +3,7 @@
     *   Defines the filenames and IDs of all image resources being used in this app.
     *
     *   @author     Christopher Stock
-    *   @version    0.0.1
+    *   @version    0.0.2
     *****************************************************************************/
     class MfgImage
     {

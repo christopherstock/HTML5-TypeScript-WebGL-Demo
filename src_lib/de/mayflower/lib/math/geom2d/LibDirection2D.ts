@@ -3,7 +3,7 @@
     *   A direction in 2D space.
     *
     *   @author     Christopher Stock
-    *   @version    0.0.1
+    *   @version    0.0.2
     *****************************************************************************/
     enum LibDirection2D
     {

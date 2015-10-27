@@ -4,7 +4,7 @@
     *   3d studio max ASCII Scene Export File (.ase).
     *
     *   @author     Christopher Stock
-    *   @version    0.0.1
+    *   @version    0.0.2
     ********************************************************************************/
     class Lib3ds
     {

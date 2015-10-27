@@ -3,7 +3,7 @@
     *   Handles 3D matrices that are used for calculations in 3D space.
     *
     *   @author     Christopher Stock
-    *   @version    0.0.1
+    *   @version    0.0.2
     *****************************************************************************/
     class LibMatrix
     {

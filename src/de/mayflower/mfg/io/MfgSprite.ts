@@ -4,7 +4,7 @@
     *   Sprites are images that contain several animation frames.
     *
     *   @author     Christopher Stock
-    *   @version    0.0.1
+    *   @version    0.0.2
     *****************************************************************************/
     class MfgSprite
     {

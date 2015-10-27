@@ -4,7 +4,7 @@
     *   and is the abstract superclass of all 2D bodies.
     *
     *   @author     Christopher Stock
-    *   @version    0.0.1
+    *   @version    0.0.2
     *****************************************************************************/
     class LibShape2D
     {

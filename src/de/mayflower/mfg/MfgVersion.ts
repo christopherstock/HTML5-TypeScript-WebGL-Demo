@@ -3,13 +3,15 @@
     *   Contains the project history with all current and completed version information.
     *
     *   @author     Christopher Stock
-    *   @version    0.0.1
+    *   @version    0.0.2
     **************************************************************************************/
     class MfgVersion
     {
+        /** The project's version v.0.0.2. */
+        private     static      V_0_0_2                 :LibVersion         = new LibVersion( "0.0.2", "[IN_PROGRESS]", "[IN_PROGRESS]",                "" );
         /** The project's version v.0.0.1. */
-        private     static      V_0_0_1                 :LibVersion         = new LibVersion( "0.0.1", "[IN_PROGRESS]", "[IN_PROGRESS]",                "" );
+        private     static      V_0_0_1                 :LibVersion         = new LibVersion( "0.0.1", "WEBGL_PRIMER",  "27.10.2015 09:49:12",          "Completed importer/parser for 3Dsmax ASE-Files. Separated intitialization logic from game logic. Pruneed loading processes from constructor of libs. Enabled numeric keys on the numeric keypad if num lock is on. Extracted class MfgPlayer and encapsulated player instance. Created LibString class for RegEx functionality. Solved RegEx functionality. Implemented invocation of callback function when all sounds have been loaded. Created system for loading external textfiles via AJAX/XmlHttpRequest. Buffer view aim centering. Pruned E-prefix from all resources file names. Created floor ledge. Splitted player movement and player looking functions. Created and implemented function for normalizing angles. Clipped looking up/down. Include key for centering look aim. Include keys for looking up and down and moving up and down. Enable looking up/down. Remove a- and i- prefix for constructor variables and instance fields. Refactored LibGL. Cleaned up class LibMatrix. Enriched documentation for all project classes. Created tiled textures (in block creation function). Explored and adjust all axis. Created a function for creating 'block' objects. Simplified usages of degree to radiant conversion and vice versa. Added typing for LibVertex functions. Moved vector functions from LibMatrix to LibVertex. Drawed 2D sprites in fg. Drawed ortho in fg and separate in bg. Added documentation for de.mayflower.lib.math.gemo3d. Moved rad-functions from LibMath3D to LibMath2D. Enriched documentation for all lib classes. Prune old settings and values in MfgSettings and MfgSettingsDebug and MfgDebug. Create mesh factory for cubes. Try different gl-identities for drawing background images. Created drawing orthogonal fg and bg images. Blend alpha channel for 2D drawing operations. Tried swapping 2D and 3D drawing (success!). Refactored pos and rot. Separated 3D objects. Solved supplying multiple textures. Achieved altering faces array at runtime. Created classes LibFace and impement everywhere. Solved changing vertices for glContext. Moved level data to separate class. Merged vertiex coords and texture coords in one class. Created class for vertices. Pruned unused mfg classes. Pruned all external libs. Moved Webgl-setup to MfgGame3DSetup.ts. Implemented WASD keys for movement. Camera is now controlable. Turned webgl.js into a square TypeScript class. Implemented test texture. Pruned obsolete images. Pruned ugly textre adjustment in 2nd tick. Implemented WebGL template into existent TypeScript project." );
 
         /** The project's current version. */
-        public      static      CURRENT_VERSION         :LibVersion         = MfgVersion.V_0_0_1;
+        public      static      CURRENT_VERSION         :LibVersion         = MfgVersion.V_0_0_2;
     }
