@@ -2,7 +2,6 @@
     /************************************************************************************
     *   The main class contains the application's points of entry and termination.
     *
-    *   TODO HIGH   Give JS-/TS-modules one more try?? ...
     *   TODO ASAP   Outsource shader files if external files can be used.
     *   TODO ASAP   Refactor MfgGame3DSetup and prune initial transformation or translation?
     *   TODO HIGH   Flexible drawing system with a dynamic drawing vector.
@@ -16,6 +15,8 @@
     *   TODO INIT   Y modifier while walking.
     *   TODO LOW    Increase performance?
     *   TODO WEAK   Y modifier for holded wearpon.
+    *
+    *   DONE        Dismissed: Give JS-/TS-modules one more try.
     *
     *   @author     Christopher Stock
     *   @version    0.0.2
