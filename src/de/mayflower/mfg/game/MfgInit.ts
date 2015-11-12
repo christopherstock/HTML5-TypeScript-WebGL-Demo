@@ -101,8 +101,35 @@
             //init level data
             MfgGame.level = new MfgLevelData();
 
+/*
+            var test:Array<string> = LibString.searchRegEx(
+                "name: Christopher Stock\nStrasse: Wiesenweg 5",
+                /name:\s+([\s\S]+)\nStrasse:\s+([\s\S]+)/
+//                /Stock/g
+            );
+            MfgDebug.bugfix.log( " picked [" + test.length + "] matches.." );
+            for ( var i:number = 0; i < test.length; ++i )
+            {
+                MfgDebug.bugfix.log( " [" + test[ i ] + "]" );
+            }
+*/
+/*
+            var string = "HIER IST DIE EMAIL DIE ES ZU REGEXEN GILT\n" +
+                "Name: Andreas Zeissner\n" +
+                "Straße: Ferdinand Nickles Straße\n" +
+                "Plz: 97076\n " +
+                "Anmerkung: Diese Nachricht ist von wordpress aus ";
+*/
 
+//            var regex = /Name:\s([a-zA-Z])*\s([a-zA-Z])*/i;
 
+/*
+            var result = string.match(regex);
+
+            var regexer = new RegExp( "[\\w]+" );
+          //console.log( regexer.test("andreAs") );
+            console.log( regexer.exec("$%&andreAs$%&") );
+*/
 
 
             //parse a 3d model (office chair) and add to level meshes
@@ -110,8 +137,6 @@
           //MfgDebug.bugfix.log( " >> parsed office chair faces: [" + parserD3ds.getFaces().length + "] faces" );
           //MfgGame.level.allMeshes.push( parserD3ds.toLibMesh( MfgInit.imageSystem.getImage( MfgImage.TEXTURE_TEST ) ) );
             MfgGame.level.allMeshes.push( parserD3ds.toLibMesh( null ) );
-
-
 
 
             //init the player isntance
